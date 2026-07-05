@@ -18,7 +18,12 @@ include(FetchContent)
 
 project(gemma)
 
-set(CMAKE_CXX_STANDARD 17)
+set(GEMMA_CXX_STANDARD 17)
+if(MSVC)
+  set(GEMMA_CXX_STANDARD 20)
+endif()
+
+set(CMAKE_CXX_STANDARD ${GEMMA_CXX_STANDARD})
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -153,23 +158,32 @@ endif()
 
 FetchContent_GetProperties(sentencepiece)
 
+set(GEMMA_WINDOWS_COMPILE_DEFINITIONS
+  $<$<PLATFORM_ID:Windows>:_CRT_SECURE_NO_WARNINGS NOMINMAX>
+)
+set(GEMMA_WINDOWS_COMPILE_OPTIONS
+  $<$<AND:$<PLATFORM_ID:Windows>,$<CXX_COMPILER_ID:Clang>>:-Wno-deprecated-declarations>
+  $<$<AND:$<PLATFORM_ID:Windows>,$<CXX_COMPILER_ID:GNU>>:-Wno-deprecated-declarations>
+  $<$<AND:$<PLATFORM_ID:Windows>,$<CXX_COMPILER_ID:MSVC>>:/wd4996>
+)
+
 ## Library Target
 
 add_library(libgemma ${SOURCES})
-set_property(TARGET libgemma PROPERTY CXX_STANDARD 17)
+set_property(TARGET libgemma PROPERTY CXX_STANDARD ${GEMMA_CXX_STANDARD})
 set_target_properties(libgemma PROPERTIES PREFIX "")
 set_property(TARGET libgemma PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(libgemma PUBLIC ./)
 target_link_libraries(libgemma hwy hwy_contrib sentencepiece-static)
 target_include_directories(libgemma PUBLIC ${sentencepiece_SOURCE_DIR})
-target_compile_definitions(libgemma PRIVATE $<$<PLATFORM_ID:Windows>:_CRT_SECURE_NO_WARNINGS NOMINMAX>)
-target_compile_options(libgemma PRIVATE $<$<PLATFORM_ID:Windows>:-Wno-deprecated-declarations>)
+target_compile_definitions(libgemma PRIVATE ${GEMMA_WINDOWS_COMPILE_DEFINITIONS})
+target_compile_options(libgemma PRIVATE ${GEMMA_WINDOWS_COMPILE_OPTIONS})
 install(TARGETS libgemma DESTINATION lib)
 
 # Shared library target for C# interop
 if(BUILD_GEMMA_DLL)
     add_library(gemma_shared SHARED ${SOURCES})
-set_property(TARGET gemma_shared PROPERTY CXX_STANDARD 17)
+set_property(TARGET gemma_shared PROPERTY CXX_STANDARD ${GEMMA_CXX_STANDARD})
 set_target_properties(gemma_shared PROPERTIES 
     PREFIX ""
     OUTPUT_NAME "gemma"
@@ -185,9 +199,9 @@ target_include_directories(gemma_shared PUBLIC ${sentencepiece_SOURCE_DIR})
 target_compile_definitions(gemma_shared 
     PRIVATE 
     GEMMA_EXPORTS
-    $<$<PLATFORM_ID:Windows>:_CRT_SECURE_NO_WARNINGS NOMINMAX>
+    ${GEMMA_WINDOWS_COMPILE_DEFINITIONS}
 )
-target_compile_options(gemma_shared PRIVATE $<$<PLATFORM_ID:Windows>:-Wno-deprecated-declarations>)
+target_compile_options(gemma_shared PRIVATE ${GEMMA_WINDOWS_COMPILE_OPTIONS})
 install(TARGETS gemma_shared DESTINATION lib)
 install(FILES gemma/c_api.h DESTINATION include/gemma)
 install(FILES gemma/GemmaInterop.cs DESTINATION include/gemma)
@@ -243,7 +257,7 @@ foreach (TESTFILE IN LISTS GEMMA_TEST_FILES)
   # policy to all-attainable; note that setting -DHWY_COMPILE_* directly can
   # cause compile errors because only one may be set, and other CMakeLists.txt
   # that include us may set them.
-  target_compile_options(${TESTNAME} PRIVATE -DHWY_IS_TEST=1)
+  target_compile_definitions(${TESTNAME} PRIVATE HWY_IS_TEST=1)
 
   target_link_libraries(${TESTNAME} PRIVATE libgemma GTest::Main hwy hwy_contrib hwy_test)
 

@@ -36,6 +36,22 @@
         }
       },
       {
+        "name": "windows-msvc",
+        "inherits": "__defaults__",
+        "displayName": "Windows MSVC",
+        "description": "Visual Studio 2026 with MSVC frontend",
+        "generator": "Visual Studio 18 2026",
+        "binaryDir": "${sourceDir}/build-msvc",
+        "cacheVariables": {
+          "CMAKE_POLICY_VERSION_MINIMUM": "3.5"
+        },
+        "condition": {
+          "type": "equals",
+          "lhs": "${hostSystemName}",
+          "rhs": "Windows"
+        }
+      },
+      {
         "name": "windows-dll",
         "inherits": "__defaults__",
         "displayName": "Windows DLL",
@@ -48,6 +64,26 @@
           "rhs": "Windows"
         },
         "cacheVariables": {
+          "CMAKE_POLICY_VERSION_MINIMUM": "3.5",
+          "BUILD_SHARED_LIBS": "OFF",
+          "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
+          "BUILD_GEMMA_DLL": "ON"
+        }
+      },
+      {
+        "name": "windows-msvc-dll",
+        "inherits": "__defaults__",
+        "displayName": "Windows MSVC DLL",
+        "description": "Visual Studio 2026 with MSVC frontend (DLL build)",
+        "generator": "Visual Studio 18 2026",
+        "binaryDir": "${sourceDir}/build-msvc",
+        "condition": {
+          "type": "equals",
+          "lhs": "${hostSystemName}",
+          "rhs": "Windows"
+        },
+        "cacheVariables": {
+          "CMAKE_POLICY_VERSION_MINIMUM": "3.5",
           "BUILD_SHARED_LIBS": "OFF",
           "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
           "BUILD_GEMMA_DLL": "ON"
@@ -77,10 +113,26 @@
         "configurePreset": "windows"
       },
       {
+        "name": "windows-msvc",
+        "inherits": "__defaults__",
+        "displayName": "Windows MSVC",
+        "configuration": "Release",
+        "configurePreset": "windows-msvc"
+      },
+      {
         "name": "windows-dll",
         "displayName": "Windows DLL",
         "configuration": "Release",
         "configurePreset": "windows-dll",
+        "targets": [
+            "gemma_shared"
+        ]
+      },
+      {
+        "name": "windows-msvc-dll",
+        "displayName": "Windows MSVC DLL",
+        "configuration": "Release",
+        "configurePreset": "windows-msvc-dll",
         "targets": [
             "gemma_shared"
         ]

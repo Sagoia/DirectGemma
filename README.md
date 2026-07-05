@@ -88,18 +88,20 @@ Guidelines](https://opensource.google.com/conduct/).
 Before starting, you should have installed:
 
 - [CMake](https://cmake.org/)
-- [Clang C++ compiler](https://clang.llvm.org/get_started.html), supporting at
-  least C++17.
+- A C++ compiler supporting at least C++17.
 - `tar` for extracting archives from Kaggle.
 
-Building natively on Windows requires the Visual Studio 2012 Build Tools with the
-optional Clang/LLVM C++ frontend (`clang-cl`). This can be installed from the
-command line with
+Building natively on Windows requires the Visual Studio Build Tools C++
+workload. The `windows-msvc` preset uses the default MSVC frontend; the
+existing `windows` preset still uses the optional Clang/LLVM frontend
+(`clang-cl`). This can be installed from the command line with
 [`winget`](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
 
 ```sh
 winget install --id Kitware.CMake
-winget install --id Microsoft.VisualStudio.2022.BuildTools --force --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;installRecommended --add Microsoft.VisualStudio.Component.VC.Llvm.Clang --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset"
+winget install --id Microsoft.VisualStudio.BuildTools --force --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;installRecommended"
+# Optional, only if you also want the ClangCL-based `windows` preset:
+winget install --id Microsoft.VisualStudio.BuildTools --force --override "--passive --wait --add Microsoft.VisualStudio.Component.VC.Llvm.Clang --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset"
 ```
 
 ### Step 1: Obtain model weights and tokenizer from Kaggle or Hugging Face Hub
@@ -174,15 +176,18 @@ If the build is successful, you should now have a `gemma` executable in the
 #### Windows
 
 ```sh
-# Configure `build` directory
-cmake --preset windows
+# Configure `build-msvc` directory with MSVC
+cmake --preset windows-msvc
 
 # Build project using Visual Studio Build Tools
-cmake --build --preset windows -j [number of parallel threads to use]
+cmake --build --preset windows-msvc
 ```
 
 If the build is successful, you should now have a `gemma.exe` executable in the
-`build/` directory.
+`build-msvc/Release/` directory.
+
+> [!NOTE]
+> The `windows` preset remains available for `clang-cl` builds.
 
 #### Bazel
 

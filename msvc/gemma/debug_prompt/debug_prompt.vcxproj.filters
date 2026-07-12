@@ -5,9 +5,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="$(RepoRoot)CMakeLists.txt" />
-  </ItemGroup>
+  <ItemGroup></ItemGroup>
   <ItemGroup>
     <Natvis Include="$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\share\nlohmann_json\nlohmann_json.natvis" />
   </ItemGroup>

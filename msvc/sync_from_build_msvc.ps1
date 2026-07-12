@@ -44,12 +44,16 @@ function Save-XmlFile {
 function Replace-PathRoots {
   param([xml]$Document)
 
+  $generatedBuildRootForward = $GeneratedBuildRoot.Replace("\", "/")
+  $sourceRootForward = $SourceRoot.Replace("\", "/")
   $allNodes = $Document.SelectNodes("//*")
   foreach ($node in $allNodes) {
     foreach ($attribute in @($node.Attributes)) {
       $value = $attribute.Value
       $value = $value.Replace($GeneratedBuildRoot + "\", '$(GeneratedBuildRoot)')
       $value = $value.Replace($SourceRoot + "\", '$(RepoRoot)')
+      $value = $value.Replace($generatedBuildRootForward + "/", '$(GeneratedBuildRoot)')
+      $value = $value.Replace($sourceRootForward + "/", '$(RepoRoot)')
       $attribute.Value = $value
     }
 
@@ -60,6 +64,8 @@ function Replace-PathRoots {
       $value = $child.Value
       $value = $value.Replace($GeneratedBuildRoot + "\", '$(GeneratedBuildRoot)')
       $value = $value.Replace($SourceRoot + "\", '$(RepoRoot)')
+      $value = $value.Replace($generatedBuildRootForward + "/", '$(GeneratedBuildRoot)')
+      $value = $value.Replace($sourceRootForward + "/", '$(RepoRoot)')
       $child.Value = $value
     }
   }
@@ -78,6 +84,9 @@ function Convert-Project {
   $namespace.AddNamespace("m", "http://schemas.microsoft.com/developer/msbuild/2003")
 
   foreach ($node in @($document.SelectNodes("//m:CustomBuild", $namespace))) {
+    [void]$node.ParentNode.RemoveChild($node)
+  }
+  foreach ($node in @($document.SelectNodes("//m:PostBuildEvent", $namespace))) {
     [void]$node.ParentNode.RemoveChild($node)
   }
 
@@ -101,12 +110,22 @@ function Convert-Project {
   foreach ($node in @($document.SelectNodes("//m:IntDir", $namespace))) {
     $node.InnerText = '$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\'
   }
+  foreach ($node in @($document.SelectNodes("//m:ProgramDatabaseFile", $namespace))) {
+    $node.InnerText = '$(OutDir)$(TargetName).pdb'
+  }
+  foreach ($node in @($document.SelectNodes("//m:ProgramDataBaseFile", $namespace))) {
+    $node.InnerText = '$(OutDir)$(TargetName).pdb'
+  }
+  foreach ($node in @($document.SelectNodes("//m:ImportLibrary", $namespace))) {
+    $node.InnerText = '$(OutDir)$(TargetName).lib'
+  }
 
   foreach ($node in @($document.SelectNodes("//m:AdditionalDependencies", $namespace))) {
     $value = $node.InnerText
     $value = $value -replace '(?:Debug|Release|MinSizeRel|RelWithDebInfo)\\libgemma\.lib', '$(OutDir)libgemma.lib'
     $value = $value -replace '_deps\\highway-build\\(?:Debug|Release|MinSizeRel|RelWithDebInfo)\\hwy_contrib\.lib', '$(OutDir)hwy_contrib.lib'
     $value = $value -replace '_deps\\highway-build\\(?:Debug|Release|MinSizeRel|RelWithDebInfo)\\hwy\.lib', '$(OutDir)hwy.lib'
+    $value = $value -replace '(?<!\$\(GeneratedBuildRoot\))vcpkg_installed\\', '$(GeneratedBuildRoot)vcpkg_installed\'
     $node.InnerText = $value
   }
 
@@ -119,6 +138,11 @@ function Convert-Project {
   $filtersPath = $sourcePath + ".filters"
   if (Test-Path -LiteralPath $filtersPath) {
     [xml]$filters = Get-Content -LiteralPath $filtersPath
+    $filtersNamespace = New-Object System.Xml.XmlNamespaceManager($filters.NameTable)
+    $filtersNamespace.AddNamespace("m", "http://schemas.microsoft.com/developer/msbuild/2003")
+    foreach ($node in @($filters.SelectNodes("//m:CustomBuild", $filtersNamespace))) {
+      [void]$node.ParentNode.RemoveChild($node)
+    }
     Replace-PathRoots $filters
     Save-XmlFile $filters (Join-Path $projectDirectory ($Project.Name + ".vcxproj.filters"))
   }

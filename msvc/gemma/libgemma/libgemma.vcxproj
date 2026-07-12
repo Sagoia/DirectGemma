@@ -79,7 +79,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/ASUS/source/repos/gemma.cpp/build-msvc/vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -125,7 +125,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/ASUS/source/repos/gemma.cpp/build-msvc/vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -171,7 +171,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/ASUS/source/repos/gemma.cpp/build-msvc/vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -217,7 +217,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/ASUS/source/repos/gemma.cpp/build-msvc/vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>

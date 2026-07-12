@@ -151,9 +151,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="$(GeneratedBuildRoot)_deps\highway-src\CMakeLists.txt" />
-  </ItemGroup>
+  <ItemGroup></ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
       <UniqueIdentifier>{82A6D50E-ABDF-3222-A336-1CEEC9DF1F22}</UniqueIdentifier>

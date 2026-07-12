@@ -1,0 +1,21 @@
+{
+  "name": "gemma-cpp",
+  "version-string": "0.1.0",
+  "builtin-baseline": "d59510da59a2ee8b943509998b63da7b472d93cf",
+  "dependencies": [
+    "benchmark",
+    {
+      "name": "cpp-httplib",
+      "version>=": "0.48.0"
+    },
+    "nlohmann-json",
+    "openssl",
+    "sentencepiece"
+  ],
+  "overrides": [
+    {
+      "name": "cpp-httplib",
+      "version": "0.48.0"
+    }
+  ]
+}

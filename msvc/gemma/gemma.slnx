@@ -1,0 +1,19 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <BuildType Name="MinSizeRel" />
+    <BuildType Name="RelWithDebInfo" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="hwy/hwy.vcxproj" Id="5494c7dc-906b-3b6f-99a8-1419e006d620" />
+  <Project Path="hwy_contrib/hwy_contrib.vcxproj" Id="8f678034-c83e-3c99-8984-d733d01798f6" />
+  <Project Path="libgemma/libgemma.vcxproj" Id="50d88492-e572-34e2-b0dd-e92683c7956a" />
+  <Project Path="gemma/gemma.vcxproj" DefaultStartup="true" Id="b99c6e2c-ae0f-387a-b70a-14859773c28d" />
+  <Project Path="gemma_api_client/gemma_api_client.vcxproj" Id="9f80fc1c-96ff-315a-9816-411137011570" />
+  <Project Path="gemma_api_server/gemma_api_server.vcxproj" Id="a1c81d2a-4f78-304a-800a-e854bbc6960c" />
+  <Project Path="benchmarks/benchmarks.vcxproj" Id="c24f8197-dde5-3d99-9332-d4c1a3a9fa28" />
+  <Project Path="single_benchmark/single_benchmark.vcxproj" Id="1a15e1e3-9640-349e-8b9e-6995112cfb49" />
+  <Project Path="debug_prompt/debug_prompt.vcxproj" Id="8b3299ba-bfc7-3642-9ad8-70ca1e5815d4" />
+  <Project Path="migrate_weights/migrate_weights.vcxproj" Id="0e5b5dee-621b-3ccb-a963-55e6a12320c0" />
+</Solution>

@@ -30,13 +30,49 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 FetchContent_Declare(highway GIT_REPOSITORY https://github.com/google/highway.git GIT_TAG 2a16a50ff61071bb25ddef0ce35d92b0e2b9c579 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(highway)
 
-## Note: absl needs to be installed by sentencepiece. This will only happen if
-## cmake is invoked with -DSPM_ENABLE_SHARED=OFF and -DSPM_ABSL_PROVIDER=module
-FetchContent_Declare(sentencepiece GIT_REPOSITORY https://github.com/google/sentencepiece GIT_TAG 53de76561cfc149d3c01037f0595669ad32a5e7c EXCLUDE_FROM_ALL)
-FetchContent_MakeAvailable(sentencepiece)
+if(WIN32)
+  find_package(nlohmann_json CONFIG REQUIRED)
+  find_package(httplib CONFIG REQUIRED)
+  find_package(benchmark CONFIG REQUIRED)
+  find_package(absl CONFIG REQUIRED)
+  find_package(Protobuf CONFIG REQUIRED)
+  find_package(Threads REQUIRED)
 
-FetchContent_Declare(json GIT_REPOSITORY https://github.com/nlohmann/json.git GIT_TAG 9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03 EXCLUDE_FROM_ALL)
-FetchContent_MakeAvailable(json)
+  # The vcpkg SentencePiece port installs headers and libraries but currently
+  # does not provide a CMake package configuration.
+  find_path(SENTENCEPIECE_INCLUDE_DIR NAMES sentencepiece_processor.h REQUIRED)
+  get_filename_component(SENTENCEPIECE_PREFIX "${SENTENCEPIECE_INCLUDE_DIR}" DIRECTORY)
+  add_library(gemma_sentencepiece STATIC IMPORTED)
+  set_target_properties(gemma_sentencepiece PROPERTIES
+    IMPORTED_CONFIGURATIONS "Debug;Release;MinSizeRel;RelWithDebInfo"
+    IMPORTED_LOCATION_DEBUG "${SENTENCEPIECE_PREFIX}/debug/lib/sentencepiece.lib"
+    IMPORTED_LOCATION_RELEASE "${SENTENCEPIECE_PREFIX}/lib/sentencepiece.lib"
+    IMPORTED_LOCATION_MINSIZEREL "${SENTENCEPIECE_PREFIX}/lib/sentencepiece.lib"
+    IMPORTED_LOCATION_RELWITHDEBINFO "${SENTENCEPIECE_PREFIX}/lib/sentencepiece.lib"
+    INTERFACE_INCLUDE_DIRECTORIES "${SENTENCEPIECE_INCLUDE_DIR}"
+    INTERFACE_COMPILE_DEFINITIONS "_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW"
+    INTERFACE_LINK_LIBRARIES "absl::strings;absl::flags;absl::flags_parse;absl::log;absl::check;protobuf::libprotobuf-lite;Threads::Threads"
+  )
+  set(GEMMA_SENTENCEPIECE_TARGET gemma_sentencepiece)
+  set(GEMMA_BENCHMARK_TARGET benchmark::benchmark)
+else()
+  ## Note: absl needs to be installed by sentencepiece. This will only happen if
+  ## cmake is invoked with -DSPM_ENABLE_SHARED=OFF and -DSPM_ABSL_PROVIDER=module
+  FetchContent_Declare(sentencepiece GIT_REPOSITORY https://github.com/google/sentencepiece GIT_TAG 53de76561cfc149d3c01037f0595669ad32a5e7c EXCLUDE_FROM_ALL)
+  FetchContent_MakeAvailable(sentencepiece)
+
+  FetchContent_Declare(json GIT_REPOSITORY https://github.com/nlohmann/json.git GIT_TAG 9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03 EXCLUDE_FROM_ALL)
+  FetchContent_MakeAvailable(json)
+
+  set(BENCHMARK_ENABLE_TESTING OFF)
+  set(BENCHMARK_ENABLE_GTEST_TESTS OFF)
+  FetchContent_Declare(benchmark GIT_REPOSITORY https://github.com/google/benchmark.git GIT_TAG v1.8.2 EXCLUDE_FROM_ALL)
+  FetchContent_MakeAvailable(benchmark)
+
+  set(GEMMA_SENTENCEPIECE_TARGET sentencepiece-static)
+  set(GEMMA_SENTENCEPIECE_INCLUDE_DIRS "${sentencepiece_SOURCE_DIR}/src")
+  set(GEMMA_BENCHMARK_TARGET benchmark)
+endif()
 
 # Find OpenSSL for HTTPS support
 find_package(OpenSSL)
@@ -49,22 +85,22 @@ else()
 endif()
 
 # HTTP library for API server
-FetchContent_Declare(httplib GIT_REPOSITORY https://github.com/yhirose/cpp-httplib.git GIT_TAG v0.18.1 EXCLUDE_FROM_ALL)
-FetchContent_MakeAvailable(httplib)
+if(NOT WIN32)
+  FetchContent_Declare(httplib GIT_REPOSITORY https://github.com/yhirose/cpp-httplib.git GIT_TAG v0.18.1 EXCLUDE_FROM_ALL)
+  FetchContent_MakeAvailable(httplib)
+endif()
 
 # Create interface target for httplib (header-only library)
 add_library(httplib_interface INTERFACE)
-target_include_directories(httplib_interface INTERFACE ${httplib_SOURCE_DIR})
+if(WIN32)
+  target_link_libraries(httplib_interface INTERFACE httplib::httplib)
+else()
+  target_include_directories(httplib_interface INTERFACE ${httplib_SOURCE_DIR})
+endif()
 if(OPENSSL_FOUND)
   target_link_libraries(httplib_interface INTERFACE OpenSSL::SSL OpenSSL::Crypto)
   target_compile_definitions(httplib_interface INTERFACE CPPHTTPLIB_OPENSSL_SUPPORT)
 endif()
-
-set(BENCHMARK_ENABLE_TESTING OFF)
-set(BENCHMARK_ENABLE_GTEST_TESTS OFF)
-
-FetchContent_Declare(benchmark GIT_REPOSITORY https://github.com/google/benchmark.git GIT_TAG v1.8.2 EXCLUDE_FROM_ALL)
-FetchContent_MakeAvailable(benchmark)
 
 # Base source files
 set(SOURCES
@@ -156,8 +192,6 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
 endif()
 
-FetchContent_GetProperties(sentencepiece)
-
 set(GEMMA_WINDOWS_COMPILE_DEFINITIONS
   $<$<PLATFORM_ID:Windows>:_CRT_SECURE_NO_WARNINGS NOMINMAX>
 )
@@ -174,8 +208,8 @@ set_property(TARGET libgemma PROPERTY CXX_STANDARD ${GEMMA_CXX_STANDARD})
 set_target_properties(libgemma PROPERTIES PREFIX "")
 set_property(TARGET libgemma PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(libgemma PUBLIC ./)
-target_link_libraries(libgemma hwy hwy_contrib sentencepiece-static)
-target_include_directories(libgemma PUBLIC ${sentencepiece_SOURCE_DIR})
+target_link_libraries(libgemma hwy hwy_contrib ${GEMMA_SENTENCEPIECE_TARGET})
+target_include_directories(libgemma PUBLIC ${GEMMA_SENTENCEPIECE_INCLUDE_DIRS})
 target_compile_definitions(libgemma PRIVATE ${GEMMA_WINDOWS_COMPILE_DEFINITIONS})
 target_compile_options(libgemma PRIVATE ${GEMMA_WINDOWS_COMPILE_OPTIONS})
 install(TARGETS libgemma DESTINATION lib)
@@ -193,9 +227,9 @@ target_include_directories(gemma_shared PUBLIC ./)
 target_link_libraries(gemma_shared PRIVATE 
     $<LINK_LIBRARY:WHOLE_ARCHIVE,hwy>
     $<LINK_LIBRARY:WHOLE_ARCHIVE,hwy_contrib>
-    $<LINK_LIBRARY:WHOLE_ARCHIVE,sentencepiece-static>
+    $<LINK_LIBRARY:WHOLE_ARCHIVE,${GEMMA_SENTENCEPIECE_TARGET}>
 )
-target_include_directories(gemma_shared PUBLIC ${sentencepiece_SOURCE_DIR})
+target_include_directories(gemma_shared PUBLIC ${GEMMA_SENTENCEPIECE_INCLUDE_DIRS})
 target_compile_definitions(gemma_shared 
     PRIVATE 
     GEMMA_EXPORTS
@@ -217,7 +251,7 @@ add_executable(single_benchmark evals/benchmark.cc)
 target_link_libraries(single_benchmark libgemma hwy hwy_contrib nlohmann_json::nlohmann_json)
 
 add_executable(benchmarks evals/benchmarks.cc)
-target_link_libraries(benchmarks libgemma hwy hwy_contrib nlohmann_json::nlohmann_json benchmark)
+target_link_libraries(benchmarks libgemma hwy hwy_contrib nlohmann_json::nlohmann_json ${GEMMA_BENCHMARK_TARGET})
 
 add_executable(debug_prompt evals/debug_prompt.cc)
 target_link_libraries(debug_prompt libgemma hwy hwy_contrib nlohmann_json::nlohmann_json)

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\abort.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\aligned_allocator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\nanobenchmark.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\per_target.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\perf_counters.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\print.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\profiler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\targets.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\timer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\abort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\aligned_allocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\auto_tune.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\cache_control.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\detect_compiler_arch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\detect_targets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\foreach_target.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\highway_export.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\highway.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\nanobenchmark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\arm_neon-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\arm_sve-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\emu128-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\generic_ops-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\inside-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\loongarch_lsx-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\loongarch_lasx-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\ppc_vsx-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\rvv-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\scalar-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\set_macros-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\shared-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\wasm_128-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_128-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_256-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_512-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_avx3-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\per_target.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\print-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\robust_statistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\targets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\timer-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\x86_cpuid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="$(GeneratedBuildRoot)_deps\highway-src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{82A6D50E-ABDF-3222-A336-1CEEC9DF1F22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F4F6310B-0922-3E2A-8982-869C5E3D533C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -17,8 +17,19 @@ python/*/__pycache__
 # IDE and editor files
 .vscode/
 .idea/
+.vs/
+*.vcxproj.user
 *.swp
 *~
+
+# Native Visual Studio output
+/msvc/gemma/build/
+/msvc/gemma/x64/
+/msvc/gemma/*/x64/
+/msvc/gemma/*/Debug/
+/msvc/gemma/*/Release/
+/msvc/gemma/*/MinSizeRel/
+/msvc/gemma/*/RelWithDebInfo/
 
 # Local development
 .env

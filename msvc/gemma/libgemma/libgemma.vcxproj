@@ -24,8 +24,8 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{50D88492-E572-34E2-B0DD-E92683C7956A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <VcpkgEnabled>false</VcpkgEnabled>
-    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>libgemma</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -34,22 +34,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings"></ImportGroup>
@@ -59,27 +55,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libgemma</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libgemma</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libgemma</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libgemma</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -102,16 +98,16 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -124,8 +120,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -147,17 +143,17 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat></DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -170,8 +166,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -193,17 +189,17 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat></DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -216,8 +212,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "$(GeneratedBuildRoot)vcpkg_installed/x64-windows-static-md/include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -240,16 +236,16 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;NOMINMAX;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;_USE_EXTERNAL_ABSL;_USE_EXTERNAL_PROTOBUF;_USE_INTERNAL_STRING_VIEW</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(RepoRoot).;$(GeneratedBuildRoot)_deps\highway-src;$(GeneratedBuildRoot)vcpkg_installed\x64-windows-static-md\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);$(VcpkgPackageRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -265,6 +261,7 @@
     <ClInclude Include="$(RepoRoot)compression\compress-inl.h" />
     <ClCompile Include="$(RepoRoot)compression\compress.cc" />
     <ClInclude Include="$(RepoRoot)compression\compress.h" />
+    <ClInclude Include="$(RepoRoot)compression\distortion.h" />
     <ClInclude Include="$(RepoRoot)compression\nuq-inl.h" />
     <ClInclude Include="$(RepoRoot)compression\sfp-inl.h" />
     <ClInclude Include="$(RepoRoot)compression\int-inl.h" />
@@ -305,6 +302,9 @@
     <ClCompile Include="$(RepoRoot)io\io.cc" />
     <ClInclude Include="$(RepoRoot)io\io.h" />
     <ClInclude Include="$(RepoRoot)ops\dot-inl.h" />
+    <ClInclude Include="$(RepoRoot)ops\fp_arith-inl.h" />
+    <ClInclude Include="$(RepoRoot)ops\matmul_static-inl.h" />
+    <ClInclude Include="$(RepoRoot)ops\matmul_static.h" />
     <ClCompile Include="$(RepoRoot)ops\matmul_static_bf16.cc" />
     <ClCompile Include="$(RepoRoot)ops\matmul_static_f32.cc" />
     <ClCompile Include="$(RepoRoot)ops\matmul_static_nuq.cc" />
@@ -320,6 +320,7 @@
     <ClInclude Include="$(RepoRoot)paligemma\image.h" />
     <ClCompile Include="$(RepoRoot)util\allocator.cc" />
     <ClInclude Include="$(RepoRoot)util\allocator.h" />
+    <ClInclude Include="$(RepoRoot)util\args.h" />
     <ClCompile Include="$(RepoRoot)util\basics.cc" />
     <ClInclude Include="$(RepoRoot)util\basics.h" />
     <ClCompile Include="$(RepoRoot)util\mat.cc" />

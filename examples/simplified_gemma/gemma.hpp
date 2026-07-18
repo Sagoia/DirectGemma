@@ -22,11 +22,11 @@
 #include <string>
 #include <vector>
 
-#include "third_party/gemma_cpp/gemma/gemma.h"
-#include "third_party/gemma_cpp/gemma/gemma_args.h"  // LoaderArgs
-#include "third_party/gemma_cpp/gemma/tokenizer.h"
-#include "third_party/gemma_cpp/ops/matmul.h"
-#include "third_party/gemma_cpp/util/threading_context.h"
+#include "gemma/gemma.h"
+#include "gemma/gemma_args.h"  // LoaderArgs
+#include "gemma/tokenizer.h"
+#include "ops/matmul.h"
+#include "util/threading_context.h"
 #include "third_party/highway/hwy/base.h"
 
 class SimplifiedGemma {

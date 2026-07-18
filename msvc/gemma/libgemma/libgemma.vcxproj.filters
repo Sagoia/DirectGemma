@@ -216,6 +216,21 @@
     <ClInclude Include="$(RepoRoot)util\zones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="$(RepoRoot)compression\distortion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(RepoRoot)ops\fp_arith-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(RepoRoot)ops\matmul_static-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(RepoRoot)ops\matmul_static.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(RepoRoot)util\args.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup></ItemGroup>
   <ItemGroup>

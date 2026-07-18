@@ -73,7 +73,7 @@ Guidelines](https://opensource.google.com/conduct/).
     -   Disk I/O: memory map or parallel read (heuristic with user override).
     -   Custom format with forward/backward-compatible metadata serialization.
     -   Model conversion from Safetensors, not yet open sourced.
-    -   Portability: Linux, Windows/OS X supported. CMake/Bazel. 'Any' CPU.
+    -   Portability: native MSVC projects for Windows and Bazel support.
 
 -   Frontends
 
@@ -85,23 +85,12 @@ Guidelines](https://opensource.google.com/conduct/).
 
 ### System requirements
 
-Before starting, you should have installed:
-
-- [CMake](https://cmake.org/)
-- A C++ compiler supporting at least C++17.
-- `tar` for extracting archives from Kaggle.
-
-Building natively on Windows requires the Visual Studio Build Tools C++
-workload. The `windows-msvc` preset uses the default MSVC frontend; the
-existing `windows` preset still uses the optional Clang/LLVM frontend
-(`clang-cl`). This can be installed from the command line with
-[`winget`](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
+Before starting, install Visual Studio with the **Desktop development with
+C++** workload. The native build uses MSVC and the vcpkg bundled with Visual
+Studio. You also need `tar` to extract model archives from Kaggle.
 
 ```sh
-winget install --id Kitware.CMake
 winget install --id Microsoft.VisualStudio.BuildTools --force --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;installRecommended"
-# Optional, only if you also want the ClangCL-based `windows` preset:
-winget install --id Microsoft.VisualStudio.BuildTools --force --override "--passive --wait --add Microsoft.VisualStudio.Component.VC.Llvm.Clang --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset"
 ```
 
 ### Step 1: Obtain model weights and tokenizer from Kaggle or Hugging Face Hub
@@ -134,60 +123,21 @@ This should produce a file containing model weights such as `2b-it-sfp.sbs` and
 a tokenizer file (`tokenizer.spm`). You may want to move these files to a
 convenient directory location (e.g. the `build/` directory in this repo).
 
-### Step 3: Build
+### Step 3: Build with Visual Studio
 
-The build system uses [CMake](https://cmake.org/). To build the gemma inference
-runtime, create a build directory and generate the build files using `cmake`
-from the top-level project directory. Note if you previous ran `cmake` and are
-re-running with a different setting, be sure to delete all files in the `build/`
-directory with `rm -rf build/*`.
+Open `msvc\gemma\gemma.slnx`, select `x64` and the desired configuration, then
+build the solution. Visual Studio restores the vcpkg manifest dependencies on
+the first build.
 
-#### Unix-like Platforms
-```sh
-cmake -B build
+From a Visual Studio Developer PowerShell, the equivalent command is:
+
+```powershell
+msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m
 ```
 
-After running `cmake`, you can enter the `build/` directory and run `make` to
-build the `./gemma` executable:
-
-```sh
-# Configure `build` directory
-cmake --preset make
-
-# Build project using make
-cmake --build --preset make -j [number of parallel threads to use]
-```
-
-Replace `[number of parallel threads to use]` with a number - the number of
-cores available on your system is a reasonable heuristic. For example, `make -j4
-gemma` will build using 4 threads. If the `nproc` command is available, you can
-use `make -j$(nproc) gemma` as a reasonable default for the number of threads.
-
-If you aren't sure of the right value for the `-j` flag, you can simply run
-`make gemma` instead and it should still build the `./gemma` executable.
-
-> [!NOTE]
-> On Windows Subsystem for Linux (WSL) users should set the number of
-> parallel threads to 1. Using a larger number may result in errors.
-
-If the build is successful, you should now have a `gemma` executable in the
-`build/` directory.
-
-#### Windows
-
-```sh
-# Configure `build-msvc` directory with MSVC
-cmake --preset windows-msvc
-
-# Build project using Visual Studio Build Tools
-cmake --build --preset windows-msvc
-```
-
-If the build is successful, you should now have a `gemma.exe` executable in the
-`build-msvc/Release/` directory.
-
-> [!NOTE]
-> The `windows` preset remains available for `clang-cl` builds.
+The binaries and libraries are written to
+`msvc\gemma\build\x64\Release`. Intermediate files remain under
+`msvc\gemma\build\obj`.
 
 #### Bazel
 
@@ -444,63 +394,22 @@ Let's break down the code:
 
 ### Incorporating gemma.cpp as a Library in your Project
 
-The easiest way to incorporate gemma.cpp in your own project is to pull in
-gemma.cpp and dependencies using `FetchContent`. You can add the following to
-your CMakeLists.txt:
-
-```
-include(FetchContent)
-
-FetchContent_Declare(sentencepiece GIT_REPOSITORY https://github.com/google/sentencepiece GIT_TAG 53de76561cfc149d3c01037f0595669ad32a5e7c)
-FetchContent_MakeAvailable(sentencepiece)
-
-FetchContent_Declare(gemma GIT_REPOSITORY https://github.com/google/gemma.cpp GIT_TAG origin/main)
-FetchContent_MakeAvailable(gemma)
-
-FetchContent_Declare(highway GIT_REPOSITORY https://github.com/google/highway.git GIT_TAG 2a16a50ff61071bb25ddef0ce35d92b0e2b9c579)
-FetchContent_MakeAvailable(highway)
-```
-
-Note for the gemma.cpp `GIT_TAG`, you may replace `origin/main` for a specific
-commit hash if you would like to pin the library version.
-
-After your executable is defined (substitute your executable name for
-`[Executable Name]` below):
-
-```
-target_link_libraries([Executable Name] libgemma hwy hwy_contrib sentencepiece)
-FetchContent_GetProperties(gemma)
-FetchContent_GetProperties(sentencepiece)
-target_include_directories([Executable Name] PRIVATE ${gemma_SOURCE_DIR})
-target_include_directories([Executable Name] PRIVATE ${sentencepiece_SOURCE_DIR})
-```
+Add your executable project to `msvc\gemma\gemma.slnx` and reference the
+`libgemma`, `hwy`, and `hwy_contrib` projects. Use `$(RepoRoot)` and
+`$(HighwayRoot)` for include paths. Package headers and libraries are restored
+from `msvc\gemma\vcpkg.json` by the native vcpkg MSBuild integration. The
+`hello_world` and `simplified_gemma` projects are working examples.
 
 ### Building gemma.cpp as a Library
 
-gemma.cpp can also be used as a library dependency in your own project. The
-shared library artifact can be built by modifying the make invocation to build
-the `libgemma` target instead of `gemma`.
+Build the `libgemma` project directly in Visual Studio, or run:
 
-> [!NOTE]
-> If you are using gemma.cpp in your own project with the `FetchContent` steps
-> in the previous section, building the library is done automatically by `cmake`
-> and this section can be skipped.
-
-First, run `cmake`:
-
-```sh
-cmake -B build
+```powershell
+msbuild msvc\gemma\libgemma\libgemma.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64
 ```
 
-Then, run `make` with the `libgemma` target:
-
-```sh
-cd build
-make -j [number of parallel threads to use] libgemma
-```
-
-If this is successful, you should now have a `libgemma` library file in the
-`build/` directory. On Unix platforms, the filename is `libgemma.a`.
+The resulting static library is
+`msvc\gemma\build\x64\Release\libgemma.lib`.
 
 ## Independent Projects Using gemma.cpp
 

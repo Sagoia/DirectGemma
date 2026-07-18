@@ -24,8 +24,8 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5494C7DC-906B-3B6F-99A8-1419E006D620}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <VcpkgEnabled>false</VcpkgEnabled>
-    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>hwy</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -34,22 +34,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings"></ImportGroup>
@@ -59,26 +55,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">hwy</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hwy</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">hwy</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(SolutionDir)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">hwy</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -101,16 +97,16 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -123,7 +119,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -145,17 +141,17 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat></DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -168,7 +164,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -190,17 +186,17 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat></DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -213,7 +209,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -236,16 +232,16 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;TOOLCHAIN_MISS_SYS_AUXV_H;TOOLCHAIN_MISS_ASM_HWCAP_H;HWY_STATIC_DEFINE</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>$(GeneratedBuildRoot)_deps\highway-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -258,52 +254,52 @@
   </ItemDefinitionGroup>
   <ItemGroup></ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\abort.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\aligned_allocator.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\auto_tune.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\base.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\cache_control.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\detect_compiler_arch.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\detect_targets.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\foreach_target.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\highway_export.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\highway.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\nanobenchmark.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\arm_neon-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\arm_sve-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\emu128-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\generic_ops-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\inside-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\loongarch_lsx-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\loongarch_lasx-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\ppc_vsx-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\rvv-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\scalar-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\set_macros-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\shared-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\wasm_128-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_128-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_256-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_512-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\ops\x86_avx3-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\per_target.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\print-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\print.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\profiler.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\robust_statistics.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\targets.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\timer-inl.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\timer.h" />
-    <ClInclude Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\x86_cpuid.h" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\abort.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\aligned_allocator.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\nanobenchmark.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\per_target.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\perf_counters.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\print.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\profiler.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\targets.cc" />
-    <ClCompile Include="$(GeneratedBuildRoot)_deps\highway-src\hwy\timer.cc" />
+    <ClInclude Include="$(HighwayRoot)\hwy\abort.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\aligned_allocator.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\auto_tune.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\base.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\cache_control.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\detect_compiler_arch.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\detect_targets.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\foreach_target.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\highway_export.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\highway.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\nanobenchmark.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\arm_neon-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\arm_sve-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\emu128-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\generic_ops-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\inside-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\loongarch_lsx-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\loongarch_lasx-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\ppc_vsx-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\rvv-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\scalar-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\set_macros-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\shared-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\wasm_128-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\x86_128-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\x86_256-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\x86_512-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\ops\x86_avx3-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\per_target.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\print-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\print.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\profiler.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\robust_statistics.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\targets.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\timer-inl.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\timer.h" />
+    <ClInclude Include="$(HighwayRoot)\hwy\x86_cpuid.h" />
+    <ClCompile Include="$(HighwayRoot)\hwy\abort.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\aligned_allocator.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\nanobenchmark.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\per_target.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\perf_counters.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\print.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\profiler.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\targets.cc" />
+    <ClCompile Include="$(HighwayRoot)\hwy\timer.cc" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup></ItemGroup>

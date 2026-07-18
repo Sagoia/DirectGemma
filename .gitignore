@@ -24,6 +24,7 @@ python/*/__pycache__
 
 # Native Visual Studio output
 /msvc/gemma/build/
+/msvc/gemma/vcpkg_installed/
 /msvc/gemma/x64/
 /msvc/gemma/*/x64/
 /msvc/gemma/*/Debug/

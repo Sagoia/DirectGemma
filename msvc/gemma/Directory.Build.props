@@ -2,6 +2,18 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))\</RepoRoot>
-    <GeneratedBuildRoot>$(RepoRoot)build-msvc\</GeneratedBuildRoot>
+    <NativeSolutionRoot>$(MSBuildThisFileDirectory)</NativeSolutionRoot>
+    <PlatformToolset Condition="'$(PlatformToolset)' == ''">v145</PlatformToolset>
+    <HighwayRoot>$(RepoRoot)third_party\highway\</HighwayRoot>
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+    <VcpkgManifestRoot>$(MSBuildThisFileDirectory)</VcpkgManifestRoot>
+    <VcpkgInstalledDir>$(VcpkgManifestRoot)vcpkg_installed\</VcpkgInstalledDir>
+    <VcpkgTriplet>x64-windows-static-md</VcpkgTriplet>
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgUseMD>true</VcpkgUseMD>
+    <VcpkgAutoLink>false</VcpkgAutoLink>
+    <VcpkgApplocalDeps>false</VcpkgApplocalDeps>
+    <VcpkgPackageRoot>$(VcpkgInstalledDir)$(VcpkgTriplet)</VcpkgPackageRoot>
   </PropertyGroup>
 </Project>

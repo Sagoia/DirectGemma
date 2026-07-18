@@ -17,17 +17,13 @@ This is an HTTP API server for gemma.cpp that implements the Google API protocol
 
 The API server is built alongside the main gemma.cpp project:
 
-```bash
-# Configure the build
-cmake -B build -DCMAKE_BUILD_TYPE=Release
-
-# Build the API server and client
-cmake --build build --target gemma_api_server gemma_api_client -j 8
+```powershell
+msbuild msvc\gemma\gemma.slnx /t:gemma_api_server`;gemma_api_client /p:Configuration=Release /p:Platform=x64 /m
 ```
 
 The binaries will be created at:
-- `build/gemma_api_server` - Local API server
-- `build/gemma_api_client` - Unified client for both local and public APIs
+- `msvc\gemma\build\x64\Release\gemma_api_server.exe` - Local API server
+- `msvc\gemma\build\x64\Release\gemma_api_client.exe` - Unified client for both local and public APIs
 
 ## Usage
 

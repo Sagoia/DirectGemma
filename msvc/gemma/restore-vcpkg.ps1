@@ -1,26 +1,50 @@
-[CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = "Restore", PositionalBinding = $false)]
 param(
-    [Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $true, ParameterSetName = "Restore")]
     [ValidateSet("x64", "ARM64")]
     [string]$Architecture,
-    [string]$VcpkgRoot
+    [Parameter(ParameterSetName = "Restore")]
+    [string]$VcpkgRoot,
+    [Parameter(Mandatory = $true, ParameterSetName = "Help")]
+    [Alias("h", "?")]
+    [switch]$Help
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
+
+if ($Help) {
+    Write-Host @"
+Restore the vcpkg dependencies for one target architecture.
+
+Usage:
+  .\msvc\gemma\restore-vcpkg.ps1 -Architecture x64
+  .\msvc\gemma\restore-vcpkg.ps1 -Architecture ARM64
+  .\msvc\gemma\restore-vcpkg.ps1 -Architecture ARM64 -VcpkgRoot C:\vcpkg
+  .\msvc\gemma\restore-vcpkg.ps1 -Help
+
+Architectures:
+  x64    uses x64-windows-static-md
+  ARM64  uses arm64-windows-static-md
+"@
+    return
+}
 
 $targetTriplet = switch ($Architecture) {
     "x64" { "x64-windows-static-md" }
     "ARM64" { "arm64-windows-static-md" }
 }
 
-$hostTriplet = switch (
-    [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
-) {
-    "X64" { "x64-windows" }
-    "Arm64" { "arm64-windows" }
+$hostArchitecture = $env:PROCESSOR_ARCHITECTURE
+if (-not $hostArchitecture) {
+    throw "PROCESSOR_ARCHITECTURE is not set."
+}
+
+$hostTriplet = switch ($hostArchitecture.ToUpperInvariant()) {
+    "AMD64" { "x64-windows" }
+    "ARM64" { "arm64-windows" }
     default {
-        throw "Unsupported host architecture: $_"
+        throw "Unsupported host architecture: $hostArchitecture"
     }
 }
 
@@ -72,7 +96,7 @@ $manifestRoot = [System.IO.Path]::GetFullPath($PSScriptRoot)
 $installRoot = Join-Path $manifestRoot "vcpkg_installed"
 
 Write-Host "Restoring vcpkg manifest for $Architecture ($targetTriplet) with $vcpkg"
-Write-Host "Using native vcpkg host triplet $hostTriplet"
+Write-Host "Using vcpkg host triplet $hostTriplet"
 & $vcpkg install `
     "--x-manifest-root=$manifestRoot" `
     "--x-install-root=$installRoot" `

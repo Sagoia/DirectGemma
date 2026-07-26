@@ -31,9 +31,9 @@ jobs:
       - name: Verify native runner architecture
         shell: pwsh
         run: |
-          $actual = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
-          $expected = "${{ matrix.platform }}"
-          if ($actual.ToString() -ine $expected) {
+          $actual = $env:PROCESSOR_ARCHITECTURE
+          $expected = if ("${{ matrix.platform }}" -eq "ARM64") { "ARM64" } else { "AMD64" }
+          if ($actual -ine $expected) {
             throw "Expected a native $expected runner, but the OS is $actual."
           }
 
@@ -42,6 +42,7 @@ jobs:
           msbuild-architecture: ${{ matrix.msbuild_architecture }}
 
       - uses: NuGet/setup-nuget@v3
+        if: matrix.platform == 'x64'
         with:
           nuget-version: latest
 
@@ -52,6 +53,8 @@ jobs:
           key: vcpkg-${{ runner.os }}-${{ matrix.triplet }}-${{ hashFiles('msvc/gemma/vcpkg.json') }}
 
       - name: Restore MSBuild project cache
+        # TODO: Enable for ARM64 when native MSBuild supports /reportfileaccesses.
+        if: matrix.platform == 'x64'
         uses: actions/cache@v5
         with:
           path: ${{ runner.temp }}\MSBuildCache
@@ -69,9 +72,13 @@ jobs:
           VCPKG_DEFAULT_BINARY_CACHE: ${{ runner.temp }}\vcpkg-binary-cache
 
       - name: Restore MSBuildCache package
+        # TODO: Enable for ARM64 when native MSBuild supports /reportfileaccesses.
+        if: matrix.platform == 'x64'
         run: nuget restore msvc\gemma\packages.config -PackagesDirectory msvc\gemma\packages -NonInteractive
 
-      - name: Build native MSVC solution
+      - name: Build native MSVC solution with MSBuildCache
+        # TODO: Merge this with the ARM64 build when /reportfileaccesses supports ARM64.
+        if: matrix.platform == 'x64'
         run: >-
           msbuild msvc\gemma\gemma.slnx
           /t:Build /graph /m /reportfileaccesses
@@ -82,6 +89,15 @@ jobs:
           /p:MSBuildCacheLocalCacheRootPath="${{ runner.temp }}\MSBuildCache"
           /p:MSBuildCacheLocalCacheSizeInMegabytes=4096
           /p:MSBuildCacheLogDirectory="${{ runner.temp }}\MSBuildCacheLogs"
+
+      - name: Build native MSVC solution
+        if: matrix.platform == 'ARM64'
+        run: >-
+          msbuild msvc\gemma\gemma.slnx
+          /t:Build /graph /m
+          /p:Configuration=Release /p:Platform=ARM64
+          /p:PreferredToolArchitecture=ARM64
+          /p:UseMSBuildCache=false
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4

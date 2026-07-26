@@ -153,11 +153,15 @@ From a Visual Studio Developer PowerShell, the equivalent command is:
 msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m
 ```
 
-For ARM64, change the target architecture and MSBuild platform:
+For a native ARM64 build, run these commands from an ARM64 Visual Studio
+Developer PowerShell:
 
 ```powershell
 .\msvc\gemma\restore-vcpkg.ps1 -Architecture ARM64
-msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=ARM64 /m
+msbuild msvc\gemma\gemma.slnx /t:Build /graph /m `
+  /p:Configuration=Release /p:Platform=ARM64 `
+  /p:PreferredToolArchitecture=ARM64 `
+  /p:UseMSBuildCache=false
 ```
 
 The binaries and libraries are written to
@@ -167,10 +171,10 @@ The binaries and libraries are written to
 ### CI build cache
 
 GitHub Actions builds x64 on `windows-latest` and ARM64 natively on
-`windows-11-vs2026-arm`. Each architecture has separate
-`Microsoft.MSBuildCache.Local` and vcpkg binary caches, so unchanged projects
-and package builds can be reused by later runs. Normal Visual Studio and
-command-line builds do not enable MSBuildCache.
+`windows-11-vs2026-arm`. Both architectures use separate vcpkg binary caches.
+The x64 job also uses `Microsoft.MSBuildCache.Local`; ARM64 does not because
+MSBuild's file-access reporting is currently limited to x64 MSBuild. Normal
+Visual Studio and command-line builds do not enable MSBuildCache.
 
 The MSBuildCache preview version is pinned in
 `msvc\gemma\packages.config`. Dependabot checks that NuGet package and the

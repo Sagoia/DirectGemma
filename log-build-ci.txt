@@ -1,0 +1,1497 @@
+2026-07-26T15:02:27.8126692Z Current runner version: '2.336.0'
+2026-07-26T15:02:27.8161314Z ##[group]Runner Image Provisioner
+2026-07-26T15:02:27.8162454Z Hosted Compute Agent
+2026-07-26T15:02:27.8163529Z Version: 20260707.563
+2026-07-26T15:02:27.8164558Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-26T15:02:27.8165287Z Build Date: 2026-07-07T19:33:50Z
+2026-07-26T15:02:27.8165957Z Worker ID: {bccd462e-0e35-4105-9056-0964e10d1084}
+2026-07-26T15:02:27.8166613Z Azure Region: eastus2
+2026-07-26T15:02:27.8167578Z ##[endgroup]
+2026-07-26T15:02:27.8169915Z ##[group]Operating System
+2026-07-26T15:02:27.8171800Z Microsoft Windows 11
+2026-07-26T15:02:27.8172531Z 10.0.26200
+2026-07-26T15:02:27.8173052Z Enterprise
+2026-07-26T15:02:27.8173545Z ##[endgroup]
+2026-07-26T15:02:27.8174069Z ##[group]Runner Image
+2026-07-26T15:02:27.8174617Z Image: windows-11-vs2026-arm64
+2026-07-26T15:02:27.8175243Z Version: 20260714.96.1
+2026-07-26T15:02:27.8177180Z Included Software: https://github.com/actions/runner-images/blob/win11-vs2026-arm64/20260714.96/images/windows/Windows11-VS2026-Arm64-Readme.md
+2026-07-26T15:02:27.8178888Z Image Release: https://github.com/actions/runner-images/releases/tag/win11-vs2026-arm64%2F20260714.96
+2026-07-26T15:02:27.8180094Z ##[endgroup]
+2026-07-26T15:02:27.8183174Z ##[group]GITHUB_TOKEN Permissions
+2026-07-26T15:02:27.8186496Z Actions: write
+2026-07-26T15:02:27.8187219Z ArtifactMetadata: write
+2026-07-26T15:02:27.8187817Z Attestations: write
+2026-07-26T15:02:27.8188390Z Checks: write
+2026-07-26T15:02:27.8189039Z CodeQuality: write
+2026-07-26T15:02:27.8189556Z Contents: write
+2026-07-26T15:02:27.8190082Z CopilotRequests: write
+2026-07-26T15:02:27.8190742Z Deployments: write
+2026-07-26T15:02:27.8191364Z Discussions: write
+2026-07-26T15:02:27.8191924Z Drives: write
+2026-07-26T15:02:27.8192430Z Issues: write
+2026-07-26T15:02:27.8192930Z Metadata: read
+2026-07-26T15:02:27.8193690Z Models: read
+2026-07-26T15:02:27.8194232Z Packages: write
+2026-07-26T15:02:27.8194790Z Pages: write
+2026-07-26T15:02:27.8195361Z PullRequests: write
+2026-07-26T15:02:27.8195984Z RepositoryProjects: write
+2026-07-26T15:02:27.8196739Z SecurityEvents: write
+2026-07-26T15:02:27.8197297Z Statuses: write
+2026-07-26T15:02:27.8197848Z VulnerabilityAlerts: read
+2026-07-26T15:02:27.8198424Z ##[endgroup]
+2026-07-26T15:02:27.8201571Z Secret source: Actions
+2026-07-26T15:02:27.8203008Z Prepare workflow directory
+2026-07-26T15:02:27.8608615Z Prepare all required actions
+2026-07-26T15:02:27.8657308Z Getting action download info
+2026-07-26T15:02:28.0303128Z Download action repository 'actions/checkout@v6' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-07-26T15:02:28.4185557Z Download action repository 'microsoft/setup-msbuild@v3' (SHA:30375c66a4eea26614e0d39710365f22f8b0af57)
+2026-07-26T15:02:28.5395285Z Download action repository 'NuGet/setup-nuget@v3' (SHA:12c57947e9458a5b976961b08ea0706a17dd71ae)
+2026-07-26T15:02:28.7325933Z Download action repository 'actions/cache@v5' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+2026-07-26T15:02:28.9900558Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-07-26T15:02:29.7461977Z Complete job name: MSVC ARM64
+2026-07-26T15:02:29.8880673Z ##[group]Run actions/checkout@v6
+2026-07-26T15:02:29.8882221Z with:
+2026-07-26T15:02:29.8882673Z   repository: Sagoia/DirectGemma
+2026-07-26T15:02:29.8885232Z   token: ***
+2026-07-26T15:02:29.8885522Z   ssh-strict: true
+2026-07-26T15:02:29.8885840Z   ssh-user: git
+2026-07-26T15:02:29.8886127Z   persist-credentials: true
+2026-07-26T15:02:29.8886536Z   clean: true
+2026-07-26T15:02:29.8886875Z   sparse-checkout-cone-mode: true
+2026-07-26T15:02:29.8887209Z   fetch-depth: 1
+2026-07-26T15:02:29.8887497Z   fetch-tags: false
+2026-07-26T15:02:29.8887800Z   show-progress: true
+2026-07-26T15:02:29.8888090Z   lfs: false
+2026-07-26T15:02:29.8888392Z   submodules: false
+2026-07-26T15:02:29.8888688Z   set-safe-directory: true
+2026-07-26T15:02:29.8889023Z   allow-unsafe-pr-checkout: false
+2026-07-26T15:02:29.8892953Z ##[endgroup]
+2026-07-26T15:02:30.1267225Z Syncing repository: Sagoia/DirectGemma
+2026-07-26T15:02:30.1269072Z ##[group]Getting Git version info
+2026-07-26T15:02:30.1269709Z Working directory is 'C:\a\DirectGemma\DirectGemma'
+2026-07-26T15:02:30.2215294Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-07-26T15:02:30.4934531Z git version 2.55.0.windows.2
+2026-07-26T15:02:30.4989481Z ##[endgroup]
+2026-07-26T15:02:30.5027415Z Temporarily overriding HOME='C:\a\_temp\f893a26b-2b58-4e2f-85fa-737b3e972656' before making global git config changes
+2026-07-26T15:02:30.5028321Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-26T15:02:30.5037864Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\DirectGemma\DirectGemma
+2026-07-26T15:02:30.5722466Z Deleting the contents of 'C:\a\DirectGemma\DirectGemma'
+2026-07-26T15:02:30.5731570Z ##[group]Determining repository object format
+2026-07-26T15:02:30.5734674Z ##[endgroup]
+2026-07-26T15:02:30.5735298Z ##[group]Initializing the repository
+2026-07-26T15:02:30.5743955Z [command]"C:\Program Files\Git\bin\git.exe" init C:\a\DirectGemma\DirectGemma
+2026-07-26T15:02:30.6895366Z Initialized empty Git repository in C:/a/DirectGemma/DirectGemma/.git/
+2026-07-26T15:02:30.6954663Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Sagoia/DirectGemma
+2026-07-26T15:02:30.7614148Z ##[endgroup]
+2026-07-26T15:02:30.7614959Z ##[group]Disabling automatic garbage collection
+2026-07-26T15:02:30.7622799Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-07-26T15:02:30.8186855Z ##[endgroup]
+2026-07-26T15:02:30.8187391Z ##[group]Setting up auth
+2026-07-26T15:02:30.8187845Z Removing SSH command configuration
+2026-07-26T15:02:30.8200778Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-07-26T15:02:30.8750489Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-07-26T15:02:32.9389986Z Removing HTTP extra header
+2026-07-26T15:02:32.9390751Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-26T15:02:32.9920751Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-07-26T15:02:34.2935346Z Removing includeIf entries pointing to credentials config files
+2026-07-26T15:02:34.2936356Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-26T15:02:34.4310116Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-07-26T15:02:37.1482008Z [command]"C:\Program Files\Git\bin\git.exe" config --file C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-07-26T15:02:37.2162987Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/DirectGemma/DirectGemma/.git.path C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:02:37.3208228Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/DirectGemma/DirectGemma/.git/worktrees/*.path C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:02:37.3782931Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:02:37.4307290Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:02:37.4815350Z ##[endgroup]
+2026-07-26T15:02:37.4816036Z ##[group]Fetching the repository
+2026-07-26T15:02:37.4829950Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +c931fc7c4b118765340fe1e3d0e53471a5b5bb29:refs/remotes/origin/win-arm64
+2026-07-26T15:02:39.0115121Z From https://github.com/Sagoia/DirectGemma
+2026-07-26T15:02:39.0115811Z  * [new ref]         c931fc7c4b118765340fe1e3d0e53471a5b5bb29 -> origin/win-arm64
+2026-07-26T15:02:39.0180603Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/win-arm64
+2026-07-26T15:02:39.0678786Z   origin/win-arm64
+2026-07-26T15:02:39.0735268Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/win-arm64
+2026-07-26T15:02:39.1362600Z c931fc7c4b118765340fe1e3d0e53471a5b5bb29
+2026-07-26T15:02:39.1406382Z ##[endgroup]
+2026-07-26T15:02:39.1406835Z ##[group]Determining the checkout info
+2026-07-26T15:02:39.1408035Z ##[endgroup]
+2026-07-26T15:02:39.1418912Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-07-26T15:02:39.2051532Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-07-26T15:02:39.2742270Z ##[group]Checking out the ref
+2026-07-26T15:02:39.2753394Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B win-arm64 refs/remotes/origin/win-arm64
+2026-07-26T15:02:39.7876412Z Switched to a new branch 'win-arm64'
+2026-07-26T15:02:39.7951368Z branch 'win-arm64' set up to track 'origin/win-arm64'.
+2026-07-26T15:02:39.8010129Z ##[endgroup]
+2026-07-26T15:02:39.8591213Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-07-26T15:02:39.9032769Z c931fc7c4b118765340fe1e3d0e53471a5b5bb29
+2026-07-26T15:02:40.2673967Z ##[group]Run $actual = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
+2026-07-26T15:02:40.2675536Z [36;1m$actual = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture[0m
+2026-07-26T15:02:40.2676039Z [36;1m$expected = "ARM64"[0m
+2026-07-26T15:02:40.2676357Z [36;1mif ($actual.ToString() -ine $expected) {[0m
+2026-07-26T15:02:40.2676804Z [36;1m  throw "Expected a native $expected runner, but the OS is $actual."[0m
+2026-07-26T15:02:40.2677194Z [36;1m}[0m
+2026-07-26T15:02:40.3019611Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-07-26T15:02:40.3020098Z ##[endgroup]
+2026-07-26T15:02:45.2498932Z ##[group]Run microsoft/setup-msbuild@v3
+2026-07-26T15:02:45.2499529Z with:
+2026-07-26T15:02:45.2499787Z   msbuild-architecture: arm64
+2026-07-26T15:02:45.2500091Z ##[endgroup]
+2026-07-26T15:02:45.4685780Z [command]C:\ProgramData\Chocolatey\bin\vswhere.exe -products * -requires Microsoft.Component.MSBuild -property installationPath -latest
+2026-07-26T15:02:46.2697379Z C:\Program Files\Microsoft Visual Studio\18\Enterprise
+2026-07-26T15:02:46.3616608Z ##[group]Run NuGet/setup-nuget@v3
+2026-07-26T15:02:46.3617299Z with:
+2026-07-26T15:02:46.3617598Z   nuget-version: latest
+2026-07-26T15:02:46.3617850Z ##[endgroup]
+2026-07-26T15:02:46.5867895Z (node:6688) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-07-26T15:02:46.5868951Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-26T15:02:46.9303065Z Installed nuget.exe version 7.6.0
+2026-07-26T15:02:47.1621656Z ##[group]Run actions/cache@v5
+2026-07-26T15:02:47.1622231Z with:
+2026-07-26T15:02:47.1622504Z   path: C:\a\_temp\vcpkg-binary-cache
+2026-07-26T15:02:47.1623085Z   key: vcpkg-Windows-arm64-windows-static-md-087124ccfe324600fa0b475035a14677105b8fb6506d84ce4ff5865be0c659a5
+2026-07-26T15:02:47.1623694Z   enableCrossOsArchive: false
+2026-07-26T15:02:47.1623972Z   fail-on-cache-miss: false
+2026-07-26T15:02:47.1624590Z   lookup-only: false
+2026-07-26T15:02:47.1624888Z   save-always: false
+2026-07-26T15:02:47.1625152Z env:
+2026-07-26T15:02:47.1625449Z   NUGET: C:\hostedtoolcache\windows\nuget.exe\7.6.0\arm64/nuget.exe
+2026-07-26T15:02:47.1625817Z ##[endgroup]
+2026-07-26T15:02:47.6293729Z Cache not found for input keys: vcpkg-Windows-arm64-windows-static-md-087124ccfe324600fa0b475035a14677105b8fb6506d84ce4ff5865be0c659a5
+2026-07-26T15:02:47.6677912Z ##[group]Run actions/cache@v5
+2026-07-26T15:02:47.6678485Z with:
+2026-07-26T15:02:47.6678791Z   path: C:\a\_temp\MSBuildCache
+2026-07-26T15:02:47.6679289Z   key: msbuildcache-v1-Windows-ARM64-v145-release-c931fc7c4b118765340fe1e3d0e53471a5b5bb29
+2026-07-26T15:02:47.6679892Z   restore-keys: msbuildcache-v1-Windows-ARM64-v145-release-
+
+2026-07-26T15:02:47.6680284Z   enableCrossOsArchive: false
+2026-07-26T15:02:47.6680596Z   fail-on-cache-miss: false
+2026-07-26T15:02:47.6680867Z   lookup-only: false
+2026-07-26T15:02:47.6681133Z   save-always: false
+2026-07-26T15:02:47.6681354Z env:
+2026-07-26T15:02:47.6681662Z   NUGET: C:\hostedtoolcache\windows\nuget.exe\7.6.0\arm64/nuget.exe
+2026-07-26T15:02:47.6682023Z ##[endgroup]
+2026-07-26T15:02:48.0836432Z Cache not found for input keys: msbuildcache-v1-Windows-ARM64-v145-release-c931fc7c4b118765340fe1e3d0e53471a5b5bb29, msbuildcache-v1-Windows-ARM64-v145-release-
+2026-07-26T15:02:48.1148564Z ##[group]Run .\msvc\gemma\restore-vcpkg.ps1 -Architecture ARM64 -VcpkgRoot C:\vcpkg
+2026-07-26T15:02:48.1149471Z [36;1m.\msvc\gemma\restore-vcpkg.ps1 -Architecture ARM64 -VcpkgRoot C:\vcpkg[0m
+2026-07-26T15:02:48.1308968Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-07-26T15:02:48.1309295Z env:
+2026-07-26T15:02:48.1309628Z   NUGET: C:\hostedtoolcache\windows\nuget.exe\7.6.0\arm64/nuget.exe
+2026-07-26T15:02:48.1310085Z   VCPKG_DEFAULT_BINARY_CACHE: C:\a\_temp\vcpkg-binary-cache
+2026-07-26T15:02:48.1310425Z ##[endgroup]
+2026-07-26T15:02:48.8320621Z Using vcpkg binary cache at C:\a\_temp\vcpkg-binary-cache
+2026-07-26T15:02:49.0818710Z Restoring vcpkg manifest for ARM64 (arm64-windows-static-md) with C:\vcpkg\vcpkg.exe
+2026-07-26T15:02:49.0823797Z Using native vcpkg host triplet arm64-windows
+2026-07-26T15:02:52.6945753Z Detecting compiler hash for triplet arm64-windows...
+2026-07-26T15:03:03.2091306Z Compiler found: C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.51.36231/bin/Hostarm64/arm64/cl.exe
+2026-07-26T15:03:03.2358099Z Detecting compiler hash for triplet arm64-windows-static-md...
+2026-07-26T15:03:04.1944740Z Compiler found: C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.51.36231/bin/Hostarm64/arm64/cl.exe
+2026-07-26T15:03:04.2274197Z The following packages will be built and installed:
+2026-07-26T15:03:04.2274701Z   * abseil:arm64-windows-static-md@20260107.1
+2026-07-26T15:03:04.2275088Z   * abseil:arm64-windows@20260107.1
+2026-07-26T15:03:04.2275404Z     benchmark:arm64-windows-static-md@1.9.5
+2026-07-26T15:03:04.2275774Z   * brotli:arm64-windows-static-md@1.2.0
+2026-07-26T15:03:04.2276177Z     cpp-httplib[brotli,core]:arm64-windows-static-md@0.48.0
+2026-07-26T15:03:04.2276570Z     nlohmann-json:arm64-windows-static-md@3.12.0#2
+2026-07-26T15:03:04.2283931Z     openssl:arm64-windows-static-md@3.6.1#2
+2026-07-26T15:03:04.2284377Z   * protobuf:arm64-windows@6.33.4#1
+2026-07-26T15:03:04.2284724Z   * protobuf:arm64-windows-static-md@6.33.4#1
+2026-07-26T15:03:04.2285081Z     sentencepiece:arm64-windows-static-md@0.2.1
+2026-07-26T15:03:04.2285669Z   * utf8-range:arm64-windows-static-md@6.33.4
+2026-07-26T15:03:04.2285982Z   * utf8-range:arm64-windows@6.33.4
+2026-07-26T15:03:04.2286311Z   * vcpkg-cmake:arm64-windows@2024-04-23
+2026-07-26T15:03:04.2286631Z   * vcpkg-cmake-config:arm64-windows@2024-05-23
+2026-07-26T15:03:04.2287008Z   * vcpkg-cmake-get-vars:arm64-windows@2025-05-29
+2026-07-26T15:03:04.2287459Z Additional packages (*) will be modified to complete this operation.
+2026-07-26T15:03:04.5608031Z Restored 0 package(s) from C:\a\_temp\vcpkg-binary-cache in 186 us. Use --debug to see more details.
+2026-07-26T15:03:04.5608664Z Installing 1/15 vcpkg-cmake-config:arm64-windows@2024-05-23...
+2026-07-26T15:03:04.5609292Z vcpkg-cmake-config:arm64-windows@2024-05-23 package ABI: bbf3825acd8ecc3363526f37d079dbc0e11b34f1045a503b1d50fc48bbe68227
+2026-07-26T15:03:04.5610006Z Building vcpkg-cmake-config:arm64-windows@2024-05-23...
+2026-07-26T15:03:04.6078948Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-config_arm64-windows/share/vcpkg-cmake-config/vcpkg_cmake_config_fixup.cmake
+2026-07-26T15:03:04.6088296Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-config_arm64-windows/share/vcpkg-cmake-config/vcpkg-port-config.cmake
+2026-07-26T15:03:04.6096805Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-config_arm64-windows/share/vcpkg-cmake-config/copyright
+2026-07-26T15:03:04.6190992Z -- Skipping post-build validation due to VCPKG_POLICY_EMPTY_PACKAGE
+2026-07-26T15:03:04.6599833Z Starting submission of vcpkg-cmake-config:arm64-windows@2024-05-23 to 1 binary cache(s) in the background
+2026-07-26T15:03:04.6601461Z Elapsed time to handle vcpkg-cmake-config:arm64-windows: 98.9 ms
+2026-07-26T15:03:04.6602078Z Installing 2/15 vcpkg-cmake:arm64-windows@2024-04-23...
+2026-07-26T15:03:04.6611216Z vcpkg-cmake:arm64-windows@2024-04-23 package ABI: 539725be1d182ea8f3f3fb9d4c7c1622efa19e5979591305e625fb43d5ab12b5
+2026-07-26T15:03:04.6612878Z Building vcpkg-cmake:arm64-windows@2024-04-23...
+2026-07-26T15:03:04.7075578Z -- Installing: C:/vcpkg/packages/vcpkg-cmake_arm64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake
+2026-07-26T15:03:04.7084554Z -- Installing: C:/vcpkg/packages/vcpkg-cmake_arm64-windows/share/vcpkg-cmake/vcpkg_cmake_build.cmake
+2026-07-26T15:03:04.7093456Z -- Installing: C:/vcpkg/packages/vcpkg-cmake_arm64-windows/share/vcpkg-cmake/vcpkg_cmake_install.cmake
+2026-07-26T15:03:04.7152690Z -- Installing: C:/vcpkg/packages/vcpkg-cmake_arm64-windows/share/vcpkg-cmake/vcpkg-port-config.cmake
+2026-07-26T15:03:04.7185983Z -- Installing: C:/vcpkg/packages/vcpkg-cmake_arm64-windows/share/vcpkg-cmake/copyright
+2026-07-26T15:03:04.7330871Z -- Performing post-build validation
+2026-07-26T15:03:04.7630155Z Starting submission of vcpkg-cmake:arm64-windows@2024-04-23 to 1 binary cache(s) in the background
+2026-07-26T15:03:04.7630796Z Elapsed time to handle vcpkg-cmake:arm64-windows: 103 ms
+2026-07-26T15:03:04.7631340Z Installing 3/15 benchmark:arm64-windows-static-md@1.9.5...
+2026-07-26T15:03:04.7632024Z benchmark:arm64-windows-static-md@1.9.5 package ABI: bf7e756936a824bbd9760a87be62735010fc1f38ab8e2c5e33f981a5d852adce
+2026-07-26T15:03:04.7632657Z Building benchmark:arm64-windows-static-md@1.9.5...
+2026-07-26T15:03:04.8301858Z Downloading https://github.com/google/benchmark/archive/v1.9.5.tar.gz -> google-benchmark-v1.9.5.tar.gz
+2026-07-26T15:03:05.0606731Z Successfully downloaded google-benchmark-v1.9.5.tar.gz
+2026-07-26T15:03:05.0719800Z -- Extracting source C:/vcpkg/downloads/google-benchmark-v1.9.5.tar.gz
+2026-07-26T15:03:05.6630552Z -- Using source at C:/vcpkg/buildtrees/benchmark/src/v1.9.5-9eabe990b8.clean
+2026-07-26T15:03:05.7237079Z -- Configuring arm64-windows-static-md
+2026-07-26T15:03:17.7753814Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:03:28.0385164Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:03:40.4206909Z -- Fixing pkgconfig file: C:/vcpkg/packages/benchmark_arm64-windows-static-md/lib/pkgconfig/benchmark.pc
+2026-07-26T15:03:40.4217005Z -- Fixing pkgconfig file: C:/vcpkg/packages/benchmark_arm64-windows-static-md/lib/pkgconfig/benchmark_main.pc
+2026-07-26T15:03:40.4489736Z Downloading msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/clangarm64/mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:03:41.2450615Z Successfully downloaded msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:03:41.2649170Z Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:03:41.7008660Z Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:03:41.9841280Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:03:42.0505374Z -- Fixing pkgconfig file: C:/vcpkg/packages/benchmark_arm64-windows-static-md/debug/lib/pkgconfig/benchmark.pc
+2026-07-26T15:03:42.0514733Z -- Fixing pkgconfig file: C:/vcpkg/packages/benchmark_arm64-windows-static-md/debug/lib/pkgconfig/benchmark_main.pc
+2026-07-26T15:03:42.0778434Z -- Installing: C:/vcpkg/packages/benchmark_arm64-windows-static-md/share/benchmark/copyright
+2026-07-26T15:03:42.0875999Z -- Performing post-build validation
+2026-07-26T15:03:42.1782772Z Starting submission of benchmark:arm64-windows-static-md@1.9.5 to 1 binary cache(s) in the background
+2026-07-26T15:03:42.1784138Z Elapsed time to handle benchmark:arm64-windows-static-md: 37 s
+2026-07-26T15:03:42.1784958Z Completed submission of vcpkg-cmake-config:arm64-windows@2024-05-23 to 1 binary cache(s) in 686 ms
+2026-07-26T15:03:42.1785669Z Completed submission of vcpkg-cmake:arm64-windows@2024-04-23 to 1 binary cache(s) in 370 ms
+2026-07-26T15:03:42.1786220Z Installing 4/15 brotli:arm64-windows-static-md@1.2.0...
+2026-07-26T15:03:42.1787912Z brotli:arm64-windows-static-md@1.2.0 package ABI: e6d56acd265051fd657c3176f99cdaec58010469ad24d7c85933ba466a11c89f
+2026-07-26T15:03:42.1788595Z Building brotli:arm64-windows-static-md@1.2.0...
+2026-07-26T15:03:42.2467285Z Downloading https://github.com/google/brotli/archive/v1.2.0.tar.gz -> google-brotli-v1.2.0.tar.gz
+2026-07-26T15:03:42.4523577Z Successfully downloaded google-brotli-v1.2.0.tar.gz
+2026-07-26T15:03:42.4892617Z -- Extracting source C:/vcpkg/downloads/google-brotli-v1.2.0.tar.gz
+2026-07-26T15:03:42.8191163Z -- Applying patch install.patch
+2026-07-26T15:03:42.8823841Z -- Applying patch pkgconfig.patch
+2026-07-26T15:03:42.9434508Z -- Using source at C:/vcpkg/buildtrees/brotli/src/v1.2.0-7af7ca71ad.clean
+2026-07-26T15:03:42.9938859Z -- Configuring arm64-windows-static-md
+2026-07-26T15:03:45.8696495Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:03:48.0106147Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:03:55.1219643Z -- Fixing pkgconfig file: C:/vcpkg/packages/brotli_arm64-windows-static-md/lib/pkgconfig/libbrotlicommon.pc
+2026-07-26T15:03:55.1246099Z -- Fixing pkgconfig file: C:/vcpkg/packages/brotli_arm64-windows-static-md/lib/pkgconfig/libbrotlidec.pc
+2026-07-26T15:03:55.1246854Z -- Fixing pkgconfig file: C:/vcpkg/packages/brotli_arm64-windows-static-md/lib/pkgconfig/libbrotlienc.pc
+2026-07-26T15:03:55.1339204Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:03:55.1400239Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:03:55.1405027Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:03:55.1835284Z -- Fixing pkgconfig file: C:/vcpkg/packages/brotli_arm64-windows-static-md/debug/lib/pkgconfig/libbrotlicommon.pc
+2026-07-26T15:03:55.1843125Z -- Fixing pkgconfig file: C:/vcpkg/packages/brotli_arm64-windows-static-md/debug/lib/pkgconfig/libbrotlidec.pc
+2026-07-26T15:03:55.1851076Z -- Fixing pkgconfig file: C:/vcpkg/packages/brotli_arm64-windows-static-md/debug/lib/pkgconfig/libbrotlienc.pc
+2026-07-26T15:03:55.2729612Z -- Installing: C:/vcpkg/packages/brotli_arm64-windows-static-md/share/brotli/usage
+2026-07-26T15:03:55.2740476Z -- Installing: C:/vcpkg/packages/brotli_arm64-windows-static-md/share/brotli/copyright
+2026-07-26T15:03:55.2849503Z -- Performing post-build validation
+2026-07-26T15:03:55.3356436Z Starting submission of brotli:arm64-windows-static-md@1.2.0 to 1 binary cache(s) in the background
+2026-07-26T15:03:55.3357101Z Elapsed time to handle brotli:arm64-windows-static-md: 13 s
+2026-07-26T15:03:55.3357675Z Completed submission of benchmark:arm64-windows-static-md@1.9.5 to 1 binary cache(s) in 3.3 s
+2026-07-26T15:03:55.3358271Z Installing 5/15 cpp-httplib[brotli,core]:arm64-windows-static-md@0.48.0...
+2026-07-26T15:03:55.3359459Z cpp-httplib[brotli,core]:arm64-windows-static-md@0.48.0 package ABI: daab5f2507dc8243b8917a0a4a30eb45225e7fd8d5f1167dd8219c0601a814d5
+2026-07-26T15:03:55.3360179Z Building cpp-httplib[brotli,core]:arm64-windows-static-md@0.48.0...
+2026-07-26T15:03:55.4023937Z Downloading https://github.com/yhirose/cpp-httplib/archive/v0.48.0.tar.gz -> yhirose-cpp-httplib-v0.48.0.tar.gz
+2026-07-26T15:03:55.9018126Z Successfully downloaded yhirose-cpp-httplib-v0.48.0.tar.gz
+2026-07-26T15:03:55.9101410Z -- Extracting source C:/vcpkg/downloads/yhirose-cpp-httplib-v0.48.0.tar.gz
+2026-07-26T15:03:57.5380216Z -- Applying patch fix-find-brotli.patch
+2026-07-26T15:03:57.6281998Z -- Using source at C:/vcpkg/buildtrees/cpp-httplib/src/v0.48.0-951d099e57.clean
+2026-07-26T15:03:57.6786224Z -- Configuring arm64-windows-static-md
+2026-07-26T15:03:59.9589809Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:04:01.2131747Z -- Installing: C:/vcpkg/packages/cpp-httplib_arm64-windows-static-md/share/cpp-httplib/copyright
+2026-07-26T15:04:01.2144119Z -- Installing: C:/vcpkg/packages/cpp-httplib_arm64-windows-static-md/share/cpp-httplib/usage
+2026-07-26T15:04:01.2225145Z -- Performing post-build validation
+2026-07-26T15:04:01.2933333Z Starting submission of cpp-httplib[brotli,core]:arm64-windows-static-md@0.48.0 to 1 binary cache(s) in the background
+2026-07-26T15:04:01.2934237Z Elapsed time to handle cpp-httplib:arm64-windows-static-md: 6 s
+2026-07-26T15:04:01.2934788Z Completed submission of brotli:arm64-windows-static-md@1.2.0 to 1 binary cache(s) in 592 ms
+2026-07-26T15:04:01.2935347Z Installing 6/15 nlohmann-json:arm64-windows-static-md@3.12.0#2...
+2026-07-26T15:04:01.2936044Z nlohmann-json:arm64-windows-static-md@3.12.0#2 package ABI: 516c77efb8338c9e4ff278cecb4b1fe7c3990d1bca6391511b4eea45b574a714
+2026-07-26T15:04:01.2936697Z Building nlohmann-json:arm64-windows-static-md@3.12.0#2...
+2026-07-26T15:04:01.3673122Z Downloading https://github.com/nlohmann/json/archive/v3.12.0.tar.gz -> nlohmann-json-v3.12.0.tar.gz
+2026-07-26T15:04:01.6575313Z Successfully downloaded nlohmann-json-v3.12.0.tar.gz
+2026-07-26T15:04:01.6882863Z -- Extracting source C:/vcpkg/downloads/nlohmann-json-v3.12.0.tar.gz
+2026-07-26T15:04:04.5850022Z -- Applying patch fix-4736_char8_t.patch
+2026-07-26T15:04:04.6423968Z -- Applying patch fix-4742_std_optional.patch
+2026-07-26T15:04:04.7167711Z -- Using source at C:/vcpkg/buildtrees/nlohmann-json/src/v3.12.0-89fed620e6.clean
+2026-07-26T15:04:04.7730403Z -- Configuring arm64-windows-static-md
+2026-07-26T15:04:06.4119683Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:04:06.6442461Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:04:06.9450622Z -- Fixing pkgconfig file: C:/vcpkg/packages/nlohmann-json_arm64-windows-static-md/share/pkgconfig/nlohmann_json.pc
+2026-07-26T15:04:06.9548802Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:04:06.9609790Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:04:06.9614081Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:04:06.9772956Z -- Fixing pkgconfig file: C:/vcpkg/packages/nlohmann-json_arm64-windows-static-md/debug/share/pkgconfig/nlohmann_json.pc
+2026-07-26T15:04:07.0005210Z -- Installing: C:/vcpkg/packages/nlohmann-json_arm64-windows-static-md/share/nlohmann-json/copyright
+2026-07-26T15:04:07.0091383Z -- Performing post-build validation
+2026-07-26T15:04:07.0716611Z Starting submission of nlohmann-json:arm64-windows-static-md@3.12.0#2 to 1 binary cache(s) in the background
+2026-07-26T15:04:07.0717310Z Elapsed time to handle nlohmann-json:arm64-windows-static-md: 5.8 s
+2026-07-26T15:04:07.0718007Z Completed submission of cpp-httplib[brotli,core]:arm64-windows-static-md@0.48.0 to 1 binary cache(s) in 354 ms
+2026-07-26T15:04:07.0718622Z Installing 7/15 vcpkg-cmake-get-vars:arm64-windows@2025-05-29...
+2026-07-26T15:04:07.0719288Z vcpkg-cmake-get-vars:arm64-windows@2025-05-29 package ABI: 6e925728d7815f9e71e9216ce548a42d33c2b6ca184c5bf210d20d80a6bb6725
+2026-07-26T15:04:07.0720398Z Building vcpkg-cmake-get-vars:arm64-windows@2025-05-29...
+2026-07-26T15:04:07.1213320Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-get-vars_arm64-windows/share/vcpkg-cmake-get-vars/vcpkg_cmake_get_vars.cmake
+2026-07-26T15:04:07.1224170Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-get-vars_arm64-windows/share/vcpkg-cmake-get-vars/cmake_get_vars
+2026-07-26T15:04:07.1236476Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-get-vars_arm64-windows/share/vcpkg-cmake-get-vars/cmake_get_vars/CMakeLists.txt
+2026-07-26T15:04:07.1248449Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-get-vars_arm64-windows/share/vcpkg-cmake-get-vars/cmake-get-vars.cmake.in
+2026-07-26T15:04:07.1297535Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-get-vars_arm64-windows/share/vcpkg-cmake-get-vars/vcpkg-port-config.cmake
+2026-07-26T15:04:07.1332673Z -- Installing: C:/vcpkg/packages/vcpkg-cmake-get-vars_arm64-windows/share/vcpkg-cmake-get-vars/copyright
+2026-07-26T15:04:07.1381559Z -- Performing post-build validation
+2026-07-26T15:04:07.1965084Z Starting submission of vcpkg-cmake-get-vars:arm64-windows@2025-05-29 to 1 binary cache(s) in the background
+2026-07-26T15:04:07.1965761Z Elapsed time to handle vcpkg-cmake-get-vars:arm64-windows: 125 ms
+2026-07-26T15:04:07.1966612Z Installing 8/15 openssl:arm64-windows-static-md@3.6.1#2...
+2026-07-26T15:04:07.1967267Z openssl:arm64-windows-static-md@3.6.1#2 package ABI: 51d052cb3b4aca0d903c8312fa52706caedb525f45541523c6a9c884a04f4989
+2026-07-26T15:04:07.1967846Z Building openssl:arm64-windows-static-md@3.6.1#2...
+2026-07-26T15:04:07.2614511Z Downloading https://github.com/openssl/openssl/archive/openssl-3.6.1.tar.gz -> openssl-openssl-openssl-3.6.1.tar.gz
+2026-07-26T15:04:12.6143447Z Successfully downloaded openssl-openssl-openssl-3.6.1.tar.gz
+2026-07-26T15:04:12.7718681Z -- Extracting source C:/vcpkg/downloads/openssl-openssl-openssl-3.6.1.tar.gz
+2026-07-26T15:04:19.7284896Z -- Applying patch cmake-config.patch
+2026-07-26T15:04:19.7797215Z -- Applying patch command-line-length.patch
+2026-07-26T15:04:19.8291632Z -- Applying patch script-prefix.patch
+2026-07-26T15:04:19.8799881Z -- Applying patch windows/install-layout.patch
+2026-07-26T15:04:19.9343362Z -- Applying patch windows/install-pdbs.patch
+2026-07-26T15:04:19.9881846Z -- Applying patch windows/install-programs.diff
+2026-07-26T15:04:20.0465386Z -- Applying patch unix/android-cc.patch
+2026-07-26T15:04:20.0984158Z -- Applying patch unix/move-openssldir.patch
+2026-07-26T15:04:20.1483247Z -- Applying patch unix/no-empty-dirs.patch
+2026-07-26T15:04:20.1996329Z -- Applying patch unix/no-static-libs-for-shared.patch
+2026-07-26T15:04:20.2530553Z -- Applying patch fix-mingw-build.patch
+2026-07-26T15:04:20.3173630Z -- Using source at C:/vcpkg/buildtrees/openssl/src/nssl-3.6.1-c0028aa207.clean
+2026-07-26T15:04:20.3687779Z -- Getting CMake variables for arm64-windows-static-md
+2026-07-26T15:04:23.1545991Z -- Loading CMake variables from C:/vcpkg/buildtrees/openssl/cmake-get-vars_C_CXX-arm64-windows-static-md.cmake.log
+2026-07-26T15:04:23.1817536Z Downloading https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_54221_64bit/strawberry-perl-5.42.2.1-64bit-portable.zip -> strawberry-perl-5.42.2.1-64bit-portable.zip
+2026-07-26T15:04:25.1276406Z Successfully downloaded strawberry-perl-5.42.2.1-64bit-portable.zip
+2026-07-26T15:04:53.7883945Z -- Getting CMake variables for arm64-windows-static-md
+2026-07-26T15:04:56.6296502Z Downloading jom_1_1_7.zip, trying https://download.qt.io/official_releases/jom/jom_1_1_7.zip
+2026-07-26T15:05:40.0619544Z Successfully downloaded jom_1_1_7.zip
+2026-07-26T15:05:50.7066064Z -- Prerunning arm64-windows-static-md-dbg
+2026-07-26T15:06:28.1163317Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:08:17.9605802Z -- Prerunning arm64-windows-static-md-rel
+2026-07-26T15:08:52.1092541Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:10:48.2691011Z -- Fixing pkgconfig file: C:/vcpkg/packages/openssl_arm64-windows-static-md/lib/pkgconfig/libcrypto.pc
+2026-07-26T15:10:48.2700103Z -- Fixing pkgconfig file: C:/vcpkg/packages/openssl_arm64-windows-static-md/lib/pkgconfig/libssl.pc
+2026-07-26T15:10:48.2708392Z -- Fixing pkgconfig file: C:/vcpkg/packages/openssl_arm64-windows-static-md/lib/pkgconfig/openssl.pc
+2026-07-26T15:10:48.2812589Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:10:48.2872704Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:10:48.2877796Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:10:48.3348674Z -- Fixing pkgconfig file: C:/vcpkg/packages/openssl_arm64-windows-static-md/debug/lib/pkgconfig/libcrypto.pc
+2026-07-26T15:10:48.3357903Z -- Fixing pkgconfig file: C:/vcpkg/packages/openssl_arm64-windows-static-md/debug/lib/pkgconfig/libssl.pc
+2026-07-26T15:10:48.3365833Z -- Fixing pkgconfig file: C:/vcpkg/packages/openssl_arm64-windows-static-md/debug/lib/pkgconfig/openssl.pc
+2026-07-26T15:10:48.3713689Z -- Installing: C:/vcpkg/packages/openssl_arm64-windows-static-md/share/openssl/usage
+2026-07-26T15:10:48.3751697Z -- Installing: C:/vcpkg/packages/openssl_arm64-windows-static-md/share/openssl/copyright
+2026-07-26T15:10:48.3847406Z -- Performing post-build validation
+2026-07-26T15:10:48.6760084Z Starting submission of openssl:arm64-windows-static-md@3.6.1#2 to 1 binary cache(s) in the background
+2026-07-26T15:10:48.6761043Z Elapsed time to handle openssl:arm64-windows-static-md: 6.7 min
+2026-07-26T15:10:48.6761638Z Completed submission of nlohmann-json:arm64-windows-static-md@3.12.0#2 to 1 binary cache(s) in 302 ms
+2026-07-26T15:10:48.6762602Z Completed submission of vcpkg-cmake-get-vars:arm64-windows@2025-05-29 to 1 binary cache(s) in 843 ms
+2026-07-26T15:10:48.6763183Z Installing 9/15 abseil:arm64-windows-static-md@20260107.1...
+2026-07-26T15:10:48.6763808Z abseil:arm64-windows-static-md@20260107.1 package ABI: 8c620f447d036801b848cfe954518db8ff4b577131580b2353eee8628fe766e5
+2026-07-26T15:10:48.6764453Z Building abseil:arm64-windows-static-md@20260107.1...
+2026-07-26T15:10:48.7483306Z Downloading https://github.com/abseil/abseil-cpp/archive/20260107.1.tar.gz -> abseil-abseil-cpp-20260107.1.tar.gz
+2026-07-26T15:10:49.2808987Z Successfully downloaded abseil-abseil-cpp-20260107.1.tar.gz
+2026-07-26T15:10:49.3508336Z -- Extracting source C:/vcpkg/downloads/abseil-abseil-cpp-20260107.1.tar.gz
+2026-07-26T15:10:50.4373822Z -- Applying patch 003-force-cxx-17.patch
+2026-07-26T15:10:50.4898075Z -- Applying patch fix-heterogeneous_lookup_testing-target.patch
+2026-07-26T15:10:50.5474182Z -- Using source at C:/vcpkg/buildtrees/abseil/src/20260107.1-c0d61eb092.clean
+2026-07-26T15:10:50.5971146Z -- Configuring arm64-windows-static-md-dbg
+2026-07-26T15:10:54.5550258Z -- Configuring arm64-windows-static-md-rel
+2026-07-26T15:10:58.4580983Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:11:41.5413605Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:12:32.4577412Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_absl_check.pc
+2026-07-26T15:12:32.4586414Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_absl_log.pc
+2026-07-26T15:12:32.4593075Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_absl_vlog_is_on.pc
+2026-07-26T15:12:32.4601932Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_algorithm.pc
+2026-07-26T15:12:32.4609628Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_algorithm_container.pc
+2026-07-26T15:12:32.4618022Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_any.pc
+2026-07-26T15:12:32.4626241Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_any_invocable.pc
+2026-07-26T15:12:32.4633496Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_atomic_hook.pc
+2026-07-26T15:12:32.4640863Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_bad_any_cast.pc
+2026-07-26T15:12:32.4647878Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_bad_optional_access.pc
+2026-07-26T15:12:32.4654550Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_bad_variant_access.pc
+2026-07-26T15:12:32.4661612Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_base.pc
+2026-07-26T15:12:32.4670178Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_base_internal.pc
+2026-07-26T15:12:32.4677577Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_bind_front.pc
+2026-07-26T15:12:32.4684675Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_bits.pc
+2026-07-26T15:12:32.4692051Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_borrowed_fixup_buffer.pc
+2026-07-26T15:12:32.4700391Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_bounded_utf8_length_sequence.pc
+2026-07-26T15:12:32.4707978Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_btree.pc
+2026-07-26T15:12:32.4715429Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_charset.pc
+2026-07-26T15:12:32.4723144Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_check.pc
+2026-07-26T15:12:32.4730910Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_chunked_queue.pc
+2026-07-26T15:12:32.4738827Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_city.pc
+2026-07-26T15:12:32.4746307Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_civil_time.pc
+2026-07-26T15:12:32.4754082Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cleanup.pc
+2026-07-26T15:12:32.4763555Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cleanup_internal.pc
+2026-07-26T15:12:32.4771297Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_common_policy_traits.pc
+2026-07-26T15:12:32.4778962Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_compare.pc
+2026-07-26T15:12:32.4786305Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_compressed_tuple.pc
+2026-07-26T15:12:32.4793410Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_config.pc
+2026-07-26T15:12:32.4800776Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_constexpr_testing_internal.pc
+2026-07-26T15:12:32.4808228Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_container_common.pc
+2026-07-26T15:12:32.4815777Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_container_memory.pc
+2026-07-26T15:12:32.4825286Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cord.pc
+2026-07-26T15:12:32.4833601Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cord_internal.pc
+2026-07-26T15:12:32.4842566Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cordz_functions.pc
+2026-07-26T15:12:32.4850848Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cordz_handle.pc
+2026-07-26T15:12:32.4859358Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cordz_info.pc
+2026-07-26T15:12:32.4867919Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cordz_sample_token.pc
+2026-07-26T15:12:32.4876429Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cordz_statistics.pc
+2026-07-26T15:12:32.4884315Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cordz_update_scope.pc
+2026-07-26T15:12:32.4892226Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_cordz_update_tracker.pc
+2026-07-26T15:12:32.4900271Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_core_headers.pc
+2026-07-26T15:12:32.4908460Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_crc32c.pc
+2026-07-26T15:12:32.4916627Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_crc_cord_state.pc
+2026-07-26T15:12:32.4924527Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_crc_cpu_detect.pc
+2026-07-26T15:12:32.4932462Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_crc_internal.pc
+2026-07-26T15:12:32.4940953Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_debugging.pc
+2026-07-26T15:12:32.4948358Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_debugging_internal.pc
+2026-07-26T15:12:32.4956298Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_decode_rust_punycode.pc
+2026-07-26T15:12:32.4964178Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_demangle_internal.pc
+2026-07-26T15:12:32.4971876Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_demangle_rust.pc
+2026-07-26T15:12:32.4980610Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_die_if_null.pc
+2026-07-26T15:12:32.4988686Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_dynamic_annotations.pc
+2026-07-26T15:12:32.4996409Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_endian.pc
+2026-07-26T15:12:32.5003979Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_errno_saver.pc
+2026-07-26T15:12:32.5011478Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_examine_stack.pc
+2026-07-26T15:12:32.5019718Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_exponential_biased.pc
+2026-07-26T15:12:32.5027418Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_failure_signal_handler.pc
+2026-07-26T15:12:32.5035213Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_fast_type_id.pc
+2026-07-26T15:12:32.5043293Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_fixed_array.pc
+2026-07-26T15:12:32.5051025Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags.pc
+2026-07-26T15:12:32.5059207Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_commandlineflag.pc
+2026-07-26T15:12:32.5067710Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_commandlineflag_internal.pc
+2026-07-26T15:12:32.5077846Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_config.pc
+2026-07-26T15:12:32.5087277Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_internal.pc
+2026-07-26T15:12:32.5096305Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_marshalling.pc
+2026-07-26T15:12:32.5103996Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_parse.pc
+2026-07-26T15:12:32.5112767Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_path_util.pc
+2026-07-26T15:12:32.5120237Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_private_handle_accessor.pc
+2026-07-26T15:12:32.5129619Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_program_name.pc
+2026-07-26T15:12:32.5137831Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_reflection.pc
+2026-07-26T15:12:32.5146785Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_usage.pc
+2026-07-26T15:12:32.5154774Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flags_usage_internal.pc
+2026-07-26T15:12:32.5163487Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flat_hash_map.pc
+2026-07-26T15:12:32.5171374Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_flat_hash_set.pc
+2026-07-26T15:12:32.5179076Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_function_ref.pc
+2026-07-26T15:12:32.5186485Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_generic_printer_internal.pc
+2026-07-26T15:12:32.5194421Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_graphcycles_internal.pc
+2026-07-26T15:12:32.5202401Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_has_ostream_operator.pc
+2026-07-26T15:12:32.5209594Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hash.pc
+2026-07-26T15:12:32.5218313Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hash_container_defaults.pc
+2026-07-26T15:12:32.5227198Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hash_function_defaults.pc
+2026-07-26T15:12:32.5235033Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hash_policy_traits.pc
+2026-07-26T15:12:32.5242396Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hashtable_control_bytes.pc
+2026-07-26T15:12:32.5249875Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hashtable_debug.pc
+2026-07-26T15:12:32.5257491Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hashtable_debug_hooks.pc
+2026-07-26T15:12:32.5528060Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hashtable_profiler.pc
+2026-07-26T15:12:32.5529277Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_hashtablez_sampler.pc
+2026-07-26T15:12:32.5530166Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_inlined_vector.pc
+2026-07-26T15:12:32.5531050Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_inlined_vector_internal.pc
+2026-07-26T15:12:32.5531876Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_int128.pc
+2026-07-26T15:12:32.5533079Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_iterator_traits_internal.pc
+2026-07-26T15:12:32.5534078Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_iterator_traits_test_helper_internal.pc
+2026-07-26T15:12:32.5535443Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_kernel_timeout_internal.pc
+2026-07-26T15:12:32.5536344Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_layout.pc
+2026-07-26T15:12:32.5537079Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_leak_check.pc
+2026-07-26T15:12:32.5537913Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_linked_hash_map.pc
+2026-07-26T15:12:32.5538798Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_linked_hash_set.pc
+2026-07-26T15:12:32.5539665Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log.pc
+2026-07-26T15:12:32.5540442Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_entry.pc
+2026-07-26T15:12:32.5541606Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_flags.pc
+2026-07-26T15:12:32.5542424Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_globals.pc
+2026-07-26T15:12:32.5543268Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_initialize.pc
+2026-07-26T15:12:32.5545112Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_append_truncated.pc
+2026-07-26T15:12:32.5546303Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_check_impl.pc
+2026-07-26T15:12:32.5547244Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_check_op.pc
+2026-07-26T15:12:32.5548138Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_conditions.pc
+2026-07-26T15:12:32.5549019Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_config.pc
+2026-07-26T15:12:32.5549848Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_container.pc
+2026-07-26T15:12:32.5550681Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_flags.pc
+2026-07-26T15:12:32.5551568Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_fnmatch.pc
+2026-07-26T15:12:32.5552420Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_format.pc
+2026-07-26T15:12:32.5553277Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_globals.pc
+2026-07-26T15:12:32.5554167Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_log_impl.pc
+2026-07-26T15:12:32.5555106Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_log_sink_set.pc
+2026-07-26T15:12:32.5555993Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_message.pc
+2026-07-26T15:12:32.5556869Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_nullguard.pc
+2026-07-26T15:12:32.5557746Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_nullstream.pc
+2026-07-26T15:12:32.5558627Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_proto.pc
+2026-07-26T15:12:32.5559543Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_strip.pc
+2026-07-26T15:12:32.5560458Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_structured.pc
+2026-07-26T15:12:32.5561846Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_structured_proto.pc
+2026-07-26T15:12:32.5563401Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_internal_voidify.pc
+2026-07-26T15:12:32.5572889Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_severity.pc
+2026-07-26T15:12:32.5580460Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_sink.pc
+2026-07-26T15:12:32.5588834Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_sink_registry.pc
+2026-07-26T15:12:32.5596463Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_streamer.pc
+2026-07-26T15:12:32.5604592Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_log_structured.pc
+2026-07-26T15:12:32.5612598Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_malloc_internal.pc
+2026-07-26T15:12:32.5620306Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_memory.pc
+2026-07-26T15:12:32.5627735Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_meta.pc
+2026-07-26T15:12:32.5635141Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_no_destructor.pc
+2026-07-26T15:12:32.5642339Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_node_hash_map.pc
+2026-07-26T15:12:32.5650113Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_node_hash_set.pc
+2026-07-26T15:12:32.5657582Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_node_slot_policy.pc
+2026-07-26T15:12:32.5665567Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_non_temporal_arm_intrinsics.pc
+2026-07-26T15:12:32.5672920Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_non_temporal_memcpy.pc
+2026-07-26T15:12:32.5680374Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_nullability.pc
+2026-07-26T15:12:32.5688176Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_nullability_traits_internal.pc
+2026-07-26T15:12:32.5695801Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_numeric.pc
+2026-07-26T15:12:32.5704670Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_numeric_representation.pc
+2026-07-26T15:12:32.5712088Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_optional.pc
+2026-07-26T15:12:32.5720145Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_overload.pc
+2026-07-26T15:12:32.5728029Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_periodic_sampler.pc
+2026-07-26T15:12:32.5735472Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_poison.pc
+2026-07-26T15:12:32.5743510Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_prefetch.pc
+2026-07-26T15:12:32.5751245Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_pretty_function.pc
+2026-07-26T15:12:32.5758714Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_profile_builder.pc
+2026-07-26T15:12:32.5766415Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_bit_gen_ref.pc
+2026-07-26T15:12:32.5774164Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_distributions.pc
+2026-07-26T15:12:32.5783188Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_distribution_caller.pc
+2026-07-26T15:12:32.5791456Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_distribution_test_util.pc
+2026-07-26T15:12:32.5800788Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_entropy_pool.pc
+2026-07-26T15:12:32.5810209Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_fast_uniform_bits.pc
+2026-07-26T15:12:32.5818300Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_fastmath.pc
+2026-07-26T15:12:32.5826783Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_generate_real.pc
+2026-07-26T15:12:32.5834930Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_iostream_state_saver.pc
+2026-07-26T15:12:32.5843603Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_mock_helpers.pc
+2026-07-26T15:12:32.5851753Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_nonsecure_base.pc
+2026-07-26T15:12:32.5860357Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_pcg_engine.pc
+2026-07-26T15:12:32.5868707Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_platform.pc
+2026-07-26T15:12:32.5876856Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_randen.pc
+2026-07-26T15:12:32.5885673Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_randen_engine.pc
+2026-07-26T15:12:32.5894064Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_randen_hwaes.pc
+2026-07-26T15:12:32.5902836Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_randen_hwaes_impl.pc
+2026-07-26T15:12:32.5911355Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_randen_slow.pc
+2026-07-26T15:12:32.5920017Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_salted_seed_seq.pc
+2026-07-26T15:12:32.5928448Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_seed_material.pc
+2026-07-26T15:12:32.5937096Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_traits.pc
+2026-07-26T15:12:32.5945703Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_uniform_helper.pc
+2026-07-26T15:12:32.5954132Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_internal_wide_multiply.pc
+2026-07-26T15:12:32.5962686Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_random.pc
+2026-07-26T15:12:32.5971044Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_seed_gen_exception.pc
+2026-07-26T15:12:32.5979230Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_random_seed_sequences.pc
+2026-07-26T15:12:32.5987926Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_raw_hash_map.pc
+2026-07-26T15:12:32.5995579Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_raw_hash_set.pc
+2026-07-26T15:12:32.6004878Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_raw_hash_set_resize_impl.pc
+2026-07-26T15:12:32.6012953Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_raw_logging_internal.pc
+2026-07-26T15:12:32.6021711Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_requires_internal.pc
+2026-07-26T15:12:32.6029472Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_sample_recorder.pc
+2026-07-26T15:12:32.6038715Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_scoped_set_env.pc
+2026-07-26T15:12:32.6046262Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_span.pc
+2026-07-26T15:12:32.6054398Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_spinlock_wait.pc
+2026-07-26T15:12:32.6062158Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_stacktrace.pc
+2026-07-26T15:12:32.6069896Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_status.pc
+2026-07-26T15:12:32.6080335Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_statusor.pc
+2026-07-26T15:12:32.6090919Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_str_format.pc
+2026-07-26T15:12:32.6098683Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_str_format_internal.pc
+2026-07-26T15:12:32.6107375Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_strerror.pc
+2026-07-26T15:12:32.6115457Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_string_view.pc
+2026-07-26T15:12:32.6123009Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_strings.pc
+2026-07-26T15:12:32.6131722Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_strings_append_and_overwrite.pc
+2026-07-26T15:12:32.6139736Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_strings_internal.pc
+2026-07-26T15:12:32.6148065Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_strings_resize_and_overwrite.pc
+2026-07-26T15:12:32.6155722Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_symbolize.pc
+2026-07-26T15:12:32.6164243Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_synchronization.pc
+2026-07-26T15:12:32.6172402Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_throw_delegate.pc
+2026-07-26T15:12:32.6180003Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_time.pc
+2026-07-26T15:12:32.6189292Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_time_zone.pc
+2026-07-26T15:12:32.6197621Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_tracing_internal.pc
+2026-07-26T15:12:32.6205393Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_type_traits.pc
+2026-07-26T15:12:32.6212696Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_utf8_for_code_point.pc
+2026-07-26T15:12:32.6220183Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_utility.pc
+2026-07-26T15:12:32.6227751Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_variant.pc
+2026-07-26T15:12:32.6235204Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_vlog_config_internal.pc
+2026-07-26T15:12:32.6243603Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_vlog_is_on.pc
+2026-07-26T15:12:32.6251396Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/lib/pkgconfig/absl_weakly_mixed_integer.pc
+2026-07-26T15:12:32.6339461Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:12:32.6399522Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:12:32.6404306Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:12:37.8456294Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_absl_check.pc
+2026-07-26T15:12:37.8465556Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_absl_log.pc
+2026-07-26T15:12:37.8473842Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_absl_vlog_is_on.pc
+2026-07-26T15:12:37.8482248Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_algorithm.pc
+2026-07-26T15:12:37.8490323Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_algorithm_container.pc
+2026-07-26T15:12:37.8497996Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_any.pc
+2026-07-26T15:12:37.8506093Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_any_invocable.pc
+2026-07-26T15:12:37.8513576Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_atomic_hook.pc
+2026-07-26T15:12:37.8521141Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_bad_any_cast.pc
+2026-07-26T15:12:37.8528120Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_bad_optional_access.pc
+2026-07-26T15:12:37.8535300Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_bad_variant_access.pc
+2026-07-26T15:12:37.8541984Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_base.pc
+2026-07-26T15:12:37.8551011Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_base_internal.pc
+2026-07-26T15:12:37.8558373Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_bind_front.pc
+2026-07-26T15:12:37.8565686Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_bits.pc
+2026-07-26T15:12:37.8573451Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_borrowed_fixup_buffer.pc
+2026-07-26T15:12:37.8581677Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_bounded_utf8_length_sequence.pc
+2026-07-26T15:12:37.8589655Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_btree.pc
+2026-07-26T15:12:37.8598235Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_charset.pc
+2026-07-26T15:12:37.8605680Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_check.pc
+2026-07-26T15:12:37.8614649Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_chunked_queue.pc
+2026-07-26T15:12:37.8622671Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_city.pc
+2026-07-26T15:12:37.8630835Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_civil_time.pc
+2026-07-26T15:12:37.8638590Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cleanup.pc
+2026-07-26T15:12:37.8646119Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cleanup_internal.pc
+2026-07-26T15:12:37.8654194Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_common_policy_traits.pc
+2026-07-26T15:12:37.8661430Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_compare.pc
+2026-07-26T15:12:37.8669542Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_compressed_tuple.pc
+2026-07-26T15:12:37.8677036Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_config.pc
+2026-07-26T15:12:37.8684258Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_constexpr_testing_internal.pc
+2026-07-26T15:12:37.8692073Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_container_common.pc
+2026-07-26T15:12:37.8699862Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_container_memory.pc
+2026-07-26T15:12:37.8708169Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cord.pc
+2026-07-26T15:12:37.8717263Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cord_internal.pc
+2026-07-26T15:12:37.8726072Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cordz_functions.pc
+2026-07-26T15:12:37.8734080Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cordz_handle.pc
+2026-07-26T15:12:37.8742250Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cordz_info.pc
+2026-07-26T15:12:37.8751187Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cordz_sample_token.pc
+2026-07-26T15:12:37.8758896Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cordz_statistics.pc
+2026-07-26T15:12:37.8766794Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cordz_update_scope.pc
+2026-07-26T15:12:37.8774722Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_cordz_update_tracker.pc
+2026-07-26T15:12:37.8782212Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_core_headers.pc
+2026-07-26T15:12:37.8790131Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_crc32c.pc
+2026-07-26T15:12:37.8798352Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_crc_cord_state.pc
+2026-07-26T15:12:37.8806958Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_crc_cpu_detect.pc
+2026-07-26T15:12:37.8814925Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_crc_internal.pc
+2026-07-26T15:12:37.8823085Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_debugging.pc
+2026-07-26T15:12:37.8831229Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_debugging_internal.pc
+2026-07-26T15:12:37.8839864Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_decode_rust_punycode.pc
+2026-07-26T15:12:37.8848216Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_demangle_internal.pc
+2026-07-26T15:12:37.8856213Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_demangle_rust.pc
+2026-07-26T15:12:37.8864171Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_die_if_null.pc
+2026-07-26T15:12:37.8872860Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_dynamic_annotations.pc
+2026-07-26T15:12:37.8880446Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_endian.pc
+2026-07-26T15:12:37.8888848Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_errno_saver.pc
+2026-07-26T15:12:37.8896257Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_examine_stack.pc
+2026-07-26T15:12:37.8905653Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_exponential_biased.pc
+2026-07-26T15:12:37.8915043Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_failure_signal_handler.pc
+2026-07-26T15:12:37.8923440Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_fast_type_id.pc
+2026-07-26T15:12:37.8932579Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_fixed_array.pc
+2026-07-26T15:12:37.8940156Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags.pc
+2026-07-26T15:12:37.8949562Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_commandlineflag.pc
+2026-07-26T15:12:37.8957913Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_commandlineflag_internal.pc
+2026-07-26T15:12:37.8966477Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_config.pc
+2026-07-26T15:12:37.8975217Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_internal.pc
+2026-07-26T15:12:37.8983910Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_marshalling.pc
+2026-07-26T15:12:37.8992702Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_parse.pc
+2026-07-26T15:12:37.9001856Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_path_util.pc
+2026-07-26T15:12:37.9010194Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_private_handle_accessor.pc
+2026-07-26T15:12:37.9018666Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_program_name.pc
+2026-07-26T15:12:37.9027368Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_reflection.pc
+2026-07-26T15:12:37.9036984Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_usage.pc
+2026-07-26T15:12:37.9045430Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flags_usage_internal.pc
+2026-07-26T15:12:37.9054852Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flat_hash_map.pc
+2026-07-26T15:12:37.9063462Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_flat_hash_set.pc
+2026-07-26T15:12:37.9072243Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_function_ref.pc
+2026-07-26T15:12:37.9080304Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_generic_printer_internal.pc
+2026-07-26T15:12:37.9088869Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_graphcycles_internal.pc
+2026-07-26T15:12:37.9097418Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_has_ostream_operator.pc
+2026-07-26T15:12:37.9105139Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hash.pc
+2026-07-26T15:12:37.9114317Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hash_container_defaults.pc
+2026-07-26T15:12:37.9122013Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hash_function_defaults.pc
+2026-07-26T15:12:37.9130247Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hash_policy_traits.pc
+2026-07-26T15:12:37.9138793Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hashtable_control_bytes.pc
+2026-07-26T15:12:37.9146696Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hashtable_debug.pc
+2026-07-26T15:12:37.9154924Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hashtable_debug_hooks.pc
+2026-07-26T15:12:37.9162620Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hashtable_profiler.pc
+2026-07-26T15:12:37.9170807Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_hashtablez_sampler.pc
+2026-07-26T15:12:37.9179173Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_inlined_vector.pc
+2026-07-26T15:12:37.9186984Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_inlined_vector_internal.pc
+2026-07-26T15:12:37.9194942Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_int128.pc
+2026-07-26T15:12:37.9203051Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_iterator_traits_internal.pc
+2026-07-26T15:12:37.9214571Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_iterator_traits_test_helper_internal.pc
+2026-07-26T15:12:37.9222918Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_kernel_timeout_internal.pc
+2026-07-26T15:12:37.9231633Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_layout.pc
+2026-07-26T15:12:37.9239800Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_leak_check.pc
+2026-07-26T15:12:37.9248002Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_linked_hash_map.pc
+2026-07-26T15:12:37.9256011Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_linked_hash_set.pc
+2026-07-26T15:12:37.9263800Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log.pc
+2026-07-26T15:12:37.9271832Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_entry.pc
+2026-07-26T15:12:37.9280020Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_flags.pc
+2026-07-26T15:12:37.9288688Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_globals.pc
+2026-07-26T15:12:37.9297542Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_initialize.pc
+2026-07-26T15:12:37.9305973Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_append_truncated.pc
+2026-07-26T15:12:37.9314303Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_check_impl.pc
+2026-07-26T15:12:37.9322462Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_check_op.pc
+2026-07-26T15:12:37.9330776Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_conditions.pc
+2026-07-26T15:12:37.9339506Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_config.pc
+2026-07-26T15:12:37.9347320Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_container.pc
+2026-07-26T15:12:37.9355525Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_flags.pc
+2026-07-26T15:12:37.9363124Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_fnmatch.pc
+2026-07-26T15:12:37.9371123Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_format.pc
+2026-07-26T15:12:37.9379995Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_globals.pc
+2026-07-26T15:12:37.9388367Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_log_impl.pc
+2026-07-26T15:12:37.9396752Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_log_sink_set.pc
+2026-07-26T15:12:37.9406301Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_message.pc
+2026-07-26T15:12:37.9414938Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_nullguard.pc
+2026-07-26T15:12:37.9422911Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_nullstream.pc
+2026-07-26T15:12:37.9431440Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_proto.pc
+2026-07-26T15:12:37.9439697Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_strip.pc
+2026-07-26T15:12:37.9447893Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_structured.pc
+2026-07-26T15:12:37.9456127Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_structured_proto.pc
+2026-07-26T15:12:37.9464478Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_internal_voidify.pc
+2026-07-26T15:12:37.9472151Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_severity.pc
+2026-07-26T15:12:37.9480200Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_sink.pc
+2026-07-26T15:12:37.9488225Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_sink_registry.pc
+2026-07-26T15:12:37.9496495Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_streamer.pc
+2026-07-26T15:12:37.9504266Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_log_structured.pc
+2026-07-26T15:12:37.9512102Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_malloc_internal.pc
+2026-07-26T15:12:37.9520327Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_memory.pc
+2026-07-26T15:12:37.9527980Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_meta.pc
+2026-07-26T15:12:37.9536041Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_no_destructor.pc
+2026-07-26T15:12:37.9543577Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_node_hash_map.pc
+2026-07-26T15:12:37.9551377Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_node_hash_set.pc
+2026-07-26T15:12:37.9559473Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_node_slot_policy.pc
+2026-07-26T15:12:37.9566888Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_non_temporal_arm_intrinsics.pc
+2026-07-26T15:12:37.9574788Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_non_temporal_memcpy.pc
+2026-07-26T15:12:37.9582394Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_nullability.pc
+2026-07-26T15:12:37.9590483Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_nullability_traits_internal.pc
+2026-07-26T15:12:37.9598295Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_numeric.pc
+2026-07-26T15:12:37.9605438Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_numeric_representation.pc
+2026-07-26T15:12:37.9612700Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_optional.pc
+2026-07-26T15:12:37.9620456Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_overload.pc
+2026-07-26T15:12:37.9628402Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_periodic_sampler.pc
+2026-07-26T15:12:37.9636713Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_poison.pc
+2026-07-26T15:12:37.9646234Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_prefetch.pc
+2026-07-26T15:12:37.9653894Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_pretty_function.pc
+2026-07-26T15:12:37.9660996Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_profile_builder.pc
+2026-07-26T15:12:37.9668840Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_bit_gen_ref.pc
+2026-07-26T15:12:37.9676509Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_distributions.pc
+2026-07-26T15:12:37.9685309Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_distribution_caller.pc
+2026-07-26T15:12:37.9693043Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_distribution_test_util.pc
+2026-07-26T15:12:37.9701596Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_entropy_pool.pc
+2026-07-26T15:12:37.9710061Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_fast_uniform_bits.pc
+2026-07-26T15:12:37.9717632Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_fastmath.pc
+2026-07-26T15:12:37.9725621Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_generate_real.pc
+2026-07-26T15:12:37.9733488Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_iostream_state_saver.pc
+2026-07-26T15:12:37.9740760Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_mock_helpers.pc
+2026-07-26T15:12:37.9748583Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_nonsecure_base.pc
+2026-07-26T15:12:37.9756305Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_pcg_engine.pc
+2026-07-26T15:12:37.9764240Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_platform.pc
+2026-07-26T15:12:37.9771999Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_randen.pc
+2026-07-26T15:12:37.9780324Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_randen_engine.pc
+2026-07-26T15:12:37.9788269Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_randen_hwaes.pc
+2026-07-26T15:12:37.9796578Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_randen_hwaes_impl.pc
+2026-07-26T15:12:37.9804895Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_randen_slow.pc
+2026-07-26T15:12:37.9812703Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_salted_seed_seq.pc
+2026-07-26T15:12:37.9820521Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_seed_material.pc
+2026-07-26T15:12:37.9828787Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_traits.pc
+2026-07-26T15:12:37.9836053Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_uniform_helper.pc
+2026-07-26T15:12:37.9843829Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_internal_wide_multiply.pc
+2026-07-26T15:12:37.9851792Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_random.pc
+2026-07-26T15:12:37.9861174Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_seed_gen_exception.pc
+2026-07-26T15:12:37.9869060Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_random_seed_sequences.pc
+2026-07-26T15:12:37.9878104Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_raw_hash_map.pc
+2026-07-26T15:12:37.9885814Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_raw_hash_set.pc
+2026-07-26T15:12:37.9894765Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_raw_hash_set_resize_impl.pc
+2026-07-26T15:12:37.9902227Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_raw_logging_internal.pc
+2026-07-26T15:12:37.9910557Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_requires_internal.pc
+2026-07-26T15:12:37.9917868Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_sample_recorder.pc
+2026-07-26T15:12:37.9925192Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_scoped_set_env.pc
+2026-07-26T15:12:37.9933105Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_span.pc
+2026-07-26T15:12:37.9940714Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_spinlock_wait.pc
+2026-07-26T15:12:37.9948670Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_stacktrace.pc
+2026-07-26T15:12:37.9956937Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_status.pc
+2026-07-26T15:12:37.9965236Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_statusor.pc
+2026-07-26T15:12:37.9973754Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_str_format.pc
+2026-07-26T15:12:37.9981799Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_str_format_internal.pc
+2026-07-26T15:12:37.9989863Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_strerror.pc
+2026-07-26T15:12:37.9998170Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_string_view.pc
+2026-07-26T15:12:38.0005622Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_strings.pc
+2026-07-26T15:12:38.0014712Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_strings_append_and_overwrite.pc
+2026-07-26T15:12:38.0021911Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_strings_internal.pc
+2026-07-26T15:12:38.0030035Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_strings_resize_and_overwrite.pc
+2026-07-26T15:12:38.0037504Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_symbolize.pc
+2026-07-26T15:12:38.0046010Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_synchronization.pc
+2026-07-26T15:12:38.0054965Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_throw_delegate.pc
+2026-07-26T15:12:38.0062242Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_time.pc
+2026-07-26T15:12:38.0070465Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_time_zone.pc
+2026-07-26T15:12:38.0077858Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_tracing_internal.pc
+2026-07-26T15:12:38.0085648Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_type_traits.pc
+2026-07-26T15:12:38.0093319Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_utf8_for_code_point.pc
+2026-07-26T15:12:38.0101187Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_utility.pc
+2026-07-26T15:12:38.0108626Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_variant.pc
+2026-07-26T15:12:38.0115872Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_vlog_config_internal.pc
+2026-07-26T15:12:38.0124563Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_vlog_is_on.pc
+2026-07-26T15:12:38.0132479Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows-static-md/debug/lib/pkgconfig/absl_weakly_mixed_integer.pc
+2026-07-26T15:12:42.5512735Z -- Installing: C:/vcpkg/packages/abseil_arm64-windows-static-md/share/abseil/copyright
+2026-07-26T15:12:42.5614840Z -- Performing post-build validation
+2026-07-26T15:12:43.2498862Z Starting submission of abseil:arm64-windows-static-md@20260107.1 to 1 binary cache(s) in the background
+2026-07-26T15:12:43.2499438Z Elapsed time to handle abseil:arm64-windows-static-md: 1.9 min
+2026-07-26T15:12:43.2500046Z Completed submission of openssl:arm64-windows-static-md@3.6.1#2 to 1 binary cache(s) in 6.4 s
+2026-07-26T15:12:43.2500532Z Installing 10/15 utf8-range:arm64-windows-static-md@6.33.4...
+2026-07-26T15:12:43.2501152Z utf8-range:arm64-windows-static-md@6.33.4 package ABI: 3d982cd4eaa569073d41ba7bc89c0c47526af5a560ef31ba3210254e2b1fbd40
+2026-07-26T15:12:43.2501693Z Building utf8-range:arm64-windows-static-md@6.33.4...
+2026-07-26T15:12:43.3184502Z Downloading https://github.com/protocolbuffers/protobuf/archive/v33.4.tar.gz -> protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:12:44.5447058Z Successfully downloaded protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:12:44.6286960Z -- Extracting source C:/vcpkg/downloads/protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:12:47.2265217Z -- Applying patch fix-cmake.patch
+2026-07-26T15:12:47.3101823Z -- Using source at C:/vcpkg/buildtrees/utf8-range/src/v33.4-7b17d08241.clean
+2026-07-26T15:12:47.4309333Z -- Configuring arm64-windows-static-md
+2026-07-26T15:12:51.3186897Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:12:51.6069612Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:12:51.9883502Z -- Fixing pkgconfig file: C:/vcpkg/packages/utf8-range_arm64-windows-static-md/lib/pkgconfig/utf8_range.pc
+2026-07-26T15:12:51.9985257Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:12:52.0044743Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:12:52.0048991Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:12:52.0314588Z -- Fixing pkgconfig file: C:/vcpkg/packages/utf8-range_arm64-windows-static-md/debug/lib/pkgconfig/utf8_range.pc
+2026-07-26T15:12:52.0547748Z -- Installing: C:/vcpkg/packages/utf8-range_arm64-windows-static-md/share/utf8-range/copyright
+2026-07-26T15:12:52.0641310Z -- Performing post-build validation
+2026-07-26T15:12:52.0820513Z Starting submission of utf8-range:arm64-windows-static-md@6.33.4 to 1 binary cache(s) in the background
+2026-07-26T15:12:52.0821473Z Elapsed time to handle utf8-range:arm64-windows-static-md: 8.8 s
+2026-07-26T15:12:52.0822066Z Completed submission of abseil:arm64-windows-static-md@20260107.1 to 1 binary cache(s) in 5.4 s
+2026-07-26T15:12:52.0822517Z Installing 11/15 abseil:arm64-windows@20260107.1...
+2026-07-26T15:12:52.0823004Z abseil:arm64-windows@20260107.1 package ABI: 52c8906ca83f7c1f9363cfb032c543a9f1cd56dd102808131eb8fed280f10edd
+2026-07-26T15:12:52.0823500Z Building abseil:arm64-windows@20260107.1...
+2026-07-26T15:12:52.1358778Z -- Using cached abseil-abseil-cpp-20260107.1.tar.gz
+2026-07-26T15:12:52.1431976Z -- Cleaning sources at C:/vcpkg/buildtrees/abseil/src/20260107.1-c0d61eb092.clean. Use --editable to skip cleaning for the packages you specify.
+2026-07-26T15:12:52.6295483Z -- Extracting source C:/vcpkg/downloads/abseil-abseil-cpp-20260107.1.tar.gz
+2026-07-26T15:12:54.1096555Z -- Applying patch 003-force-cxx-17.patch
+2026-07-26T15:12:54.1608428Z -- Applying patch fix-heterogeneous_lookup_testing-target.patch
+2026-07-26T15:12:54.2165013Z -- Using source at C:/vcpkg/buildtrees/abseil/src/20260107.1-c0d61eb092.clean
+2026-07-26T15:12:54.2646502Z -- Configuring arm64-windows-dbg
+2026-07-26T15:12:57.8169750Z -- Configuring arm64-windows-rel
+2026-07-26T15:13:01.1466699Z -- Building arm64-windows-dbg
+2026-07-26T15:13:45.2480376Z -- Building arm64-windows-rel
+2026-07-26T15:14:37.6152665Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/abseil_dll.pc
+2026-07-26T15:14:37.6161147Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_absl_check.pc
+2026-07-26T15:14:37.6168989Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_absl_log.pc
+2026-07-26T15:14:37.6175778Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_absl_vlog_is_on.pc
+2026-07-26T15:14:37.6182499Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_algorithm.pc
+2026-07-26T15:14:37.6189226Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_algorithm_container.pc
+2026-07-26T15:14:37.6195663Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_any.pc
+2026-07-26T15:14:37.6202337Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_any_invocable.pc
+2026-07-26T15:14:37.6208632Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_atomic_hook.pc
+2026-07-26T15:14:37.6214788Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_bad_any_cast.pc
+2026-07-26T15:14:37.6221208Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_bad_optional_access.pc
+2026-07-26T15:14:37.6227243Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_bad_variant_access.pc
+2026-07-26T15:14:37.6233215Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_base.pc
+2026-07-26T15:14:37.6240113Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_base_internal.pc
+2026-07-26T15:14:37.6246273Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_bind_front.pc
+2026-07-26T15:14:37.6252995Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_bits.pc
+2026-07-26T15:14:37.6259636Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_borrowed_fixup_buffer.pc
+2026-07-26T15:14:37.6266950Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_bounded_utf8_length_sequence.pc
+2026-07-26T15:14:37.6273503Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_btree.pc
+2026-07-26T15:14:37.6280612Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_charset.pc
+2026-07-26T15:14:37.6286928Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_check.pc
+2026-07-26T15:14:37.6293808Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_chunked_queue.pc
+2026-07-26T15:14:37.6301531Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_city.pc
+2026-07-26T15:14:37.6308233Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_civil_time.pc
+2026-07-26T15:14:37.6314847Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cleanup.pc
+2026-07-26T15:14:37.6321411Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cleanup_internal.pc
+2026-07-26T15:14:37.6328125Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_common_policy_traits.pc
+2026-07-26T15:14:37.6334692Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_compare.pc
+2026-07-26T15:14:37.6341150Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_compressed_tuple.pc
+2026-07-26T15:14:37.6348082Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_config.pc
+2026-07-26T15:14:37.6355008Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_constexpr_testing_internal.pc
+2026-07-26T15:14:37.6362343Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_container_common.pc
+2026-07-26T15:14:37.6368838Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_container_memory.pc
+2026-07-26T15:14:37.6375233Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cord.pc
+2026-07-26T15:14:37.6381950Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cord_internal.pc
+2026-07-26T15:14:37.6388447Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cordz_functions.pc
+2026-07-26T15:14:37.6395882Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cordz_handle.pc
+2026-07-26T15:14:37.6402812Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cordz_info.pc
+2026-07-26T15:14:37.6409287Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cordz_sample_token.pc
+2026-07-26T15:14:37.6415742Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cordz_statistics.pc
+2026-07-26T15:14:37.6422195Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cordz_update_scope.pc
+2026-07-26T15:14:37.6431203Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_cordz_update_tracker.pc
+2026-07-26T15:14:37.6438464Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_core_headers.pc
+2026-07-26T15:14:37.6446126Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_crc32c.pc
+2026-07-26T15:14:37.6452139Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_crc_cord_state.pc
+2026-07-26T15:14:37.6458765Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_crc_cpu_detect.pc
+2026-07-26T15:14:37.6465137Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_crc_internal.pc
+2026-07-26T15:14:37.6471661Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_debugging.pc
+2026-07-26T15:14:37.6477844Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_debugging_internal.pc
+2026-07-26T15:14:37.6484295Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_decode_rust_punycode.pc
+2026-07-26T15:14:37.6491266Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_demangle_internal.pc
+2026-07-26T15:14:37.6497692Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_demangle_rust.pc
+2026-07-26T15:14:37.6504959Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_die_if_null.pc
+2026-07-26T15:14:37.6511381Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_dynamic_annotations.pc
+2026-07-26T15:14:37.6518508Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_endian.pc
+2026-07-26T15:14:37.6524946Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_errno_saver.pc
+2026-07-26T15:14:37.6531778Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_examine_stack.pc
+2026-07-26T15:14:37.6538342Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_exponential_biased.pc
+2026-07-26T15:14:37.6544717Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_failure_signal_handler.pc
+2026-07-26T15:14:37.6551143Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_fast_type_id.pc
+2026-07-26T15:14:37.6558419Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_fixed_array.pc
+2026-07-26T15:14:37.6564892Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags.pc
+2026-07-26T15:14:37.6571792Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_commandlineflag.pc
+2026-07-26T15:14:37.6579420Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_commandlineflag_internal.pc
+2026-07-26T15:14:37.6588965Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_config.pc
+2026-07-26T15:14:37.6596276Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_internal.pc
+2026-07-26T15:14:37.6604145Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_marshalling.pc
+2026-07-26T15:14:37.6611602Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_parse.pc
+2026-07-26T15:14:37.6619175Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_path_util.pc
+2026-07-26T15:14:37.6626282Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_private_handle_accessor.pc
+2026-07-26T15:14:37.6633668Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_program_name.pc
+2026-07-26T15:14:37.6640826Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_reflection.pc
+2026-07-26T15:14:37.6648537Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_usage.pc
+2026-07-26T15:14:37.6655862Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flags_usage_internal.pc
+2026-07-26T15:14:37.6663311Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flat_hash_map.pc
+2026-07-26T15:14:37.6671841Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_flat_hash_set.pc
+2026-07-26T15:14:37.6678009Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_function_ref.pc
+2026-07-26T15:14:37.6684937Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_generic_printer_internal.pc
+2026-07-26T15:14:37.6692581Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_graphcycles_internal.pc
+2026-07-26T15:14:37.6699334Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_has_ostream_operator.pc
+2026-07-26T15:14:37.6706425Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hash.pc
+2026-07-26T15:14:37.6713198Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hash_container_defaults.pc
+2026-07-26T15:14:37.6720656Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hash_function_defaults.pc
+2026-07-26T15:14:37.6727346Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hash_policy_traits.pc
+2026-07-26T15:14:37.6733902Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hashtable_control_bytes.pc
+2026-07-26T15:14:37.6741007Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hashtable_debug.pc
+2026-07-26T15:14:37.6747821Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hashtable_debug_hooks.pc
+2026-07-26T15:14:37.6754363Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hashtable_profiler.pc
+2026-07-26T15:14:37.6761711Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_hashtablez_sampler.pc
+2026-07-26T15:14:37.6768659Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_inlined_vector.pc
+2026-07-26T15:14:37.6775923Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_inlined_vector_internal.pc
+2026-07-26T15:14:37.6782612Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_int128.pc
+2026-07-26T15:14:37.6789039Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_iterator_traits_internal.pc
+2026-07-26T15:14:37.6795829Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_iterator_traits_test_helper_internal.pc
+2026-07-26T15:14:37.6802805Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_kernel_timeout_internal.pc
+2026-07-26T15:14:37.6808974Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_layout.pc
+2026-07-26T15:14:37.6815518Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_leak_check.pc
+2026-07-26T15:14:37.6821926Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_linked_hash_map.pc
+2026-07-26T15:14:37.6829426Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_linked_hash_set.pc
+2026-07-26T15:14:37.6836653Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log.pc
+2026-07-26T15:14:37.6843739Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_entry.pc
+2026-07-26T15:14:37.6850492Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_flags.pc
+2026-07-26T15:14:37.6858348Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_globals.pc
+2026-07-26T15:14:37.6865501Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_initialize.pc
+2026-07-26T15:14:37.6872367Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_append_truncated.pc
+2026-07-26T15:14:37.6879172Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_check_impl.pc
+2026-07-26T15:14:37.6886402Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_check_op.pc
+2026-07-26T15:14:37.6893294Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_conditions.pc
+2026-07-26T15:14:37.6900239Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_config.pc
+2026-07-26T15:14:37.6907341Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_container.pc
+2026-07-26T15:14:37.6914257Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_flags.pc
+2026-07-26T15:14:37.6921021Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_fnmatch.pc
+2026-07-26T15:14:37.6928291Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_format.pc
+2026-07-26T15:14:37.6935536Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_globals.pc
+2026-07-26T15:14:37.6942400Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_log_impl.pc
+2026-07-26T15:14:37.6949237Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_log_sink_set.pc
+2026-07-26T15:14:37.6956804Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_message.pc
+2026-07-26T15:14:37.6963641Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_nullguard.pc
+2026-07-26T15:14:37.6970524Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_nullstream.pc
+2026-07-26T15:14:37.6977280Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_proto.pc
+2026-07-26T15:14:37.6984477Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_strip.pc
+2026-07-26T15:14:37.6991396Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_structured.pc
+2026-07-26T15:14:37.6998124Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_structured_proto.pc
+2026-07-26T15:14:37.7005698Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_internal_voidify.pc
+2026-07-26T15:14:37.7012470Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_severity.pc
+2026-07-26T15:14:37.7019306Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_sink.pc
+2026-07-26T15:14:37.7026535Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_sink_registry.pc
+2026-07-26T15:14:37.7033177Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_streamer.pc
+2026-07-26T15:14:37.7039945Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_log_structured.pc
+2026-07-26T15:14:37.7047102Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_malloc_internal.pc
+2026-07-26T15:14:37.7053444Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_memory.pc
+2026-07-26T15:14:37.7060092Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_meta.pc
+2026-07-26T15:14:37.7066830Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_no_destructor.pc
+2026-07-26T15:14:37.7073140Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_node_hash_map.pc
+2026-07-26T15:14:37.7079563Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_node_hash_set.pc
+2026-07-26T15:14:37.7085929Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_node_slot_policy.pc
+2026-07-26T15:14:37.7092455Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_non_temporal_arm_intrinsics.pc
+2026-07-26T15:14:37.7099101Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_non_temporal_memcpy.pc
+2026-07-26T15:14:37.7105871Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_nullability.pc
+2026-07-26T15:14:37.7112266Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_nullability_traits_internal.pc
+2026-07-26T15:14:37.7118817Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_numeric.pc
+2026-07-26T15:14:37.7125096Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_numeric_representation.pc
+2026-07-26T15:14:37.7131366Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_optional.pc
+2026-07-26T15:14:37.7137768Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_overload.pc
+2026-07-26T15:14:37.7143875Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_periodic_sampler.pc
+2026-07-26T15:14:37.7150319Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_poison.pc
+2026-07-26T15:14:37.7157633Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_prefetch.pc
+2026-07-26T15:14:37.7164383Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_pretty_function.pc
+2026-07-26T15:14:37.7171174Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_profile_builder.pc
+2026-07-26T15:14:37.7177945Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_bit_gen_ref.pc
+2026-07-26T15:14:37.7185106Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_distributions.pc
+2026-07-26T15:14:37.7192077Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_distribution_caller.pc
+2026-07-26T15:14:37.7198883Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_distribution_test_util.pc
+2026-07-26T15:14:37.7207248Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_entropy_pool.pc
+2026-07-26T15:14:37.7214721Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_fast_uniform_bits.pc
+2026-07-26T15:14:37.7222334Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_fastmath.pc
+2026-07-26T15:14:37.7229241Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_generate_real.pc
+2026-07-26T15:14:37.7235898Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_iostream_state_saver.pc
+2026-07-26T15:14:37.7242801Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_mock_helpers.pc
+2026-07-26T15:14:37.7249985Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_nonsecure_base.pc
+2026-07-26T15:14:37.7256587Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_pcg_engine.pc
+2026-07-26T15:14:37.7263538Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_platform.pc
+2026-07-26T15:14:37.7270623Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_randen.pc
+2026-07-26T15:14:37.7277660Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_randen_engine.pc
+2026-07-26T15:14:37.7284228Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_randen_hwaes.pc
+2026-07-26T15:14:37.7291089Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_randen_hwaes_impl.pc
+2026-07-26T15:14:37.7297918Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_randen_slow.pc
+2026-07-26T15:14:37.7304723Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_salted_seed_seq.pc
+2026-07-26T15:14:37.7311475Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_seed_material.pc
+2026-07-26T15:14:37.7318516Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_traits.pc
+2026-07-26T15:14:37.7325323Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_uniform_helper.pc
+2026-07-26T15:14:37.7332084Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_internal_wide_multiply.pc
+2026-07-26T15:14:37.7339192Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_random.pc
+2026-07-26T15:14:37.7345545Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_seed_gen_exception.pc
+2026-07-26T15:14:37.7352225Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_random_seed_sequences.pc
+2026-07-26T15:14:37.7358985Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_raw_hash_map.pc
+2026-07-26T15:14:37.7365897Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_raw_hash_set.pc
+2026-07-26T15:14:37.7372441Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_raw_hash_set_resize_impl.pc
+2026-07-26T15:14:37.7379269Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_raw_logging_internal.pc
+2026-07-26T15:14:37.7385718Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_requires_internal.pc
+2026-07-26T15:14:37.7391912Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_sample_recorder.pc
+2026-07-26T15:14:37.7398500Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_scoped_set_env.pc
+2026-07-26T15:14:37.7404628Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_span.pc
+2026-07-26T15:14:37.7411076Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_spinlock_wait.pc
+2026-07-26T15:14:37.7417394Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_stacktrace.pc
+2026-07-26T15:14:37.7424181Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_status.pc
+2026-07-26T15:14:37.7430279Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_statusor.pc
+2026-07-26T15:14:37.7436528Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_str_format.pc
+2026-07-26T15:14:37.7443235Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_str_format_internal.pc
+2026-07-26T15:14:37.7449439Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_strerror.pc
+2026-07-26T15:14:37.7456145Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_string_view.pc
+2026-07-26T15:14:37.7463472Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_strings.pc
+2026-07-26T15:14:37.7469839Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_strings_append_and_overwrite.pc
+2026-07-26T15:14:37.7477032Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_strings_internal.pc
+2026-07-26T15:14:37.7484096Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_strings_resize_and_overwrite.pc
+2026-07-26T15:14:37.7490883Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_symbolize.pc
+2026-07-26T15:14:37.7498148Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_synchronization.pc
+2026-07-26T15:14:37.7504585Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_throw_delegate.pc
+2026-07-26T15:14:37.7511079Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_time.pc
+2026-07-26T15:14:37.7517819Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_time_zone.pc
+2026-07-26T15:14:37.7524103Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_tracing_internal.pc
+2026-07-26T15:14:37.7531115Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_type_traits.pc
+2026-07-26T15:14:37.7537863Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_utf8_for_code_point.pc
+2026-07-26T15:14:37.7547085Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_utility.pc
+2026-07-26T15:14:37.7554433Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_variant.pc
+2026-07-26T15:14:37.7561520Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_vlog_config_internal.pc
+2026-07-26T15:14:37.7568401Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_vlog_is_on.pc
+2026-07-26T15:14:37.7575429Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/lib/pkgconfig/absl_weakly_mixed_integer.pc
+2026-07-26T15:14:37.7661376Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:14:37.7722454Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:14:37.7727125Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:14:40.9276954Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/abseil_dll.pc
+2026-07-26T15:14:40.9284919Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_absl_check.pc
+2026-07-26T15:14:40.9292293Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_absl_log.pc
+2026-07-26T15:14:40.9299190Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_absl_vlog_is_on.pc
+2026-07-26T15:14:40.9305982Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_algorithm.pc
+2026-07-26T15:14:40.9313761Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_algorithm_container.pc
+2026-07-26T15:14:40.9320226Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_any.pc
+2026-07-26T15:14:40.9327458Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_any_invocable.pc
+2026-07-26T15:14:40.9333962Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_atomic_hook.pc
+2026-07-26T15:14:40.9340439Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_bad_any_cast.pc
+2026-07-26T15:14:40.9346882Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_bad_optional_access.pc
+2026-07-26T15:14:40.9353990Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_bad_variant_access.pc
+2026-07-26T15:14:40.9360360Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_base.pc
+2026-07-26T15:14:40.9367045Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_base_internal.pc
+2026-07-26T15:14:40.9373730Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_bind_front.pc
+2026-07-26T15:14:40.9380137Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_bits.pc
+2026-07-26T15:14:40.9386670Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_borrowed_fixup_buffer.pc
+2026-07-26T15:14:40.9394691Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_bounded_utf8_length_sequence.pc
+2026-07-26T15:14:40.9401754Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_btree.pc
+2026-07-26T15:14:40.9408541Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_charset.pc
+2026-07-26T15:14:40.9415608Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_check.pc
+2026-07-26T15:14:40.9422575Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_chunked_queue.pc
+2026-07-26T15:14:40.9429895Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_city.pc
+2026-07-26T15:14:40.9436871Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_civil_time.pc
+2026-07-26T15:14:40.9443435Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cleanup.pc
+2026-07-26T15:14:40.9450826Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cleanup_internal.pc
+2026-07-26T15:14:40.9457795Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_common_policy_traits.pc
+2026-07-26T15:14:40.9464690Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_compare.pc
+2026-07-26T15:14:40.9484963Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_compressed_tuple.pc
+2026-07-26T15:14:40.9493213Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_config.pc
+2026-07-26T15:14:40.9499394Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_constexpr_testing_internal.pc
+2026-07-26T15:14:40.9506680Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_container_common.pc
+2026-07-26T15:14:40.9513218Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_container_memory.pc
+2026-07-26T15:14:40.9519811Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cord.pc
+2026-07-26T15:14:40.9526655Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cord_internal.pc
+2026-07-26T15:14:40.9533208Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cordz_functions.pc
+2026-07-26T15:14:40.9539592Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cordz_handle.pc
+2026-07-26T15:14:40.9546689Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cordz_info.pc
+2026-07-26T15:14:40.9553330Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cordz_sample_token.pc
+2026-07-26T15:14:40.9559744Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cordz_statistics.pc
+2026-07-26T15:14:40.9566931Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cordz_update_scope.pc
+2026-07-26T15:14:40.9573691Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_cordz_update_tracker.pc
+2026-07-26T15:14:40.9580411Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_core_headers.pc
+2026-07-26T15:14:40.9587242Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_crc32c.pc
+2026-07-26T15:14:40.9593557Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_crc_cord_state.pc
+2026-07-26T15:14:40.9600140Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_crc_cpu_detect.pc
+2026-07-26T15:14:40.9607048Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_crc_internal.pc
+2026-07-26T15:14:40.9613488Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_debugging.pc
+2026-07-26T15:14:40.9619950Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_debugging_internal.pc
+2026-07-26T15:14:40.9626949Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_decode_rust_punycode.pc
+2026-07-26T15:14:40.9634518Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_demangle_internal.pc
+2026-07-26T15:14:40.9641078Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_demangle_rust.pc
+2026-07-26T15:14:40.9648797Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_die_if_null.pc
+2026-07-26T15:14:40.9656044Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_dynamic_annotations.pc
+2026-07-26T15:14:40.9662449Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_endian.pc
+2026-07-26T15:14:40.9668868Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_errno_saver.pc
+2026-07-26T15:14:40.9675475Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_examine_stack.pc
+2026-07-26T15:14:40.9682292Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_exponential_biased.pc
+2026-07-26T15:14:40.9688784Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_failure_signal_handler.pc
+2026-07-26T15:14:40.9695530Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_fast_type_id.pc
+2026-07-26T15:14:40.9702795Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_fixed_array.pc
+2026-07-26T15:14:40.9709961Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags.pc
+2026-07-26T15:14:40.9717567Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_commandlineflag.pc
+2026-07-26T15:14:40.9726032Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_commandlineflag_internal.pc
+2026-07-26T15:14:40.9733910Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_config.pc
+2026-07-26T15:14:40.9741955Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_internal.pc
+2026-07-26T15:14:40.9750169Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_marshalling.pc
+2026-07-26T15:14:40.9757737Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_parse.pc
+2026-07-26T15:14:40.9766536Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_path_util.pc
+2026-07-26T15:14:40.9773673Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_private_handle_accessor.pc
+2026-07-26T15:14:40.9781290Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_program_name.pc
+2026-07-26T15:14:40.9790970Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_reflection.pc
+2026-07-26T15:14:40.9798948Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_usage.pc
+2026-07-26T15:14:40.9806936Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flags_usage_internal.pc
+2026-07-26T15:14:40.9815017Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flat_hash_map.pc
+2026-07-26T15:14:40.9822117Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_flat_hash_set.pc
+2026-07-26T15:14:40.9828859Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_function_ref.pc
+2026-07-26T15:14:40.9835637Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_generic_printer_internal.pc
+2026-07-26T15:14:40.9843420Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_graphcycles_internal.pc
+2026-07-26T15:14:40.9850505Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_has_ostream_operator.pc
+2026-07-26T15:14:40.9857678Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hash.pc
+2026-07-26T15:14:40.9864533Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hash_container_defaults.pc
+2026-07-26T15:14:40.9872062Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hash_function_defaults.pc
+2026-07-26T15:14:40.9878743Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hash_policy_traits.pc
+2026-07-26T15:14:40.9886236Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hashtable_control_bytes.pc
+2026-07-26T15:14:40.9893127Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hashtable_debug.pc
+2026-07-26T15:14:40.9900499Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hashtable_debug_hooks.pc
+2026-07-26T15:14:40.9907536Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hashtable_profiler.pc
+2026-07-26T15:14:40.9914836Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_hashtablez_sampler.pc
+2026-07-26T15:14:40.9921779Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_inlined_vector.pc
+2026-07-26T15:14:40.9928742Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_inlined_vector_internal.pc
+2026-07-26T15:14:40.9936041Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_int128.pc
+2026-07-26T15:14:40.9943295Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_iterator_traits_internal.pc
+2026-07-26T15:14:40.9950442Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_iterator_traits_test_helper_internal.pc
+2026-07-26T15:14:40.9957338Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_kernel_timeout_internal.pc
+2026-07-26T15:14:40.9964650Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_layout.pc
+2026-07-26T15:14:40.9971545Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_leak_check.pc
+2026-07-26T15:14:40.9978222Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_linked_hash_map.pc
+2026-07-26T15:14:40.9986078Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_linked_hash_set.pc
+2026-07-26T15:14:40.9993292Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log.pc
+2026-07-26T15:14:41.0000022Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_entry.pc
+2026-07-26T15:14:41.0007294Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_flags.pc
+2026-07-26T15:14:41.0015184Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_globals.pc
+2026-07-26T15:14:41.0022455Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_initialize.pc
+2026-07-26T15:14:41.0029560Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_append_truncated.pc
+2026-07-26T15:14:41.0036939Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_check_impl.pc
+2026-07-26T15:14:41.0044335Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_check_op.pc
+2026-07-26T15:14:41.0051440Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_conditions.pc
+2026-07-26T15:14:41.0058753Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_config.pc
+2026-07-26T15:14:41.0066323Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_container.pc
+2026-07-26T15:14:41.0074170Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_flags.pc
+2026-07-26T15:14:41.0081934Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_fnmatch.pc
+2026-07-26T15:14:41.0089233Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_format.pc
+2026-07-26T15:14:41.0096575Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_globals.pc
+2026-07-26T15:14:41.0104481Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_log_impl.pc
+2026-07-26T15:14:41.0112876Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_log_sink_set.pc
+2026-07-26T15:14:41.0119925Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_message.pc
+2026-07-26T15:14:41.0127473Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_nullguard.pc
+2026-07-26T15:14:41.0134815Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_nullstream.pc
+2026-07-26T15:14:41.0142001Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_proto.pc
+2026-07-26T15:14:41.0149472Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_strip.pc
+2026-07-26T15:14:41.0157474Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_structured.pc
+2026-07-26T15:14:41.0165001Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_structured_proto.pc
+2026-07-26T15:14:41.0172612Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_internal_voidify.pc
+2026-07-26T15:14:41.0179879Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_severity.pc
+2026-07-26T15:14:41.0187846Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_sink.pc
+2026-07-26T15:14:41.0194972Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_sink_registry.pc
+2026-07-26T15:14:41.0202183Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_streamer.pc
+2026-07-26T15:14:41.0209916Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_log_structured.pc
+2026-07-26T15:14:41.0217356Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_malloc_internal.pc
+2026-07-26T15:14:41.0224578Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_memory.pc
+2026-07-26T15:14:41.0231497Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_meta.pc
+2026-07-26T15:14:41.0238720Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_no_destructor.pc
+2026-07-26T15:14:41.0246769Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_node_hash_map.pc
+2026-07-26T15:14:41.0253792Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_node_hash_set.pc
+2026-07-26T15:14:41.0262270Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_node_slot_policy.pc
+2026-07-26T15:14:41.0270228Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_non_temporal_arm_intrinsics.pc
+2026-07-26T15:14:41.0277056Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_non_temporal_memcpy.pc
+2026-07-26T15:14:41.0284784Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_nullability.pc
+2026-07-26T15:14:41.0291132Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_nullability_traits_internal.pc
+2026-07-26T15:14:41.0298865Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_numeric.pc
+2026-07-26T15:14:41.0304970Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_numeric_representation.pc
+2026-07-26T15:14:41.0313178Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_optional.pc
+2026-07-26T15:14:41.0319772Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_overload.pc
+2026-07-26T15:14:41.0326972Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_periodic_sampler.pc
+2026-07-26T15:14:41.0334115Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_poison.pc
+2026-07-26T15:14:41.0341981Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_prefetch.pc
+2026-07-26T15:14:41.0349729Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_pretty_function.pc
+2026-07-26T15:14:41.0356946Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_profile_builder.pc
+2026-07-26T15:14:41.0364933Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_bit_gen_ref.pc
+2026-07-26T15:14:41.0372444Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_distributions.pc
+2026-07-26T15:14:41.0379922Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_distribution_caller.pc
+2026-07-26T15:14:41.0387767Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_distribution_test_util.pc
+2026-07-26T15:14:41.0395151Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_entropy_pool.pc
+2026-07-26T15:14:41.0403254Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_fast_uniform_bits.pc
+2026-07-26T15:14:41.0410980Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_fastmath.pc
+2026-07-26T15:14:41.0420090Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_generate_real.pc
+2026-07-26T15:14:41.0427399Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_iostream_state_saver.pc
+2026-07-26T15:14:41.0434706Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_mock_helpers.pc
+2026-07-26T15:14:41.0442585Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_nonsecure_base.pc
+2026-07-26T15:14:41.0449695Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_pcg_engine.pc
+2026-07-26T15:14:41.0457196Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_platform.pc
+2026-07-26T15:14:41.0464276Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_randen.pc
+2026-07-26T15:14:41.0471681Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_randen_engine.pc
+2026-07-26T15:14:41.0478921Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_randen_hwaes.pc
+2026-07-26T15:14:41.0486168Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_randen_hwaes_impl.pc
+2026-07-26T15:14:41.0494090Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_randen_slow.pc
+2026-07-26T15:14:41.0501655Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_salted_seed_seq.pc
+2026-07-26T15:14:41.0509501Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_seed_material.pc
+2026-07-26T15:14:41.0516920Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_traits.pc
+2026-07-26T15:14:41.0524097Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_uniform_helper.pc
+2026-07-26T15:14:41.0531386Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_internal_wide_multiply.pc
+2026-07-26T15:14:41.0538909Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_random.pc
+2026-07-26T15:14:41.0545987Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_seed_gen_exception.pc
+2026-07-26T15:14:41.0553357Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_random_seed_sequences.pc
+2026-07-26T15:14:41.0560959Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_raw_hash_map.pc
+2026-07-26T15:14:41.0567781Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_raw_hash_set.pc
+2026-07-26T15:14:41.0576974Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_raw_hash_set_resize_impl.pc
+2026-07-26T15:14:41.0584241Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_raw_logging_internal.pc
+2026-07-26T15:14:41.0592200Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_requires_internal.pc
+2026-07-26T15:14:41.0600229Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_sample_recorder.pc
+2026-07-26T15:14:41.0607459Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_scoped_set_env.pc
+2026-07-26T15:14:41.0613360Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_span.pc
+2026-07-26T15:14:41.0620424Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_spinlock_wait.pc
+2026-07-26T15:14:41.0626610Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_stacktrace.pc
+2026-07-26T15:14:41.0633433Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_status.pc
+2026-07-26T15:14:41.0640324Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_statusor.pc
+2026-07-26T15:14:41.0646953Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_str_format.pc
+2026-07-26T15:14:41.0653417Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_str_format_internal.pc
+2026-07-26T15:14:41.0660314Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_strerror.pc
+2026-07-26T15:14:41.0667627Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_string_view.pc
+2026-07-26T15:14:41.0674325Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_strings.pc
+2026-07-26T15:14:41.0681301Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_strings_append_and_overwrite.pc
+2026-07-26T15:14:41.0688195Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_strings_internal.pc
+2026-07-26T15:14:41.0694986Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_strings_resize_and_overwrite.pc
+2026-07-26T15:14:41.0702237Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_symbolize.pc
+2026-07-26T15:14:41.0709089Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_synchronization.pc
+2026-07-26T15:14:41.0716121Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_throw_delegate.pc
+2026-07-26T15:14:41.0722825Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_time.pc
+2026-07-26T15:14:41.0729175Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_time_zone.pc
+2026-07-26T15:14:41.0737768Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_tracing_internal.pc
+2026-07-26T15:14:41.0746096Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_type_traits.pc
+2026-07-26T15:14:41.0752843Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_utf8_for_code_point.pc
+2026-07-26T15:14:41.0760823Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_utility.pc
+2026-07-26T15:14:41.0767027Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_variant.pc
+2026-07-26T15:14:41.0773736Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_vlog_config_internal.pc
+2026-07-26T15:14:41.0780980Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_vlog_is_on.pc
+2026-07-26T15:14:41.0787915Z -- Fixing pkgconfig file: C:/vcpkg/packages/abseil_arm64-windows/debug/lib/pkgconfig/absl_weakly_mixed_integer.pc
+2026-07-26T15:14:43.6835611Z -- Installing: C:/vcpkg/packages/abseil_arm64-windows/share/abseil/copyright
+2026-07-26T15:14:43.6934619Z -- Performing post-build validation
+2026-07-26T15:14:44.4256997Z Starting submission of abseil:arm64-windows@20260107.1 to 1 binary cache(s) in the background
+2026-07-26T15:14:44.4257576Z Elapsed time to handle abseil:arm64-windows: 1.9 min
+2026-07-26T15:14:44.4258092Z Completed submission of utf8-range:arm64-windows-static-md@6.33.4 to 1 binary cache(s) in 296 ms
+2026-07-26T15:14:44.4258615Z Installing 12/15 utf8-range:arm64-windows@6.33.4...
+2026-07-26T15:14:44.4259202Z utf8-range:arm64-windows@6.33.4 package ABI: ff17c03f47b00f7a08a71b3fad773d3ebe6c398ab9c5f1863dd16c9962e311f9
+2026-07-26T15:14:44.4259745Z Building utf8-range:arm64-windows@6.33.4...
+2026-07-26T15:14:44.4743498Z -- Note: utf8-range only supports static library linkage. Building static library.
+2026-07-26T15:14:44.4948838Z -- Using cached protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:14:44.5148534Z -- Cleaning sources at C:/vcpkg/buildtrees/utf8-range/src/v33.4-7b17d08241.clean. Use --editable to skip cleaning for the packages you specify.
+2026-07-26T15:14:45.5224141Z -- Extracting source C:/vcpkg/downloads/protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:14:47.9167172Z -- Applying patch fix-cmake.patch
+2026-07-26T15:14:47.9737566Z -- Using source at C:/vcpkg/buildtrees/utf8-range/src/v33.4-7b17d08241.clean
+2026-07-26T15:14:48.0233959Z -- Configuring arm64-windows
+2026-07-26T15:14:51.5040202Z -- Building arm64-windows-dbg
+2026-07-26T15:14:51.7984582Z -- Building arm64-windows-rel
+2026-07-26T15:14:52.1352488Z -- Fixing pkgconfig file: C:/vcpkg/packages/utf8-range_arm64-windows/lib/pkgconfig/utf8_range.pc
+2026-07-26T15:14:52.1471075Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:14:52.1530127Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:14:52.1534966Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:14:52.1695465Z -- Fixing pkgconfig file: C:/vcpkg/packages/utf8-range_arm64-windows/debug/lib/pkgconfig/utf8_range.pc
+2026-07-26T15:14:52.1835880Z -- Installing: C:/vcpkg/packages/utf8-range_arm64-windows/share/utf8-range/copyright
+2026-07-26T15:14:52.1934153Z -- Performing post-build validation
+2026-07-26T15:14:52.3975603Z Starting submission of utf8-range:arm64-windows@6.33.4 to 1 binary cache(s) in the background
+2026-07-26T15:14:52.3976185Z Elapsed time to handle utf8-range:arm64-windows: 8 s
+2026-07-26T15:14:52.3977029Z Completed submission of abseil:arm64-windows@20260107.1 to 1 binary cache(s) in 3.2 s
+2026-07-26T15:14:52.3977540Z Installing 13/15 protobuf:arm64-windows@6.33.4#1...
+2026-07-26T15:14:52.3978082Z protobuf:arm64-windows@6.33.4#1 package ABI: 2a7cda76bec9bd3b0b26e8804b7f9ede48523f5ebe9ed4e230646ca4055a1139
+2026-07-26T15:14:52.3978629Z Building protobuf:arm64-windows@6.33.4#1...
+2026-07-26T15:14:52.4747826Z -- Using cached protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:14:52.4952871Z -- Extracting source C:/vcpkg/downloads/protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:14:54.4008401Z -- Applying patch fix-static-build.patch
+2026-07-26T15:14:54.4511633Z -- Applying patch fix-default-proto-file-path.patch
+2026-07-26T15:14:54.5020951Z -- Applying patch fix-utf8-range.patch
+2026-07-26T15:14:54.5552488Z -- Applying patch fix-install-dirs.patch
+2026-07-26T15:14:54.6060815Z -- Applying patch fix-constinit-with-clang-cl.patch
+2026-07-26T15:14:54.6572417Z -- Applying patch fix-upb.patch
+2026-07-26T15:14:54.7159620Z -- Using source at C:/vcpkg/buildtrees/protobuf/src/v33.4-f8b43d71cd.clean
+2026-07-26T15:14:55.4054950Z -- Configuring arm64-windows
+2026-07-26T15:15:00.2030422Z -- Building arm64-windows-dbg
+2026-07-26T15:19:55.3492845Z -- Building arm64-windows-rel
+2026-07-26T15:27:25.2696295Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows/lib/pkgconfig/protobuf-lite.pc
+2026-07-26T15:27:25.2705982Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows/lib/pkgconfig/protobuf.pc
+2026-07-26T15:27:25.2706794Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows/lib/pkgconfig/upb.pc
+2026-07-26T15:27:25.2803647Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:27:25.2863772Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:27:25.2869436Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:27:25.3355958Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows/debug/lib/pkgconfig/protobuf-lite.pc
+2026-07-26T15:27:25.3364653Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows/debug/lib/pkgconfig/protobuf.pc
+2026-07-26T15:27:25.3371128Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows/debug/lib/pkgconfig/upb.pc
+2026-07-26T15:27:25.4376581Z -- Installing: C:/vcpkg/packages/protobuf_arm64-windows/share/protobuf/copyright
+2026-07-26T15:27:25.4485251Z -- Performing post-build validation
+2026-07-26T15:27:26.3838733Z Starting submission of protobuf:arm64-windows@6.33.4#1 to 1 binary cache(s) in the background
+2026-07-26T15:27:26.3840395Z Elapsed time to handle protobuf:arm64-windows: 13 min
+2026-07-26T15:27:26.3841391Z Completed submission of utf8-range:arm64-windows@6.33.4 to 1 binary cache(s) in 282 ms
+2026-07-26T15:27:26.3841927Z Installing 14/15 protobuf:arm64-windows-static-md@6.33.4#1...
+2026-07-26T15:27:26.3842561Z protobuf:arm64-windows-static-md@6.33.4#1 package ABI: fefcc029cdd5ce60649ba83e67dc5d9b35c352d299e23d06dd449d9612df6aad
+2026-07-26T15:27:26.3843190Z Building protobuf:arm64-windows-static-md@6.33.4#1...
+2026-07-26T15:27:26.4566667Z -- Using cached protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:27:26.4779889Z -- Cleaning sources at C:/vcpkg/buildtrees/protobuf/src/v33.4-f8b43d71cd.clean. Use --editable to skip cleaning for the packages you specify.
+2026-07-26T15:27:26.9198932Z -- Extracting source C:/vcpkg/downloads/protocolbuffers-protobuf-v33.4.tar.gz
+2026-07-26T15:27:29.6210703Z -- Applying patch fix-static-build.patch
+2026-07-26T15:27:29.7325346Z -- Applying patch fix-default-proto-file-path.patch
+2026-07-26T15:27:29.8381604Z -- Applying patch fix-utf8-range.patch
+2026-07-26T15:27:29.9382763Z -- Applying patch fix-install-dirs.patch
+2026-07-26T15:27:30.0463465Z -- Applying patch fix-constinit-with-clang-cl.patch
+2026-07-26T15:27:30.1548907Z -- Applying patch fix-upb.patch
+2026-07-26T15:27:30.6248935Z -- Using source at C:/vcpkg/buildtrees/protobuf/src/v33.4-f8b43d71cd.clean
+2026-07-26T15:27:31.3059563Z -- Configuring arm64-windows-static-md
+2026-07-26T15:27:40.1159343Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:32:38.7757472Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:39:14.9526862Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows-static-md/lib/pkgconfig/protobuf-lite.pc
+2026-07-26T15:39:14.9534272Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows-static-md/lib/pkgconfig/protobuf.pc
+2026-07-26T15:39:14.9544385Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows-static-md/lib/pkgconfig/upb.pc
+2026-07-26T15:39:14.9641484Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:39:14.9701991Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:39:14.9708067Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:39:15.2324747Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows-static-md/debug/lib/pkgconfig/protobuf-lite.pc
+2026-07-26T15:39:15.2333878Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows-static-md/debug/lib/pkgconfig/protobuf.pc
+2026-07-26T15:39:15.2342215Z -- Fixing pkgconfig file: C:/vcpkg/packages/protobuf_arm64-windows-static-md/debug/lib/pkgconfig/upb.pc
+2026-07-26T15:39:16.7327553Z -- Installing: C:/vcpkg/packages/protobuf_arm64-windows-static-md/share/protobuf/copyright
+2026-07-26T15:39:16.7435588Z -- Performing post-build validation
+2026-07-26T15:39:18.5841269Z Starting submission of protobuf:arm64-windows-static-md@6.33.4#1 to 1 binary cache(s) in the background
+2026-07-26T15:39:18.5842131Z Elapsed time to handle protobuf:arm64-windows-static-md: 12 min
+2026-07-26T15:39:18.5843398Z Completed submission of protobuf:arm64-windows@6.33.4#1 to 1 binary cache(s) in 24 s
+2026-07-26T15:39:18.5843921Z Installing 15/15 sentencepiece:arm64-windows-static-md@0.2.1...
+2026-07-26T15:39:18.5844923Z sentencepiece:arm64-windows-static-md@0.2.1 package ABI: fbbd42c2e4dd724cde20ebd48a195295d6ec03a62871bfea700f87877d6b2722
+2026-07-26T15:39:18.5850488Z Building sentencepiece:arm64-windows-static-md@0.2.1...
+2026-07-26T15:39:18.6741019Z Downloading https://github.com/google/sentencepiece/archive/v0.2.1.tar.gz -> google-sentencepiece-v0.2.1.tar.gz
+2026-07-26T15:39:21.1485662Z Successfully downloaded google-sentencepiece-v0.2.1.tar.gz
+2026-07-26T15:39:21.2338936Z -- Extracting source C:/vcpkg/downloads/google-sentencepiece-v0.2.1.tar.gz
+2026-07-26T15:39:21.7499837Z -- Applying patch abseil.diff
+2026-07-26T15:39:21.8441968Z -- Applying patch linkage.diff
+2026-07-26T15:39:21.9386316Z -- Using source at C:/vcpkg/buildtrees/sentencepiece/src/v0.2.1-3e6e94c790.clean
+2026-07-26T15:39:22.0631825Z -- Configuring arm64-windows-static-md
+2026-07-26T15:39:30.8018522Z -- Building arm64-windows-static-md-dbg
+2026-07-26T15:40:17.6205511Z -- Building arm64-windows-static-md-rel
+2026-07-26T15:41:09.9897329Z -- Using cached msys2-mingw-w64-clang-aarch64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+2026-07-26T15:41:09.9958587Z -- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+2026-07-26T15:41:09.9963894Z -- Using msys root at C:/vcpkg/downloads/tools/msys2/e6bbf98b46cdea91
+2026-07-26T15:41:10.2456493Z -- Installing: C:/vcpkg/packages/sentencepiece_arm64-windows-static-md/share/sentencepiece/copyright
+2026-07-26T15:41:10.2548679Z -- Performing post-build validation
+2026-07-26T15:41:10.4656341Z Starting submission of sentencepiece:arm64-windows-static-md@0.2.1 to 1 binary cache(s) in the background
+2026-07-26T15:41:10.4657110Z Elapsed time to handle sentencepiece:arm64-windows-static-md: 1.9 min
+2026-07-26T15:41:10.4803455Z Installed contents are licensed to you by owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+2026-07-26T15:41:10.4805053Z Packages installed in this vcpkg installation declare the following licenses:
+2026-07-26T15:41:10.4805495Z Apache-2.0
+2026-07-26T15:41:10.4805687Z BSD-3-Clause
+2026-07-26T15:41:10.4806248Z MIT
+2026-07-26T15:41:10.5181550Z benchmark provides CMake targets:
+2026-07-26T15:41:10.5181967Z 
+2026-07-26T15:41:10.5182372Z   # this is heuristically generated, and may not be correct
+2026-07-26T15:41:10.5183376Z   find_package(benchmark CONFIG REQUIRED)
+2026-07-26T15:41:10.5196703Z   target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_main)
+2026-07-26T15:41:10.5197079Z 
+2026-07-26T15:41:10.5197186Z benchmark provides pkg-config modules:
+2026-07-26T15:41:10.5197916Z 
+2026-07-26T15:41:10.5198045Z   # Google microbenchmark framework
+2026-07-26T15:41:10.5198313Z   benchmark
+2026-07-26T15:41:10.5198428Z 
+2026-07-26T15:41:10.5198591Z   # Google microbenchmark framework (with main() function)
+2026-07-26T15:41:10.5199339Z   benchmark_main
+2026-07-26T15:41:10.5199472Z 
+2026-07-26T15:41:10.5199570Z cpp-httplib provides CMake targets:
+2026-07-26T15:41:10.5199759Z 
+2026-07-26T15:41:10.5200240Z     find_package(httplib CONFIG REQUIRED)
+2026-07-26T15:41:10.5200636Z     target_link_libraries(main PRIVATE httplib::httplib)
+2026-07-26T15:41:10.5200858Z 
+2026-07-26T15:41:10.5200995Z The package nlohmann-json provides CMake targets:
+2026-07-26T15:41:10.5201607Z 
+2026-07-26T15:41:10.5201768Z     find_package(nlohmann_json CONFIG REQUIRED)
+2026-07-26T15:41:10.5202150Z     target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+2026-07-26T15:41:10.5202410Z 
+2026-07-26T15:41:10.5203429Z The package nlohmann-json can be configured to not provide implicit conversions via a custom triplet file:
+2026-07-26T15:41:10.5203884Z 
+2026-07-26T15:41:10.5204026Z     set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+2026-07-26T15:41:10.5204376Z 
+2026-07-26T15:41:10.5204561Z For more information, see the docs here:
+2026-07-26T15:41:10.5205254Z     
+2026-07-26T15:41:10.5205850Z     https://json.nlohmann.me/api/macros/json_use_implicit_conversions/
+2026-07-26T15:41:10.5206137Z 
+2026-07-26T15:41:10.5206300Z openssl is compatible with built-in CMake targets:
+2026-07-26T15:41:10.5207150Z 
+2026-07-26T15:41:10.5207293Z   find_package(OpenSSL REQUIRED)
+2026-07-26T15:41:10.5207612Z   target_link_libraries(main PRIVATE OpenSSL::SSL)
+2026-07-26T15:41:10.5208361Z   target_link_libraries(main PRIVATE OpenSSL::Crypto)
+2026-07-26T15:41:10.5208705Z 
+2026-07-26T15:41:10.5208844Z Waiting for 2 remaining binary cache submissions...
+2026-07-26T15:41:21.2294561Z Completed submission of protobuf:arm64-windows-static-md@6.33.4#1 to 1 binary cache(s) in 2 min (1/2)
+2026-07-26T15:41:25.5256124Z Completed submission of sentencepiece:arm64-windows-static-md@0.2.1 to 1 binary cache(s) in 4.3 s (2/2)
+2026-07-26T15:41:25.5293702Z All requested installations completed successfully in: 38 min
+2026-07-26T15:41:27.2389759Z ##[group]Run nuget restore msvc\gemma\packages.config -PackagesDirectory msvc\gemma\packages -NonInteractive
+2026-07-26T15:41:27.2391308Z [36;1mnuget restore msvc\gemma\packages.config -PackagesDirectory msvc\gemma\packages -NonInteractive[0m
+2026-07-26T15:41:27.2741829Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-07-26T15:41:27.2742753Z env:
+2026-07-26T15:41:27.2743069Z   NUGET: C:\hostedtoolcache\windows\nuget.exe\7.6.0\arm64/nuget.exe
+2026-07-26T15:41:27.2743416Z ##[endgroup]
+2026-07-26T15:41:31.1314065Z Restoring NuGet package Microsoft.MSBuildCache.Local.0.1.328-preview.
+2026-07-26T15:41:32.1095483Z   GET https://api.nuget.org/v3-flatcontainer/microsoft.msbuildcache.local/0.1.328-preview/microsoft.msbuildcache.local.0.1.328-preview.nupkg
+2026-07-26T15:41:32.1192053Z   OK https://api.nuget.org/v3-flatcontainer/microsoft.msbuildcache.local/0.1.328-preview/microsoft.msbuildcache.local.0.1.328-preview.nupkg 9ms
+2026-07-26T15:41:34.1802414Z Installed Microsoft.MSBuildCache.Local 0.1.328-preview from https://api.nuget.org/v3/index.json to C:\Users\runneradmin\.nuget\packages\microsoft.msbuildcache.local\0.1.328-preview with content hash goF7kImg5iPW0qbK6KzdcFXrXOKobi80w4QE7GkvvnO4LOzREfmExUreH1X+AWBAWDtwzOS69+RDq4DoXtyBjA==.
+2026-07-26T15:41:34.1921449Z Adding package 'Microsoft.MSBuildCache.Local.0.1.328-preview' to folder 'C:\a\DirectGemma\DirectGemma\msvc\gemma\packages'
+2026-07-26T15:41:34.3079182Z Added package 'Microsoft.MSBuildCache.Local.0.1.328-preview' to folder 'C:\a\DirectGemma\DirectGemma\msvc\gemma\packages'
+2026-07-26T15:41:34.3880973Z   GET https://api.nuget.org/v3/vulnerabilities/index.json
+2026-07-26T15:41:34.3942125Z   OK https://api.nuget.org/v3/vulnerabilities/index.json 5ms
+2026-07-26T15:41:34.5482032Z   GET https://api.nuget.org/v3-vulnerabilities/2026.07.24.23.40.32/vulnerability.base.json
+2026-07-26T15:41:34.5515410Z   GET https://api.nuget.org/v3-vulnerabilities/2026.07.24.23.40.32/2026.07.24.23.40.32/vulnerability.update.json
+2026-07-26T15:41:34.5521901Z   OK https://api.nuget.org/v3-vulnerabilities/2026.07.24.23.40.32/vulnerability.base.json 3ms
+2026-07-26T15:41:34.5636198Z   OK https://api.nuget.org/v3-vulnerabilities/2026.07.24.23.40.32/2026.07.24.23.40.32/vulnerability.update.json 11ms
+2026-07-26T15:41:34.7562027Z 
+2026-07-26T15:41:34.7565369Z NuGet Config files used:
+2026-07-26T15:41:34.7565788Z     C:\Users\runneradmin\AppData\Roaming\NuGet\NuGet.Config
+2026-07-26T15:41:34.7567404Z     C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.FallbackLocation.config
+2026-07-26T15:41:34.7568003Z     C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+2026-07-26T15:41:34.7568327Z 
+2026-07-26T15:41:34.7571272Z Feeds used:
+2026-07-26T15:41:34.7571579Z     https://api.nuget.org/v3/index.json
+2026-07-26T15:41:34.7571913Z     C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+2026-07-26T15:41:34.7591157Z 
+2026-07-26T15:41:34.7594241Z Installed:
+2026-07-26T15:41:34.7644540Z     1 package(s) to packages.config projects
+2026-07-26T15:41:34.9660954Z ##[group]Run msbuild msvc\gemma\gemma.slnx /t:Build /graph /m /reportfileaccesses /p:Configuration=Release /p:Platform=ARM64 /p:PreferredToolArchitecture=ARM64 /p:UseMSBuildCache=true /p:MSBuildCacheCacheUniverse=gemma-msvc-v1-ARM64 /p:MSBuildCacheLocalCacheRootPath="C:\a\_temp\MSBuildCache" /p:MSBuildCacheLocalCacheSizeInMegabytes=4096 /p:MSBuildCacheLogDirectory="C:\a\_temp\MSBuildCacheLogs"
+2026-07-26T15:41:34.9663894Z [36;1mmsbuild msvc\gemma\gemma.slnx /t:Build /graph /m /reportfileaccesses /p:Configuration=Release /p:Platform=ARM64 /p:PreferredToolArchitecture=ARM64 /p:UseMSBuildCache=true /p:MSBuildCacheCacheUniverse=gemma-msvc-v1-ARM64 /p:MSBuildCacheLocalCacheRootPath="C:\a\_temp\MSBuildCache" /p:MSBuildCacheLocalCacheSizeInMegabytes=4096 /p:MSBuildCacheLogDirectory="C:\a\_temp\MSBuildCacheLogs"[0m
+2026-07-26T15:41:34.9721617Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-07-26T15:41:34.9722883Z env:
+2026-07-26T15:41:34.9723241Z   NUGET: C:\hostedtoolcache\windows\nuget.exe\7.6.0\arm64/nuget.exe
+2026-07-26T15:41:34.9723956Z ##[endgroup]
+2026-07-26T15:41:36.0970919Z MSBuild version 18.7.8+1ac568fee for .NET Framework
+2026-07-26T15:41:36.9099167Z MSBUILD : error MSB1025: An internal failure occurred while running MSBuild.
+2026-07-26T15:41:36.9100920Z System.InvalidOperationException: Reporting file accesses is only currently supported using the x64 flavor of MSBuild.
+2026-07-26T15:41:36.9102215Z    at Microsoft.Build.Shared.ErrorUtilities.ThrowInvalidOperation(String resourceName, Object[] args)
+2026-07-26T15:41:36.9103509Z    at Microsoft.Build.Execution.BuildManager.EnableDetouredNodeLauncher()
+2026-07-26T15:41:36.9104110Z    at Microsoft.Build.Execution.BuildManager.BeginBuild(BuildParameters parameters)
+2026-07-26T15:41:36.9107977Z    at Microsoft.Build.CommandLine.MSBuildApp.BuildProject(String projectFile, String[] targets, String toolsVersion, Dictionary`2 globalProperties, Dictionary`2 restoreProperties, ILogger[] loggers, LoggerVerbosity verbosity, DistributedLoggerRecord[] distributedLoggerRecords, Boolean needToValidateProject, String schemaFile, Int32 cpuCount, Boolean multiThreaded, Boolean enableNodeReuse, TextWriter preprocessWriter, TextWriter targetsWriter, Boolean detailedSummary, ISet`1 warningsAsErrors, ISet`1 warningsNotAsErrors, ISet`1 warningsAsMessages, Boolean enableRestore, ProfilerLogger profilerLogger, Boolean enableProfiler, Boolean interactive, ProjectIsolationMode isolateProjects, GraphBuildOptions graphBuildOptions, Boolean lowPriority, Boolean question, Boolean isTaskAndTargetItemLoggingRequired, Boolean isBuildCheckEnabled, String[] inputResultsCaches, String outputResultsCache, Boolean saveProjectResult, BuildResult& result, Boolean reportFileAccesses, String[] commandLine)
+2026-07-26T15:41:36.9112239Z    at Microsoft.Build.CommandLine.MSBuildApp.Execute(String[] commandLine)
+2026-07-26T15:41:36.9478570Z 
+2026-07-26T15:41:36.9521078Z Unhandled Exception: System.InvalidOperationException: Reporting file accesses is only currently supported using the x64 flavor of MSBuild.
+2026-07-26T15:41:36.9522752Z    at Microsoft.Build.Shared.ErrorUtilities.ThrowInvalidOperation(String resourceName, Object[] args)
+2026-07-26T15:41:36.9523440Z    at Microsoft.Build.Execution.BuildManager.EnableDetouredNodeLauncher()
+2026-07-26T15:41:36.9524019Z    at Microsoft.Build.Execution.BuildManager.BeginBuild(BuildParameters parameters)
+2026-07-26T15:41:36.9530471Z    at Microsoft.Build.CommandLine.MSBuildApp.BuildProject(String projectFile, String[] targets, String toolsVersion, Dictionary`2 globalProperties, Dictionary`2 restoreProperties, ILogger[] loggers, LoggerVerbosity verbosity, DistributedLoggerRecord[] distributedLoggerRecords, Boolean needToValidateProject, String schemaFile, Int32 cpuCount, Boolean multiThreaded, Boolean enableNodeReuse, TextWriter preprocessWriter, TextWriter targetsWriter, Boolean detailedSummary, ISet`1 warningsAsErrors, ISet`1 warningsNotAsErrors, ISet`1 warningsAsMessages, Boolean enableRestore, ProfilerLogger profilerLogger, Boolean enableProfiler, Boolean interactive, ProjectIsolationMode isolateProjects, GraphBuildOptions graphBuildOptions, Boolean lowPriority, Boolean question, Boolean isTaskAndTargetItemLoggingRequired, Boolean isBuildCheckEnabled, String[] inputResultsCaches, String outputResultsCache, Boolean saveProjectResult, BuildResult& result, Boolean reportFileAccesses, String[] commandLine)
+2026-07-26T15:41:36.9534445Z    at Microsoft.Build.CommandLine.MSBuildApp.Execute(String[] commandLine)
+2026-07-26T15:41:36.9535695Z    at Microsoft.Build.CommandLine.MSBuildApp.Main(String[] args)
+2026-07-26T15:41:37.0678089Z ##[error]Process completed with exit code 1.
+2026-07-26T15:41:37.1206012Z Post job cleanup.
+2026-07-26T15:41:37.5030253Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-07-26T15:41:37.5530625Z git version 2.55.0.windows.2
+2026-07-26T15:41:37.5621262Z Temporarily overriding HOME='C:\a\_temp\6645becb-49d8-4c1b-b30e-07c9e074de87' before making global git config changes
+2026-07-26T15:41:37.5623379Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-26T15:41:37.5630887Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\DirectGemma\DirectGemma
+2026-07-26T15:41:37.6192161Z Removing SSH command configuration
+2026-07-26T15:41:37.6205721Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-07-26T15:41:37.6755720Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-07-26T15:41:38.9229186Z Removing HTTP extra header
+2026-07-26T15:41:38.9241326Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-26T15:41:38.9741289Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-07-26T15:41:40.0936224Z Removing includeIf entries pointing to credentials config files
+2026-07-26T15:41:40.0947819Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-26T15:41:40.1384254Z includeif.gitdir:C:/a/DirectGemma/DirectGemma/.git.path
+2026-07-26T15:41:40.1385675Z includeif.gitdir:C:/a/DirectGemma/DirectGemma/.git/worktrees/*.path
+2026-07-26T15:41:40.1386493Z includeif.gitdir:/github/workspace/.git.path
+2026-07-26T15:41:40.1387699Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-26T15:41:40.1437993Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/DirectGemma/DirectGemma/.git.path
+2026-07-26T15:41:40.1884609Z C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.1944137Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/DirectGemma/DirectGemma/.git.path C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.2440892Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/DirectGemma/DirectGemma/.git/worktrees/*.path
+2026-07-26T15:41:40.2881172Z C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.2933656Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/DirectGemma/DirectGemma/.git/worktrees/*.path C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.3426653Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-26T15:41:40.3869553Z /github/runner_temp/git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.3920493Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.4427077Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-26T15:41:40.4861537Z /github/runner_temp/git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.4911840Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config
+2026-07-26T15:41:40.5421928Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-07-26T15:41:41.6578679Z Removing credentials config 'C:\a\_temp\git-credentials-7d2e585f-a52a-4289-b82a-e949c2b3e570.config'
+2026-07-26T15:41:41.6818312Z Cleaning up orphan processes

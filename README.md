@@ -73,13 +73,12 @@ Guidelines](https://opensource.google.com/conduct/).
     -   Disk I/O: memory map or parallel read (heuristic with user override).
     -   Custom format with forward/backward-compatible metadata serialization.
     -   Model conversion from Safetensors, not yet open sourced.
-    -   Portability: native MSVC projects for Windows and Bazel support.
+    -   Native MSVC projects for Windows.
 
 -   Frontends
 
     -   C++ APIs with streaming for single query and batched inference.
     -   Basic interactive command-line app.
-    -   Basic Python bindings (pybind11).
 
 ## Quick Start
 
@@ -139,24 +138,10 @@ The binaries and libraries are written to
 `msvc\gemma\build\x64\Release`. Intermediate files remain under
 `msvc\gemma\build\obj`.
 
-#### Bazel
-
-```sh
-bazel build -c opt --cxxopt=-std=c++20 :gemma
-```
-
-If the build is successful, you should now have a `gemma` executable in the
-`bazel-bin/` directory.
-
-#### Make
-
-If you prefer Makefiles, @jart has made one available here:
-
-https://github.com/jart/gemma3/blob/main/Makefile
-
 ### Step 4: Run
 
-You can now run `gemma` from inside the `build/` directory.
+You can now run `gemma.exe` from
+`msvc\gemma\build\x64\<Configuration>`.
 
 `gemma` has the following required arguments:
 
@@ -247,9 +232,10 @@ After migration, you can omit the tokenizer argument like this:
 
 **Problems building in Windows / Visual Studio**
 
-Currently if you're using Windows, we recommend building in WSL (Windows
-Subsystem for Linux). We are exploring options to enable other build
-configurations, see issues for active discussion.
+Open `msvc\gemma\gemma.slnx` in Visual Studio and confirm the selected platform
+is `x64`. The first build restores dependencies from
+`msvc\gemma\vcpkg.json`; subsequent outputs are under
+`msvc\gemma\build\x64\<Configuration>`.
 
 **Model does not respond to instructions and produces strange output**
 
@@ -264,25 +250,6 @@ See `max_seq_len` in `configs.cc` and `InferenceArgs.seq_len`. For the Gemma 3
 models larger than 1B, this is typically 32K but 128K would also work given
 enough RAM. Note that long sequences will be slow due to the quadratic cost of
 attention.
-
-**How do I convert my fine-tune to a `.sbs` compressed model file?**
-
-For PaliGemma 2 checkpoints, you can use python/convert_from_safetensors.py to
-convert from safetensors format (tested with building via bazel). For an adapter
-model, you will likely need to call merge_and_unload() to convert the adapter
-model to a single-file format before converting it.
-
-Here is how to use it using a bazel build of the compression library assuming
-locally installed (venv) torch, numpy, safetensors, absl-py, etc.:
-
-```sh
-bazel build //compression/python:compression
-BAZEL_OUTPUT_DIR="${PWD}/bazel-bin/compression"
-python3 -c "import site; print(site.getsitepackages())"
-# Use your sites-packages file here:
-ln -s $BAZEL_OUTPUT_DIR [...]/site-packages/compression
-python3 python/convert_from_safetensors.py --load_path [...].safetensors.index.json
-```
 
 **What are some easy ways to make the model run faster?**
 

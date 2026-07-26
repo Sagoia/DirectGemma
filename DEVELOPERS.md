@@ -166,22 +166,12 @@ network computation.
 You use `ops.h` if you're writing other NN architectures or modifying the
 inference path of the Gemma model.
 
-## Building with Bazel
-
-The sentencepiece library we depend on requires some additional work to build
-with the Bazel build system. First, it does not export its BUILD file, so we
-provide `bazel/sentencepiece.bazel`. Second, it ships with a vendored subset of
-the Abseil library. `bazel/sentencepiece.patch` changes the code to support
-Abseil as a standalone dependency without third_party/ prefixes, similar to the
-transforms we apply to Gemma via Copybara.
-
 ## Debugging
 
 At the first sign of incorrect or unexpected results, we recommend running with
-ASan/MSan enabled. When using bazel, you can add `--config=asan` or
-`--config=msan-track-origins` to the build command. In addition to their checks
-for memory overruns or uninitialized memory, we also enable debug-only asserts
-in Gemma.cpp for those build configurations.
+the `Debug|x64` configuration in Visual Studio so debug-only assertions remain
+enabled. For memory-overrun diagnostics, enable AddressSanitizer in the affected
+project's C/C++ properties and rebuild it with MSVC.
 
 ## Discord
 

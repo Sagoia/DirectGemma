@@ -1,6 +1,5 @@
 # Build directories
 .cache/
-bazel-*/
 build-*/
 build/
 

@@ -7,6 +7,15 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+if ($env:VCPKG_DEFAULT_BINARY_CACHE) {
+    $binaryCacheRoot = [System.IO.Path]::GetFullPath(
+        $env:VCPKG_DEFAULT_BINARY_CACHE
+    )
+    New-Item -ItemType Directory -Force -Path $binaryCacheRoot | Out-Null
+    $env:VCPKG_DEFAULT_BINARY_CACHE = $binaryCacheRoot
+    Write-Host "Using vcpkg binary cache at $binaryCacheRoot"
+}
+
 $vcpkgCandidates = @(
     @(
         $VcpkgRoot

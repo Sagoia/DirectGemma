@@ -9,7 +9,10 @@ on:
 jobs:
   msvc:
     runs-on: windows-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
+    env:
+      MSBUILD_CACHE_ROOT: ${{ runner.temp }}\MSBuildCache
+      VCPKG_DEFAULT_BINARY_CACHE: ${{ runner.temp }}\vcpkg-binary-cache
 
     steps:
       - uses: actions/checkout@v6
@@ -18,12 +21,41 @@ jobs:
         with:
           msbuild-architecture: x64
 
+      - uses: NuGet/setup-nuget@v3
+        with:
+          nuget-version: latest
+
+      - name: Restore vcpkg binary cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+          key: vcpkg-${{ runner.os }}-x64-windows-static-md-${{ hashFiles('msvc/gemma/vcpkg.json') }}
+
+      - name: Restore MSBuild project cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.MSBUILD_CACHE_ROOT }}
+          key: msbuildcache-v1-${{ runner.os }}-v145-release-${{ github.sha }}
+          restore-keys: |
+            msbuildcache-v1-${{ runner.os }}-v145-release-
+
       - name: Restore vcpkg dependencies
         shell: pwsh
         run: .\msvc\gemma\restore-vcpkg.ps1 -VcpkgRoot C:\vcpkg
 
+      - name: Restore MSBuildCache package
+        run: nuget restore msvc\gemma\packages.config -PackagesDirectory msvc\gemma\packages -NonInteractive
+
       - name: Build native MSVC solution
-        run: msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m
+        run: >-
+          msbuild msvc\gemma\gemma.slnx
+          /t:Build /graph /m /reportfileaccesses
+          /p:Configuration=Release /p:Platform=x64
+          /p:UseMSBuildCache=true
+          /p:MSBuildCacheCacheUniverse=gemma-msvc-v1
+          /p:MSBuildCacheLocalCacheRootPath="${{ env.MSBUILD_CACHE_ROOT }}"
+          /p:MSBuildCacheLocalCacheSizeInMegabytes=4096
+          /p:MSBuildCacheLogDirectory="${{ runner.temp }}\MSBuildCacheLogs"
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4

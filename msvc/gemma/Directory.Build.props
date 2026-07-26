@@ -16,4 +16,14 @@
     <VcpkgApplocalDeps>false</VcpkgApplocalDeps>
     <VcpkgPackageRoot>$(VcpkgInstalledDir)$(VcpkgTriplet)</VcpkgPackageRoot>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(UseMSBuildCache)' == 'true'">
+    <MSBuildCachePackageName>Microsoft.MSBuildCache.Local</MSBuildCachePackageName>
+    <MSBuildCachePackagesConfigFile>$(NativeSolutionRoot)packages.config</MSBuildCachePackagesConfigFile>
+    <MSBuildCachePackagesConfigContents>$([System.IO.File]::ReadAllText("$(MSBuildCachePackagesConfigFile)"))</MSBuildCachePackagesConfigContents>
+    <MSBuildCachePackageVersion>$([System.Text.RegularExpressions.Regex]::Match($(MSBuildCachePackagesConfigContents), 'Microsoft.MSBuildCache.Local.*?version="(.*?)"').Groups[1].Value)</MSBuildCachePackageVersion>
+    <MSBuildCachePackageRoot>$(NativeSolutionRoot)packages\$(MSBuildCachePackageName).$(MSBuildCachePackageVersion)</MSBuildCachePackageRoot>
+  </PropertyGroup>
+  <Import
+      Project="$(MSBuildCachePackageRoot)\build\$(MSBuildCachePackageName).props"
+      Condition="'$(UseMSBuildCache)' == 'true' and Exists('$(MSBuildCachePackageRoot)\build\$(MSBuildCachePackageName).props')" />
 </Project>

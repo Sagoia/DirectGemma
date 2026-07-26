@@ -148,6 +148,19 @@ The binaries and libraries are written to
 `msvc\gemma\build\x64\Release`. Intermediate files remain under
 `msvc\gemma\build\obj`.
 
+### CI build cache
+
+GitHub Actions uses `Microsoft.MSBuildCache.Local` for clean CI builds and
+persists its local cache with `actions/cache`. The workflow also caches vcpkg
+binary archives, so unchanged projects and package builds can be reused by
+later runs. Normal Visual Studio and command-line builds do not enable
+MSBuildCache.
+
+The MSBuildCache preview version is pinned in
+`msvc\gemma\packages.config`. Dependabot checks that NuGet package and the
+workflow actions weekly and opens update pull requests when newer versions are
+available; upgrades are reviewed rather than applied silently.
+
 ### Step 4: Run
 
 You can now run `gemma.exe` from

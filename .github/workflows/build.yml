@@ -20,7 +20,7 @@ jobs:
 
       - name: Restore vcpkg dependencies
         shell: pwsh
-        run: .\msvc\gemma\restore-vcpkg.ps1
+        run: .\msvc\gemma\restore-vcpkg.ps1 -VcpkgRoot C:\vcpkg
 
       - name: Build native MSVC solution
         run: msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m

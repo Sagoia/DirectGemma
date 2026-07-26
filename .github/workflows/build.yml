@@ -23,13 +23,13 @@ jobs:
           nuget-version: latest
 
       - name: Restore vcpkg binary cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ runner.temp }}\vcpkg-binary-cache
           key: vcpkg-${{ runner.os }}-x64-windows-static-md-${{ hashFiles('msvc/gemma/vcpkg.json') }}
 
       - name: Restore MSBuild project cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ runner.temp }}\MSBuildCache
           key: msbuildcache-v1-${{ runner.os }}-v145-release-${{ github.sha }}

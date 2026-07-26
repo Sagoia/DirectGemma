@@ -18,7 +18,7 @@ jobs:
         with:
           msbuild-architecture: x64
 
-      - uses: NuGet/setup-nuget@v3
+      - uses: NuGet/setup-nuget@v4
         with:
           nuget-version: latest
 

@@ -20,6 +20,22 @@
       <Configuration>RelWithDebInfo</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|ARM64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|ARM64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C24F8197-DDE5-3D99-9332-D4C1A3A9FA28}</ProjectGuid>
@@ -31,19 +47,19 @@
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='MinSizeRel'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='RelWithDebInfo'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -55,32 +71,32 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">benchmarks</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">benchmarks</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">benchmarks</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">benchmarks</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)'=='Debug'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='Debug'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='Debug'">benchmarks</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='Debug'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)'=='Debug'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)'=='Debug'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)'=='Release'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='Release'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='Release'">benchmarks</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='Release'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)'=='Release'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)'=='Release'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)'=='MinSizeRel'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='MinSizeRel'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='MinSizeRel'">benchmarks</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='MinSizeRel'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)'=='MinSizeRel'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)'=='MinSizeRel'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)'=='RelWithDebInfo'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='RelWithDebInfo'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='RelWithDebInfo'">benchmarks</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='RelWithDebInfo'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)'=='RelWithDebInfo'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)'=='RelWithDebInfo'">true</GenerateManifest>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
@@ -124,7 +140,7 @@
     <Link>
       <AdditionalDependencies>$(OutDir)libgemma.lib;$(OutDir)hwy.lib;$(OutDir)hwy_contrib.lib;$(VcpkgPackageRoot)\debug\lib\benchmark.lib;$(OutDir)hwy.lib;$(VcpkgPackageRoot)\debug\lib\sentencepiece.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_parse.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_usage.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_usage_internal.lib;$(VcpkgPackageRoot)\debug\lib\libprotobuf-lited.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_marshalling.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_reflection.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_config.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_program_name.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_private_handle_accessor.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_commandlineflag.lib;$(VcpkgPackageRoot)\debug\lib\absl_flags_commandlineflag_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_check_op.lib;$(VcpkgPackageRoot)\debug\lib\absl_die_if_null.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_conditions.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_message.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_nullguard.lib;$(VcpkgPackageRoot)\debug\lib\absl_examine_stack.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_format.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_structured_proto.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_log_sink_set.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_sink.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_entry.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_proto.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_initialize.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_globals.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_globals.lib;$(VcpkgPackageRoot)\debug\lib\absl_vlog_config_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_internal_fnmatch.lib;$(VcpkgPackageRoot)\debug\lib\absl_raw_hash_set.lib;$(VcpkgPackageRoot)\debug\lib\absl_hashtablez_sampler.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_distributions.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_seed_sequences.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_internal_entropy_pool.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_internal_randen.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_internal_randen_hwaes.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_internal_randen_hwaes_impl.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_internal_randen_slow.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_internal_platform.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_internal_seed_material.lib;$(VcpkgPackageRoot)\debug\lib\absl_random_seed_gen_exception.lib;$(VcpkgPackageRoot)\debug\lib\absl_statusor.lib;$(VcpkgPackageRoot)\debug\lib\absl_status.lib;$(VcpkgPackageRoot)\debug\lib\absl_cord.lib;$(VcpkgPackageRoot)\debug\lib\absl_cordz_info.lib;$(VcpkgPackageRoot)\debug\lib\absl_cord_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_cordz_functions.lib;$(VcpkgPackageRoot)\debug\lib\absl_exponential_biased.lib;$(VcpkgPackageRoot)\debug\lib\absl_cordz_handle.lib;$(VcpkgPackageRoot)\debug\lib\absl_synchronization.lib;$(VcpkgPackageRoot)\debug\lib\absl_graphcycles_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_kernel_timeout_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_tracing_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_crc_cord_state.lib;$(VcpkgPackageRoot)\debug\lib\absl_crc32c.lib;$(VcpkgPackageRoot)\debug\lib\absl_crc_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_crc_cpu_detect.lib;$(VcpkgPackageRoot)\debug\lib\absl_stacktrace.lib;$(VcpkgPackageRoot)\debug\lib\absl_borrowed_fixup_buffer.lib;$(VcpkgPackageRoot)\debug\lib\absl_hash.lib;$(VcpkgPackageRoot)\debug\lib\absl_city.lib;$(VcpkgPackageRoot)\debug\lib\absl_symbolize.lib;$(VcpkgPackageRoot)\debug\lib\absl_malloc_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_debugging_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_demangle_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_demangle_rust.lib;$(VcpkgPackageRoot)\debug\lib\absl_decode_rust_punycode.lib;$(VcpkgPackageRoot)\debug\lib\absl_utf8_for_code_point.lib;$(VcpkgPackageRoot)\debug\lib\absl_leak_check.lib;$(VcpkgPackageRoot)\debug\lib\absl_strerror.lib;$(VcpkgPackageRoot)\debug\lib\absl_str_format_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_time.lib;$(VcpkgPackageRoot)\debug\lib\absl_civil_time.lib;$(VcpkgPackageRoot)\debug\lib\absl_time_zone.lib;$(VcpkgPackageRoot)\debug\lib\utf8_validity.lib;$(VcpkgPackageRoot)\debug\lib\absl_strings.lib;$(VcpkgPackageRoot)\debug\lib\absl_strings_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_int128.lib;$(VcpkgPackageRoot)\debug\lib\absl_base.lib;$(VcpkgPackageRoot)\debug\lib\absl_spinlock_wait.lib;$(VcpkgPackageRoot)\debug\lib\absl_throw_delegate.lib;$(VcpkgPackageRoot)\debug\lib\absl_raw_logging_internal.lib;$(VcpkgPackageRoot)\debug\lib\absl_log_severity.lib;-ignore:4221;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -139,7 +155,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
@@ -183,7 +199,7 @@
     <Link>
       <AdditionalDependencies>$(OutDir)libgemma.lib;$(OutDir)hwy.lib;$(OutDir)hwy_contrib.lib;$(VcpkgPackageRoot)\lib\benchmark.lib;$(OutDir)hwy.lib;$(VcpkgPackageRoot)\lib\sentencepiece.lib;$(VcpkgPackageRoot)\lib\absl_flags_parse.lib;$(VcpkgPackageRoot)\lib\absl_flags_usage.lib;$(VcpkgPackageRoot)\lib\absl_flags_usage_internal.lib;$(VcpkgPackageRoot)\lib\libprotobuf-lite.lib;$(VcpkgPackageRoot)\lib\absl_flags_internal.lib;$(VcpkgPackageRoot)\lib\absl_flags_marshalling.lib;$(VcpkgPackageRoot)\lib\absl_flags_reflection.lib;$(VcpkgPackageRoot)\lib\absl_flags_config.lib;$(VcpkgPackageRoot)\lib\absl_flags_program_name.lib;$(VcpkgPackageRoot)\lib\absl_flags_private_handle_accessor.lib;$(VcpkgPackageRoot)\lib\absl_flags_commandlineflag.lib;$(VcpkgPackageRoot)\lib\absl_flags_commandlineflag_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_check_op.lib;$(VcpkgPackageRoot)\lib\absl_die_if_null.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_conditions.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_message.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_nullguard.lib;$(VcpkgPackageRoot)\lib\absl_examine_stack.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_format.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_structured_proto.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_log_sink_set.lib;$(VcpkgPackageRoot)\lib\absl_log_sink.lib;$(VcpkgPackageRoot)\lib\absl_log_entry.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_proto.lib;$(VcpkgPackageRoot)\lib\absl_log_initialize.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_globals.lib;$(VcpkgPackageRoot)\lib\absl_log_globals.lib;$(VcpkgPackageRoot)\lib\absl_vlog_config_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_fnmatch.lib;$(VcpkgPackageRoot)\lib\absl_raw_hash_set.lib;$(VcpkgPackageRoot)\lib\absl_hashtablez_sampler.lib;$(VcpkgPackageRoot)\lib\absl_random_distributions.lib;$(VcpkgPackageRoot)\lib\absl_random_seed_sequences.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_entropy_pool.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_hwaes.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_hwaes_impl.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_slow.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_platform.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_seed_material.lib;$(VcpkgPackageRoot)\lib\absl_random_seed_gen_exception.lib;$(VcpkgPackageRoot)\lib\absl_statusor.lib;$(VcpkgPackageRoot)\lib\absl_status.lib;$(VcpkgPackageRoot)\lib\absl_cord.lib;$(VcpkgPackageRoot)\lib\absl_cordz_info.lib;$(VcpkgPackageRoot)\lib\absl_cord_internal.lib;$(VcpkgPackageRoot)\lib\absl_cordz_functions.lib;$(VcpkgPackageRoot)\lib\absl_exponential_biased.lib;$(VcpkgPackageRoot)\lib\absl_cordz_handle.lib;$(VcpkgPackageRoot)\lib\absl_synchronization.lib;$(VcpkgPackageRoot)\lib\absl_graphcycles_internal.lib;$(VcpkgPackageRoot)\lib\absl_kernel_timeout_internal.lib;$(VcpkgPackageRoot)\lib\absl_tracing_internal.lib;$(VcpkgPackageRoot)\lib\absl_crc_cord_state.lib;$(VcpkgPackageRoot)\lib\absl_crc32c.lib;$(VcpkgPackageRoot)\lib\absl_crc_internal.lib;$(VcpkgPackageRoot)\lib\absl_crc_cpu_detect.lib;$(VcpkgPackageRoot)\lib\absl_stacktrace.lib;$(VcpkgPackageRoot)\lib\absl_borrowed_fixup_buffer.lib;$(VcpkgPackageRoot)\lib\absl_hash.lib;$(VcpkgPackageRoot)\lib\absl_city.lib;$(VcpkgPackageRoot)\lib\absl_symbolize.lib;$(VcpkgPackageRoot)\lib\absl_malloc_internal.lib;$(VcpkgPackageRoot)\lib\absl_debugging_internal.lib;$(VcpkgPackageRoot)\lib\absl_demangle_internal.lib;$(VcpkgPackageRoot)\lib\absl_demangle_rust.lib;$(VcpkgPackageRoot)\lib\absl_decode_rust_punycode.lib;$(VcpkgPackageRoot)\lib\absl_utf8_for_code_point.lib;$(VcpkgPackageRoot)\lib\absl_leak_check.lib;$(VcpkgPackageRoot)\lib\absl_strerror.lib;$(VcpkgPackageRoot)\lib\absl_str_format_internal.lib;$(VcpkgPackageRoot)\lib\absl_time.lib;$(VcpkgPackageRoot)\lib\absl_civil_time.lib;$(VcpkgPackageRoot)\lib\absl_time_zone.lib;$(VcpkgPackageRoot)\lib\utf8_validity.lib;$(VcpkgPackageRoot)\lib\absl_strings.lib;$(VcpkgPackageRoot)\lib\absl_strings_internal.lib;$(VcpkgPackageRoot)\lib\absl_int128.lib;$(VcpkgPackageRoot)\lib\absl_base.lib;$(VcpkgPackageRoot)\lib\absl_spinlock_wait.lib;$(VcpkgPackageRoot)\lib\absl_throw_delegate.lib;$(VcpkgPackageRoot)\lib\absl_raw_logging_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_severity.lib;-ignore:4221;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -198,7 +214,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='MinSizeRel'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
@@ -242,7 +258,7 @@
     <Link>
       <AdditionalDependencies>$(OutDir)libgemma.lib;$(OutDir)hwy.lib;$(OutDir)hwy_contrib.lib;$(VcpkgPackageRoot)\lib\benchmark.lib;$(OutDir)hwy.lib;$(VcpkgPackageRoot)\lib\sentencepiece.lib;$(VcpkgPackageRoot)\lib\absl_flags_parse.lib;$(VcpkgPackageRoot)\lib\absl_flags_usage.lib;$(VcpkgPackageRoot)\lib\absl_flags_usage_internal.lib;$(VcpkgPackageRoot)\lib\libprotobuf-lite.lib;$(VcpkgPackageRoot)\lib\absl_flags_internal.lib;$(VcpkgPackageRoot)\lib\absl_flags_marshalling.lib;$(VcpkgPackageRoot)\lib\absl_flags_reflection.lib;$(VcpkgPackageRoot)\lib\absl_flags_config.lib;$(VcpkgPackageRoot)\lib\absl_flags_program_name.lib;$(VcpkgPackageRoot)\lib\absl_flags_private_handle_accessor.lib;$(VcpkgPackageRoot)\lib\absl_flags_commandlineflag.lib;$(VcpkgPackageRoot)\lib\absl_flags_commandlineflag_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_check_op.lib;$(VcpkgPackageRoot)\lib\absl_die_if_null.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_conditions.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_message.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_nullguard.lib;$(VcpkgPackageRoot)\lib\absl_examine_stack.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_format.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_structured_proto.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_log_sink_set.lib;$(VcpkgPackageRoot)\lib\absl_log_sink.lib;$(VcpkgPackageRoot)\lib\absl_log_entry.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_proto.lib;$(VcpkgPackageRoot)\lib\absl_log_initialize.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_globals.lib;$(VcpkgPackageRoot)\lib\absl_log_globals.lib;$(VcpkgPackageRoot)\lib\absl_vlog_config_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_fnmatch.lib;$(VcpkgPackageRoot)\lib\absl_raw_hash_set.lib;$(VcpkgPackageRoot)\lib\absl_hashtablez_sampler.lib;$(VcpkgPackageRoot)\lib\absl_random_distributions.lib;$(VcpkgPackageRoot)\lib\absl_random_seed_sequences.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_entropy_pool.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_hwaes.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_hwaes_impl.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_slow.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_platform.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_seed_material.lib;$(VcpkgPackageRoot)\lib\absl_random_seed_gen_exception.lib;$(VcpkgPackageRoot)\lib\absl_statusor.lib;$(VcpkgPackageRoot)\lib\absl_status.lib;$(VcpkgPackageRoot)\lib\absl_cord.lib;$(VcpkgPackageRoot)\lib\absl_cordz_info.lib;$(VcpkgPackageRoot)\lib\absl_cord_internal.lib;$(VcpkgPackageRoot)\lib\absl_cordz_functions.lib;$(VcpkgPackageRoot)\lib\absl_exponential_biased.lib;$(VcpkgPackageRoot)\lib\absl_cordz_handle.lib;$(VcpkgPackageRoot)\lib\absl_synchronization.lib;$(VcpkgPackageRoot)\lib\absl_graphcycles_internal.lib;$(VcpkgPackageRoot)\lib\absl_kernel_timeout_internal.lib;$(VcpkgPackageRoot)\lib\absl_tracing_internal.lib;$(VcpkgPackageRoot)\lib\absl_crc_cord_state.lib;$(VcpkgPackageRoot)\lib\absl_crc32c.lib;$(VcpkgPackageRoot)\lib\absl_crc_internal.lib;$(VcpkgPackageRoot)\lib\absl_crc_cpu_detect.lib;$(VcpkgPackageRoot)\lib\absl_stacktrace.lib;$(VcpkgPackageRoot)\lib\absl_borrowed_fixup_buffer.lib;$(VcpkgPackageRoot)\lib\absl_hash.lib;$(VcpkgPackageRoot)\lib\absl_city.lib;$(VcpkgPackageRoot)\lib\absl_symbolize.lib;$(VcpkgPackageRoot)\lib\absl_malloc_internal.lib;$(VcpkgPackageRoot)\lib\absl_debugging_internal.lib;$(VcpkgPackageRoot)\lib\absl_demangle_internal.lib;$(VcpkgPackageRoot)\lib\absl_demangle_rust.lib;$(VcpkgPackageRoot)\lib\absl_decode_rust_punycode.lib;$(VcpkgPackageRoot)\lib\absl_utf8_for_code_point.lib;$(VcpkgPackageRoot)\lib\absl_leak_check.lib;$(VcpkgPackageRoot)\lib\absl_strerror.lib;$(VcpkgPackageRoot)\lib\absl_str_format_internal.lib;$(VcpkgPackageRoot)\lib\absl_time.lib;$(VcpkgPackageRoot)\lib\absl_civil_time.lib;$(VcpkgPackageRoot)\lib\absl_time_zone.lib;$(VcpkgPackageRoot)\lib\utf8_validity.lib;$(VcpkgPackageRoot)\lib\absl_strings.lib;$(VcpkgPackageRoot)\lib\absl_strings_internal.lib;$(VcpkgPackageRoot)\lib\absl_int128.lib;$(VcpkgPackageRoot)\lib\absl_base.lib;$(VcpkgPackageRoot)\lib\absl_spinlock_wait.lib;$(VcpkgPackageRoot)\lib\absl_throw_delegate.lib;$(VcpkgPackageRoot)\lib\absl_raw_logging_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_severity.lib;-ignore:4221;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -257,7 +273,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='RelWithDebInfo'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(RepoRoot).;$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "$(VcpkgPackageRoot)/include"</AdditionalOptions>
@@ -301,7 +317,7 @@
     <Link>
       <AdditionalDependencies>$(OutDir)libgemma.lib;$(OutDir)hwy.lib;$(OutDir)hwy_contrib.lib;$(VcpkgPackageRoot)\lib\benchmark.lib;$(OutDir)hwy.lib;$(VcpkgPackageRoot)\lib\sentencepiece.lib;$(VcpkgPackageRoot)\lib\absl_flags_parse.lib;$(VcpkgPackageRoot)\lib\absl_flags_usage.lib;$(VcpkgPackageRoot)\lib\absl_flags_usage_internal.lib;$(VcpkgPackageRoot)\lib\libprotobuf-lite.lib;$(VcpkgPackageRoot)\lib\absl_flags_internal.lib;$(VcpkgPackageRoot)\lib\absl_flags_marshalling.lib;$(VcpkgPackageRoot)\lib\absl_flags_reflection.lib;$(VcpkgPackageRoot)\lib\absl_flags_config.lib;$(VcpkgPackageRoot)\lib\absl_flags_program_name.lib;$(VcpkgPackageRoot)\lib\absl_flags_private_handle_accessor.lib;$(VcpkgPackageRoot)\lib\absl_flags_commandlineflag.lib;$(VcpkgPackageRoot)\lib\absl_flags_commandlineflag_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_check_op.lib;$(VcpkgPackageRoot)\lib\absl_die_if_null.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_conditions.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_message.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_nullguard.lib;$(VcpkgPackageRoot)\lib\absl_examine_stack.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_format.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_structured_proto.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_log_sink_set.lib;$(VcpkgPackageRoot)\lib\absl_log_sink.lib;$(VcpkgPackageRoot)\lib\absl_log_entry.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_proto.lib;$(VcpkgPackageRoot)\lib\absl_log_initialize.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_globals.lib;$(VcpkgPackageRoot)\lib\absl_log_globals.lib;$(VcpkgPackageRoot)\lib\absl_vlog_config_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_internal_fnmatch.lib;$(VcpkgPackageRoot)\lib\absl_raw_hash_set.lib;$(VcpkgPackageRoot)\lib\absl_hashtablez_sampler.lib;$(VcpkgPackageRoot)\lib\absl_random_distributions.lib;$(VcpkgPackageRoot)\lib\absl_random_seed_sequences.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_entropy_pool.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_hwaes.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_hwaes_impl.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_randen_slow.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_platform.lib;$(VcpkgPackageRoot)\lib\absl_random_internal_seed_material.lib;$(VcpkgPackageRoot)\lib\absl_random_seed_gen_exception.lib;$(VcpkgPackageRoot)\lib\absl_statusor.lib;$(VcpkgPackageRoot)\lib\absl_status.lib;$(VcpkgPackageRoot)\lib\absl_cord.lib;$(VcpkgPackageRoot)\lib\absl_cordz_info.lib;$(VcpkgPackageRoot)\lib\absl_cord_internal.lib;$(VcpkgPackageRoot)\lib\absl_cordz_functions.lib;$(VcpkgPackageRoot)\lib\absl_exponential_biased.lib;$(VcpkgPackageRoot)\lib\absl_cordz_handle.lib;$(VcpkgPackageRoot)\lib\absl_synchronization.lib;$(VcpkgPackageRoot)\lib\absl_graphcycles_internal.lib;$(VcpkgPackageRoot)\lib\absl_kernel_timeout_internal.lib;$(VcpkgPackageRoot)\lib\absl_tracing_internal.lib;$(VcpkgPackageRoot)\lib\absl_crc_cord_state.lib;$(VcpkgPackageRoot)\lib\absl_crc32c.lib;$(VcpkgPackageRoot)\lib\absl_crc_internal.lib;$(VcpkgPackageRoot)\lib\absl_crc_cpu_detect.lib;$(VcpkgPackageRoot)\lib\absl_stacktrace.lib;$(VcpkgPackageRoot)\lib\absl_borrowed_fixup_buffer.lib;$(VcpkgPackageRoot)\lib\absl_hash.lib;$(VcpkgPackageRoot)\lib\absl_city.lib;$(VcpkgPackageRoot)\lib\absl_symbolize.lib;$(VcpkgPackageRoot)\lib\absl_malloc_internal.lib;$(VcpkgPackageRoot)\lib\absl_debugging_internal.lib;$(VcpkgPackageRoot)\lib\absl_demangle_internal.lib;$(VcpkgPackageRoot)\lib\absl_demangle_rust.lib;$(VcpkgPackageRoot)\lib\absl_decode_rust_punycode.lib;$(VcpkgPackageRoot)\lib\absl_utf8_for_code_point.lib;$(VcpkgPackageRoot)\lib\absl_leak_check.lib;$(VcpkgPackageRoot)\lib\absl_strerror.lib;$(VcpkgPackageRoot)\lib\absl_str_format_internal.lib;$(VcpkgPackageRoot)\lib\absl_time.lib;$(VcpkgPackageRoot)\lib\absl_civil_time.lib;$(VcpkgPackageRoot)\lib\absl_time_zone.lib;$(VcpkgPackageRoot)\lib\utf8_validity.lib;$(VcpkgPackageRoot)\lib\absl_strings.lib;$(VcpkgPackageRoot)\lib\absl_strings_internal.lib;$(VcpkgPackageRoot)\lib\absl_int128.lib;$(VcpkgPackageRoot)\lib\absl_base.lib;$(VcpkgPackageRoot)\lib\absl_spinlock_wait.lib;$(VcpkgPackageRoot)\lib\absl_throw_delegate.lib;$(VcpkgPackageRoot)\lib\absl_raw_logging_internal.lib;$(VcpkgPackageRoot)\lib\absl_log_severity.lib;-ignore:4221;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>

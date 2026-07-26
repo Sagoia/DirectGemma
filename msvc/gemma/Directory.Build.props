@@ -9,7 +9,8 @@
     <VcpkgEnableManifest>true</VcpkgEnableManifest>
     <VcpkgManifestRoot>$(MSBuildThisFileDirectory)</VcpkgManifestRoot>
     <VcpkgInstalledDir>$(VcpkgManifestRoot)vcpkg_installed\</VcpkgInstalledDir>
-    <VcpkgTriplet>x64-windows-static-md</VcpkgTriplet>
+    <VcpkgTriplet Condition="'$(Platform)' == 'ARM64'">arm64-windows-static-md</VcpkgTriplet>
+    <VcpkgTriplet Condition="'$(VcpkgTriplet)' == ''">x64-windows-static-md</VcpkgTriplet>
     <VcpkgUseStatic>true</VcpkgUseStatic>
     <VcpkgUseMD>true</VcpkgUseMD>
     <VcpkgAutoLink>false</VcpkgAutoLink>

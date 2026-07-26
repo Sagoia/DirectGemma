@@ -20,6 +20,22 @@
       <Configuration>RelWithDebInfo</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|ARM64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|ARM64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8F678034-C83E-3C99-8984-D733D01798F6}</ProjectGuid>
@@ -31,19 +47,19 @@
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='MinSizeRel'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='RelWithDebInfo'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -55,24 +71,24 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">hwy_contrib</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hwy_contrib</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">hwy_contrib</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">hwy_contrib</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)'=='Debug'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='Debug'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='Debug'">hwy_contrib</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='Debug'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)'=='Release'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='Release'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='Release'">hwy_contrib</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='Release'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)'=='MinSizeRel'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='MinSizeRel'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='MinSizeRel'">hwy_contrib</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='MinSizeRel'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)'=='RelWithDebInfo'">$(NativeSolutionRoot)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)'=='RelWithDebInfo'">$(NativeSolutionRoot)build\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)'=='RelWithDebInfo'">hwy_contrib</TargetName>
+    <TargetExt Condition="'$(Configuration)'=='RelWithDebInfo'">.lib</TargetExt>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
@@ -114,10 +130,10 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
@@ -159,10 +175,10 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='MinSizeRel'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
@@ -204,10 +220,10 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='RelWithDebInfo'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(HighwayRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj /EHs-c-</AdditionalOptions>
@@ -249,7 +265,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:$(Platform)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup></ItemGroup>

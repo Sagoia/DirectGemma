@@ -1,11 +1,28 @@
 [CmdletBinding()]
 param(
-    [string]$Triplet = "x64-windows-static-md",
+    [Parameter(Mandatory = $true)]
+    [ValidateSet("x64", "ARM64")]
+    [string]$Architecture,
     [string]$VcpkgRoot
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
+
+$targetTriplet = switch ($Architecture) {
+    "x64" { "x64-windows-static-md" }
+    "ARM64" { "arm64-windows-static-md" }
+}
+
+$hostTriplet = switch (
+    [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
+) {
+    "X64" { "x64-windows" }
+    "Arm64" { "arm64-windows" }
+    default {
+        throw "Unsupported host architecture: $_"
+    }
+}
 
 if ($env:VCPKG_DEFAULT_BINARY_CACHE) {
     $binaryCacheRoot = [System.IO.Path]::GetFullPath(
@@ -54,12 +71,13 @@ if (-not $vcpkg) {
 $manifestRoot = [System.IO.Path]::GetFullPath($PSScriptRoot)
 $installRoot = Join-Path $manifestRoot "vcpkg_installed"
 
-Write-Host "Restoring vcpkg manifest for $Triplet with $vcpkg"
+Write-Host "Restoring vcpkg manifest for $Architecture ($targetTriplet) with $vcpkg"
+Write-Host "Using native vcpkg host triplet $hostTriplet"
 & $vcpkg install `
     "--x-manifest-root=$manifestRoot" `
     "--x-install-root=$installRoot" `
-    "--triplet=$Triplet" `
-    "--host-triplet=x64-windows"
+    "--triplet=$targetTriplet" `
+    "--host-triplet=$hostTriplet"
 
 if ($LASTEXITCODE -ne 0) {
     throw "vcpkg restore failed with exit code $LASTEXITCODE."

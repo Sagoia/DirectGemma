@@ -5,6 +5,7 @@
     <BuildType Name="MinSizeRel" />
     <BuildType Name="RelWithDebInfo" />
     <Platform Name="x64" />
+    <Platform Name="ARM64" />
   </Configurations>
   <Project Path="benchmarks/benchmarks.vcxproj" Id="c24f8197-dde5-3d99-9332-d4c1a3a9fa28" />
   <Project Path="debug_prompt/debug_prompt.vcxproj" Id="8b3299ba-bfc7-3642-9ad8-70ca1e5815d4" />

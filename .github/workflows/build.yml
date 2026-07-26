@@ -8,15 +8,38 @@ on:
 
 jobs:
   msvc:
-    runs-on: windows-latest
+    name: MSVC ${{ matrix.platform }}
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 120
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: x64
+            runner: windows-latest
+            msbuild_architecture: x64
+            triplet: x64-windows-static-md
+          - platform: ARM64
+            runner: windows-11-vs2026-arm
+            msbuild_architecture: arm64
+            triplet: arm64-windows-static-md
 
     steps:
       - uses: actions/checkout@v6
 
+      - name: Verify native runner architecture
+        shell: pwsh
+        run: |
+          $actual = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
+          $expected = "${{ matrix.platform }}"
+          if ($actual.ToString() -ine $expected) {
+            throw "Expected a native $expected runner, but the OS is $actual."
+          }
+
       - uses: microsoft/setup-msbuild@v3
         with:
-          msbuild-architecture: x64
+          msbuild-architecture: ${{ matrix.msbuild_architecture }}
 
       - uses: NuGet/setup-nuget@v3
         with:
@@ -26,19 +49,22 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ${{ runner.temp }}\vcpkg-binary-cache
-          key: vcpkg-${{ runner.os }}-x64-windows-static-md-${{ hashFiles('msvc/gemma/vcpkg.json') }}
+          key: vcpkg-${{ runner.os }}-${{ matrix.triplet }}-${{ hashFiles('msvc/gemma/vcpkg.json') }}
 
       - name: Restore MSBuild project cache
         uses: actions/cache@v5
         with:
           path: ${{ runner.temp }}\MSBuildCache
-          key: msbuildcache-v1-${{ runner.os }}-v145-release-${{ github.sha }}
+          key: msbuildcache-v1-${{ runner.os }}-${{ matrix.platform }}-v145-release-${{ github.sha }}
           restore-keys: |
-            msbuildcache-v1-${{ runner.os }}-v145-release-
+            msbuildcache-v1-${{ runner.os }}-${{ matrix.platform }}-v145-release-
 
       - name: Restore vcpkg dependencies
         shell: pwsh
-        run: .\msvc\gemma\restore-vcpkg.ps1 -VcpkgRoot C:\vcpkg
+        run: >-
+          .\msvc\gemma\restore-vcpkg.ps1
+          -Architecture ${{ matrix.platform }}
+          -VcpkgRoot C:\vcpkg
         env:
           VCPKG_DEFAULT_BINARY_CACHE: ${{ runner.temp }}\vcpkg-binary-cache
 
@@ -49,9 +75,10 @@ jobs:
         run: >-
           msbuild msvc\gemma\gemma.slnx
           /t:Build /graph /m /reportfileaccesses
-          /p:Configuration=Release /p:Platform=x64
+          /p:Configuration=Release /p:Platform=${{ matrix.platform }}
+          /p:PreferredToolArchitecture=${{ matrix.platform }}
           /p:UseMSBuildCache=true
-          /p:MSBuildCacheCacheUniverse=gemma-msvc-v1
+          /p:MSBuildCacheCacheUniverse=gemma-msvc-v1-${{ matrix.platform }}
           /p:MSBuildCacheLocalCacheRootPath="${{ runner.temp }}\MSBuildCache"
           /p:MSBuildCacheLocalCacheSizeInMegabytes=4096
           /p:MSBuildCacheLogDirectory="${{ runner.temp }}\MSBuildCacheLogs"
@@ -59,7 +86,7 @@ jobs:
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: gemma-windows-msvc-release
+          name: gemma-windows-msvc-${{ matrix.platform }}-release
           path: |
-            msvc/gemma/build/x64/Release/*.exe
-            msvc/gemma/build/x64/Release/*.lib
+            msvc/gemma/build/${{ matrix.platform }}/Release/*.exe
+            msvc/gemma/build/${{ matrix.platform }}/Release/*.lib

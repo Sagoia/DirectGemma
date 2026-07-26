@@ -86,7 +86,8 @@ Guidelines](https://opensource.google.com/conduct/).
 
 Before starting, install Visual Studio with the **Desktop development with
 C++** workload. The native build uses MSVC and the vcpkg bundled with Visual
-Studio. You also need `tar` to extract model archives from Kaggle.
+Studio. To build for ARM64 locally, also install the MSVC ARM64 build tools.
+You need `tar` to extract model archives from Kaggle.
 
 ```sh
 winget install --id Microsoft.VisualStudio.BuildTools --force --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;installRecommended"
@@ -124,37 +125,52 @@ convenient directory location (e.g. the `build/` directory in this repo).
 
 ### Step 3: Build with Visual Studio
 
-Restore the vcpkg manifest once from the repository root:
+Restore the vcpkg manifest once from the repository root, explicitly selecting
+the target architecture:
 
 ```powershell
-.\msvc\gemma\restore-vcpkg.ps1
+.\msvc\gemma\restore-vcpkg.ps1 -Architecture x64
 ```
 
 The script uses the vcpkg bundled with Visual Studio and installs the manifest
 packages into `msvc\gemma\vcpkg_installed`. It is also the dependency restore
-step used by CI.
+step used by CI. `-Architecture` is required and accepts only `x64` or `ARM64`;
+there is no implicit default.
 
-Then open `msvc\gemma\gemma.slnx`, select `x64` and the desired configuration,
-and build the solution.
+Then open `msvc\gemma\gemma.slnx`, select `x64` or `ARM64` and the desired
+configuration, and build the solution. Restore dependencies once per target
+platform:
+
+```powershell
+.\msvc\gemma\restore-vcpkg.ps1 -Architecture x64
+.\msvc\gemma\restore-vcpkg.ps1 -Architecture ARM64
+```
 
 From a Visual Studio Developer PowerShell, the equivalent command is:
 
 ```powershell
-.\msvc\gemma\restore-vcpkg.ps1
+.\msvc\gemma\restore-vcpkg.ps1 -Architecture x64
 msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m
 ```
 
+For ARM64, change the target architecture and MSBuild platform:
+
+```powershell
+.\msvc\gemma\restore-vcpkg.ps1 -Architecture ARM64
+msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=ARM64 /m
+```
+
 The binaries and libraries are written to
-`msvc\gemma\build\x64\Release`. Intermediate files remain under
-`msvc\gemma\build\obj`.
+`msvc\gemma\build\<Platform>\Release`. Intermediate files remain under
+`msvc\gemma\build\obj` and are also separated by platform.
 
 ### CI build cache
 
-GitHub Actions uses `Microsoft.MSBuildCache.Local` for clean CI builds and
-persists its local cache with `actions/cache`. The workflow also caches vcpkg
-binary archives, so unchanged projects and package builds can be reused by
-later runs. Normal Visual Studio and command-line builds do not enable
-MSBuildCache.
+GitHub Actions builds x64 on `windows-latest` and ARM64 natively on
+`windows-11-vs2026-arm`. Each architecture has separate
+`Microsoft.MSBuildCache.Local` and vcpkg binary caches, so unchanged projects
+and package builds can be reused by later runs. Normal Visual Studio and
+command-line builds do not enable MSBuildCache.
 
 The MSBuildCache preview version is pinned in
 `msvc\gemma\packages.config`. Dependabot checks that NuGet package and the
@@ -256,10 +272,11 @@ After migration, you can omit the tokenizer argument like this:
 **Problems building in Windows / Visual Studio**
 
 Open `msvc\gemma\gemma.slnx` in Visual Studio and confirm the selected platform
-is `x64`. Run `.\msvc\gemma\restore-vcpkg.ps1` before the first build or after
-changing `msvc\gemma\vcpkg.json`. This prevents missing package headers such as
-`sentencepiece_processor.h` on clean machines and CI runners. Build outputs are
-under `msvc\gemma\build\x64\<Configuration>`.
+is `x64` or `ARM64`. Run `.\msvc\gemma\restore-vcpkg.ps1 -Architecture
+<platform>` before the first build or after changing `msvc\gemma\vcpkg.json`.
+This prevents missing package headers such as `sentencepiece_processor.h` on
+clean machines and CI runners. Build outputs are under
+`msvc\gemma\build\<platform>\<Configuration>`.
 
 **Model does not respond to instructions and produces strange output**
 

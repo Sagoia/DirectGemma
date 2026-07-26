@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: nuget
+    directory: /msvc/gemma
+    schedule:
+      interval: weekly
+    allow:
+      - dependency-name: Microsoft.MSBuildCache.Local
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

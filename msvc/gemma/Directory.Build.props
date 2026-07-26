@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))\</RepoRoot>
+    <NativeSolutionRoot>$(MSBuildThisFileDirectory)</NativeSolutionRoot>
+    <PlatformToolset Condition="'$(PlatformToolset)' == ''">v145</PlatformToolset>
+    <HighwayRoot>$(RepoRoot)third_party\highway\</HighwayRoot>
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+    <VcpkgManifestRoot>$(MSBuildThisFileDirectory)</VcpkgManifestRoot>
+    <VcpkgInstalledDir>$(VcpkgManifestRoot)vcpkg_installed\</VcpkgInstalledDir>
+    <VcpkgTriplet>x64-windows-static-md</VcpkgTriplet>
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgUseMD>true</VcpkgUseMD>
+    <VcpkgAutoLink>false</VcpkgAutoLink>
+    <VcpkgApplocalDeps>false</VcpkgApplocalDeps>
+    <VcpkgPackageRoot>$(VcpkgInstalledDir)$(VcpkgTriplet)</VcpkgPackageRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(UseMSBuildCache)' == 'true'">
+    <MSBuildCachePackageName>Microsoft.MSBuildCache.Local</MSBuildCachePackageName>
+    <MSBuildCachePackagesConfigFile>$(NativeSolutionRoot)packages.config</MSBuildCachePackagesConfigFile>
+    <MSBuildCachePackagesConfigContents>$([System.IO.File]::ReadAllText("$(MSBuildCachePackagesConfigFile)"))</MSBuildCachePackagesConfigContents>
+    <MSBuildCachePackageVersion>$([System.Text.RegularExpressions.Regex]::Match($(MSBuildCachePackagesConfigContents), 'Microsoft.MSBuildCache.Local.*?version="(.*?)"').Groups[1].Value)</MSBuildCachePackageVersion>
+    <MSBuildCachePackageRoot>$(NativeSolutionRoot)packages\$(MSBuildCachePackageName).$(MSBuildCachePackageVersion)</MSBuildCachePackageRoot>
+  </PropertyGroup>
+  <Import
+      Project="$(MSBuildCachePackageRoot)\build\$(MSBuildCachePackageName).props"
+      Condition="'$(UseMSBuildCache)' == 'true' and Exists('$(MSBuildCachePackageRoot)\build\$(MSBuildCachePackageName).props')" />
+</Project>

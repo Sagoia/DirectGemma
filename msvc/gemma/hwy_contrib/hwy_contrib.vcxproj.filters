@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_128a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_128d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_f16a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_f16d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_f32a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_f32d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_f64a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_f64d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_i16a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_i16d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_i32a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_i32d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_i64a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_i64d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_kv128a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_kv128d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_kv64a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_kv64d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_u16a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_u16d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_u32a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_u32d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_u64a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort_u64d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\image\image.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\sort\vqsort.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\thread_pool\thread_pool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(HighwayRoot)\hwy\contrib\thread_pool\topology.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\bit_pack\bit_pack-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\dot\dot-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\image\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\math\math-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\matvec\matvec-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\random\random-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\sort\order.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\sort\shared-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\sort\sorting_networks-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\sort\traits-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\sort\traits128-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\sort\vqsort-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\sort\vqsort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\thread_pool\futex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\thread_pool\spin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\thread_pool\thread_pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\thread_pool\topology.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\algo\copy-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\algo\find-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\algo\transform-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(HighwayRoot)\hwy\contrib\unroller\unroller-inl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{82A6D50E-ABDF-3222-A336-1CEEC9DF1F22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F4F6310B-0922-3E2A-8982-869C5E3D533C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

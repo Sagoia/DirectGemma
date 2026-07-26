@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target
+      Name="ValidateMSBuildCachePackage"
+      BeforeTargets="PrepareForBuild"
+      Condition="'$(UseMSBuildCache)' == 'true' and !Exists('$(MSBuildCachePackageRoot)\build\$(MSBuildCachePackageName).targets')">
+    <Error Text="MSBuildCache package is missing. Restore msvc\gemma\packages.config before enabling the cache." />
+  </Target>
+  <Import
+      Project="$(MSBuildCachePackageRoot)\build\$(MSBuildCachePackageName).targets"
+      Condition="'$(UseMSBuildCache)' == 'true' and Exists('$(MSBuildCachePackageRoot)\build\$(MSBuildCachePackageName).targets')" />
+</Project>

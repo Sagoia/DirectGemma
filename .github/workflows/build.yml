@@ -9,15 +9,21 @@ on:
 jobs:
   msvc:
     runs-on: windows-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: microsoft/setup-msbuild@v2
+      - uses: microsoft/setup-msbuild@v3
+        with:
+          msbuild-architecture: x64
+
+      - name: Restore vcpkg dependencies
+        shell: pwsh
+        run: .\msvc\gemma\restore-vcpkg.ps1
 
       - name: Build native MSVC solution
-        run: msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143 /m
+        run: msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4

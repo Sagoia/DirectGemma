@@ -124,13 +124,23 @@ convenient directory location (e.g. the `build/` directory in this repo).
 
 ### Step 3: Build with Visual Studio
 
-Open `msvc\gemma\gemma.slnx`, select `x64` and the desired configuration, then
-build the solution. Visual Studio restores the vcpkg manifest dependencies on
-the first build.
+Restore the vcpkg manifest once from the repository root:
+
+```powershell
+.\msvc\gemma\restore-vcpkg.ps1
+```
+
+The script uses the vcpkg bundled with Visual Studio and installs the manifest
+packages into `msvc\gemma\vcpkg_installed`. It is also the dependency restore
+step used by CI.
+
+Then open `msvc\gemma\gemma.slnx`, select `x64` and the desired configuration,
+and build the solution.
 
 From a Visual Studio Developer PowerShell, the equivalent command is:
 
 ```powershell
+.\msvc\gemma\restore-vcpkg.ps1
 msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m
 ```
 
@@ -233,9 +243,10 @@ After migration, you can omit the tokenizer argument like this:
 **Problems building in Windows / Visual Studio**
 
 Open `msvc\gemma\gemma.slnx` in Visual Studio and confirm the selected platform
-is `x64`. The first build restores dependencies from
-`msvc\gemma\vcpkg.json`; subsequent outputs are under
-`msvc\gemma\build\x64\<Configuration>`.
+is `x64`. Run `.\msvc\gemma\restore-vcpkg.ps1` before the first build or after
+changing `msvc\gemma\vcpkg.json`. This prevents missing package headers such as
+`sentencepiece_processor.h` on clean machines and CI runners. Build outputs are
+under `msvc\gemma\build\x64\<Configuration>`.
 
 **Model does not respond to instructions and produces strange output**
 

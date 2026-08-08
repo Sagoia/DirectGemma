@@ -19,6 +19,7 @@
 #include "gemma/gemma.h"
 
 #include "compression/types.h"  // GEMMA_DISABLED_TARGETS
+#include "gemma/compute_backend.h"
 #include "util/zones.h"
 #ifndef HWY_DISABLED_TARGETS
 #define HWY_DISABLED_TARGETS GEMMA_DISABLED_TARGETS
@@ -660,6 +661,7 @@ void Gemma::Save(const Path& weights_path, ThreadingContext& ctx) const {
                   writer);
 }
 
+#if GEMMA_COMPUTE_BACKEND == GEMMA_BACKEND_HIGHWAY
 void Gemma::Generate(const RuntimeConfig& runtime_config,
                      const PromptTokens& prompt, size_t pos, size_t prefix_end,
                      KVCache& kv_cache, MatMulEnv& env,
@@ -697,6 +699,9 @@ void Gemma::GenerateImageTokens(const RuntimeConfig& runtime_config,
 
   env.ctx.pools.MaybeStopSpinning(runtime_config.use_spinning);
 }
+#else
+#error "Unsupported GEMMA_COMPUTE_BACKEND: no generation backend implementation"
+#endif
 
 }  // namespace gcpp
 #endif  // HWY_ONCE

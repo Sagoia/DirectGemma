@@ -280,6 +280,7 @@
     <ClInclude Include="$(RepoRoot)gemma\flash_attention.h" />
     <ClInclude Include="$(RepoRoot)gemma\gemma_args.h" />
     <ClInclude Include="$(RepoRoot)gemma\gemma-inl.h" />
+    <ClInclude Include="$(RepoRoot)gemma\compute_backend.h" />
     <ClCompile Include="$(RepoRoot)gemma\gemma.cc" />
     <ClInclude Include="$(RepoRoot)gemma\gemma.h" />
     <ClCompile Include="$(RepoRoot)gemma\kv_cache.cc" />

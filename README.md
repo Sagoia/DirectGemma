@@ -141,8 +141,12 @@ From a Visual Studio Developer PowerShell, the equivalent command is:
 
 ```powershell
 .\msvc\gemma\restore-vcpkg.ps1
-msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /m
+msbuild msvc\gemma\gemma.slnx /t:Build /p:Configuration=Release /p:Platform=x64 /p:GemmaComputeBackend=Highway /m
 ```
+
+`GemmaComputeBackend` defaults to `Highway`, which is currently the only
+supported generation backend. Highway also remains required for shared types,
+weight loading, threading, compression, and other host-side infrastructure.
 
 The binaries and libraries are written to
 `msvc\gemma\build\x64\Release`. Intermediate files remain under

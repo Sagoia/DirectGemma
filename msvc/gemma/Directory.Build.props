@@ -4,6 +4,7 @@
     <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))\</RepoRoot>
     <NativeSolutionRoot>$(MSBuildThisFileDirectory)</NativeSolutionRoot>
     <PlatformToolset Condition="'$(PlatformToolset)' == ''">v145</PlatformToolset>
+    <GemmaComputeBackend Condition="'$(GemmaComputeBackend)' == ''">Highway</GemmaComputeBackend>
     <HighwayRoot>$(RepoRoot)third_party\highway\</HighwayRoot>
     <VcpkgEnabled>true</VcpkgEnabled>
     <VcpkgEnableManifest>true</VcpkgEnableManifest>
@@ -16,6 +17,12 @@
     <VcpkgApplocalDeps>false</VcpkgApplocalDeps>
     <VcpkgPackageRoot>$(VcpkgInstalledDir)$(VcpkgTriplet)</VcpkgPackageRoot>
   </PropertyGroup>
+  <ItemDefinitionGroup
+      Condition="'$(GemmaComputeBackend)' == 'Highway' and '$(ProjectName)' != 'hwy' and '$(ProjectName)' != 'hwy_contrib'">
+    <ClCompile>
+      <PreprocessorDefinitions>GEMMA_COMPUTE_BACKEND=GEMMA_BACKEND_HIGHWAY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <PropertyGroup Condition="'$(UseMSBuildCache)' == 'true'">
     <MSBuildCachePackageName>Microsoft.MSBuildCache.Local</MSBuildCachePackageName>
     <MSBuildCachePackagesConfigFile>$(NativeSolutionRoot)packages.config</MSBuildCachePackagesConfigFile>

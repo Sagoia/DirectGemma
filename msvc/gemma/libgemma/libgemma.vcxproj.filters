@@ -141,6 +141,9 @@
     <ClInclude Include="$(RepoRoot)gemma\gemma-inl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="$(RepoRoot)gemma\compute_backend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="$(RepoRoot)gemma\gemma.h">
       <Filter>Header Files</Filter>
     </ClInclude>

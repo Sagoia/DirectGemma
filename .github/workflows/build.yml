@@ -50,6 +50,7 @@ jobs:
           msbuild msvc\gemma\gemma.slnx
           /t:Build /graph /m /reportfileaccesses
           /p:Configuration=Release /p:Platform=x64
+          /p:GemmaComputeBackend=Highway
           /p:UseMSBuildCache=true
           /p:MSBuildCacheCacheUniverse=gemma-msvc-v1
           /p:MSBuildCacheLocalCacheRootPath="${{ runner.temp }}\MSBuildCache"
